@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -93,6 +93,10 @@
             </div>
             <div class="d-flex align-items-center ms-lg-3">
                 <a href="login.html" class="btn btn-primary rounded-pill py-2 px-4 me-3 mt-3 mt-lg-0">Login</a>
+                <a href="cart.html" class="btn btn-sm btn-outline-light rounded-circle border-light me-2 mt-3 mt-lg-0" title="Shopping Cart" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; position: relative;">
+                    <i class="bi bi-cart-fill"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary" id="cartCount" style="font-size: 0.6rem;">0</span>
+                </a>
                 <button id="rtlToggle" class="btn btn-sm btn-outline-light rounded-circle border-light me-2 mt-3 mt-lg-0" title="Toggle RTL" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
                     <span id="rtlText" style="font-size: 10px; font-weight: bold;">RTL</span>
                 </button>
@@ -112,6 +116,7 @@
             <p class="fs-4 mb-5 animated slideInDown">Discover the art of artisan baking with our premium, organic, and locally-sourced ingredients.</p>
             <div class="animated slideInDown">
                 <a href="product.html" class="btn btn-primary rounded-pill py-3 px-5 me-3">Shop Now</a>
+                <a class="btn btn-primary rounded-pill py-2 px-4 add-to-cart" href="#">Add To Cart</a>
                 <a href="about.html" class="btn btn-outline-light rounded-pill py-3 px-5">Our Story</a>
             </div>
         </div>

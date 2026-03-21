@@ -90,5 +90,37 @@
     });
 
     
+    
+    // Cart Logic
+    function updateCartCount() {
+        let count = localStorage.getItem('cartCount') || 0;
+        $('#cartCount').text(count);
+        $('.cart-count-header').text(count);
+    }
+    updateCartCount();
+
+    $('.add-to-cart').click(function(e) {
+        e.preventDefault();
+        let count = parseInt(localStorage.getItem('cartCount') || 0);
+        localStorage.setItem('cartCount', count + 1);
+        updateCartCount();
+        
+        // Visual feedback
+        let originalText = $(this).html();
+        $(this).html('<i class="fa fa-check me-2"></i>Added');
+        $(this).addClass('btn-success').removeClass('btn-outline-primary');
+        setTimeout(() => {
+            $(this).html(originalText);
+            $(this).addClass('btn-outline-primary').removeClass('btn-success');
+        }, 2000);
+    });
+
+    // Clear Cart
+    $('#clearCart').click(function() {
+        localStorage.setItem('cartCount', 0);
+        updateCartCount();
+        location.reload();
+    });
+
 })(jQuery);
 
