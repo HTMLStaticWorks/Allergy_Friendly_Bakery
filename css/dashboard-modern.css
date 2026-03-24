@@ -106,6 +106,14 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--dash-text-muted-dark);
 }
 
+[data-theme='dark'] .list-group-item-action {
+    color: var(--dash-text-muted-dark) !important;
+}
+
+[data-theme='dark'] .list-group-item-action:hover {
+    color: var(--dash-primary) !important;
+}
+
 .sidebar-nav .nav-link i {
     font-size: 20px;
     min-width: 24px;
@@ -314,6 +322,20 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Table Widths */
 .w-200 { width: 200px; }
+
+@media (max-width: 991.98px) {
+    .premium-table th, .premium-table td {
+        padding: 12px 16px;
+        font-size: 11px;
+    }
+    .badge-pill {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+    .w-200 {
+        width: 120px !important;
+    }
+}
 
 /* Analytics Chart Utility */
 .dash-bar {

@@ -46,11 +46,8 @@
         <!-- Sidebar Start -->
         <aside class="dashboard-sidebar shadow-sm" id="dashboardSidebar">
             <div class="sidebar-brand">
-                <a href="index.html" class="text-decoration-none d-flex align-items-center">
-                    <div class="bg-primary rounded-3 p-2 me-2">
-                        <i class="fa fa-bread-slice text-white"></i>
-                    </div>
-                    <h4 class="text-primary m-0 sidebar-text">Baker</h4>
+                <a href="index.html" class="text-decoration-none">
+                    <h2 class="text-primary m-0 sidebar-text" style="font-weight: 700;">Baker</h2>
                 </a>
             </div>
 
@@ -290,8 +287,13 @@
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <h5 class="mb-0">Revenue Overview</h5>
                                     <div class="dropdown">
-                                        <button class="btn btn-sm btn-light dropdown-toggle" type="button">This
+                                        <button class="btn btn-sm btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">This
                                             Year</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">This Year</a></li>
+                                            <li><a class="dropdown-item" href="#">Last Year</a></li>
+                                            <li><a class="dropdown-item" href="#">Custom Range</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                                 <div class="position-relative h-300">
@@ -570,11 +572,11 @@
                                 <div class="stat-card">
                                     <h5>Monthly Spending Overview</h5>
                                     <div class="d-flex align-items-end gap-2 mt-4" style="height: 151px;">
-                                        <div class="bg-primary opacity-25 rounded-top w-100 h-40p dash-bar"></div>
-                                        <div class="bg-primary opacity-50 rounded-top w-100 h-70p dash-bar"></div>
-                                        <div class="bg-primary opacity-75 rounded-top w-100 h-55p dash-bar"></div>
-                                        <div class="bg-primary rounded-top w-100 h-90p dash-bar"></div>
-                                        <div class="bg-primary opacity-50 rounded-top w-100 h-65p dash-bar"></div>
+                                        <div class="bg-primary opacity-25 rounded-top w-100 dash-bar" style="height: 40%"></div>
+                                        <div class="bg-primary opacity-50 rounded-top w-100 dash-bar" style="height: 70%"></div>
+                                        <div class="bg-primary opacity-75 rounded-top w-100 dash-bar" style="height: 55%"></div>
+                                        <div class="bg-primary rounded-top w-100 dash-bar" style="height: 90%"></div>
+                                        <div class="bg-primary opacity-50 rounded-top w-100 dash-bar" style="height: 65%"></div>
                                     </div>
                                     <p class="text-center mt-3 text-muted small">Daily Order Volume (Last 5 Days)</p>
                                 </div>
@@ -743,7 +745,7 @@
                                 </div>
 
                                 <!-- Session 3: Direct Contact -->
-                                <div class="stat-card bg-light border-0">
+                                <div class="stat-card border border-primary border-opacity-25">
                                     <h5 class="mb-3">Direct Contact</h5>
                                     <p class="text-muted smaller mb-2"><i class="fa fa-envelope me-2"></i> help@baker.com</p>
                                     <p class="text-muted smaller mb-3"><i class="fa fa-phone me-2"></i> +1 (555) 123-4567</p>
@@ -887,12 +889,16 @@
 
             function updateThemeIcon(theme) {
                 if (!themeIcon || !themeToggle) return;
+                const rtlToggle = document.getElementById('rtlToggle');
+                
                 if (theme === 'light') {
                     themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
                     themeToggle.classList.replace('btn-outline-light', 'btn-outline-dark');
+                    if(rtlToggle) rtlToggle.classList.replace('btn-outline-light', 'btn-outline-dark');
                 } else {
                     themeIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
                     themeToggle.classList.replace('btn-outline-dark', 'btn-outline-light');
+                    if(rtlToggle) rtlToggle.classList.replace('btn-outline-dark', 'btn-outline-light');
                 }
             }
         });

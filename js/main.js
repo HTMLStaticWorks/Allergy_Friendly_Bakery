@@ -19,10 +19,15 @@
     // Fixed Navbar
     $('.fixed-top').css('top', $('.top-bar').height());
     $(window).scroll(function () {
+        const isLight = $('html').attr('data-theme') === 'light';
         if ($(this).scrollTop()) {
-            $('.fixed-top').addClass('bg-dark').css('top', 0);
+            if (isLight) {
+                $('.fixed-top').addClass('bg-white shadow-sm').removeClass('bg-dark').css('top', 0);
+            } else {
+                $('.fixed-top').addClass('bg-dark').removeClass('bg-white shadow-sm').css('top', 0);
+            }
         } else {
-            $('.fixed-top').removeClass('bg-dark').css('top', $('.top-bar').height());
+            $('.fixed-top').removeClass('bg-dark bg-white shadow-sm').css('top', $('.top-bar').height());
         }
     });
     
