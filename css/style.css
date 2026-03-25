@@ -515,17 +515,169 @@ h6,
     background-color: transparent !important;
 }
 
-[data-theme='light'] .navbar-toggler .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FFD700' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M5 8h20M5 15h20M5 22h20'/%3e%3c/svg%3e") !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: auto !important;
+}
+
+[data-theme='dark'] .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
 [data-theme='light'] .navbar-toggler:focus {
     box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25) !important;
 }
 
-/* Dark theme hamburger menu fixes */
-[data-theme='dark'] .navbar-toggler .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+/* Enhanced light theme mobile hamburger icon */
+@media (max-width: 991.98px) {
+    [data-theme='light'] .navbar-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FFD700' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M5 8h20M5 15h20M5 22h20'/%3e%3c/svg%3e") !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: auto !important;
+    }
+}
+
+/* Cart button visibility fixes for both themes */
+.btn-outline-light.rounded-circle[href="cart.html"] {
+    border-color: var(--primary) !important;
+    background-color: transparent !important;
+    color: var(--primary) !important;
+}
+
+.btn-outline-light.rounded-circle[href="cart.html"]:hover {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+.btn-outline-light.rounded-circle[href="cart.html"].active {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+/* Dark theme cart button fixes */
+[data-theme='dark'] .btn-outline-light.rounded-circle[href="cart.html"] {
+    border-color: var(--primary) !important;
+    background-color: transparent !important;
+    color: var(--primary) !important;
+}
+
+[data-theme='dark'] .btn-outline-light.rounded-circle[href="cart.html"]:hover {
+    background-color: var(--primary) !important;
+    color: var(--dark) !important;
+    border-color: var(--primary) !important;
+}
+
+[data-theme='dark'] .btn-outline-light.rounded-circle[href="cart.html"].active {
+    background-color: var(--primary) !important;
+    color: var(--dark) !important;
+    border-color: var(--primary) !important;
+}
+
+/* Cart icon visibility */
+.btn-outline-light.rounded-circle[href="cart.html"] i {
+    color: inherit !important;
+}
+
+/* Cart badge visibility */
+.btn-outline-light.rounded-circle[href="cart.html"] .badge {
+    background-color: var(--primary) !important;
+    color: white !important;
+}
+
+/* Fixed navbar for mobile and tablet views */
+@media (max-width: 991.98px) {
+    .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1030 !important;
+        background-color: var(--bs-white) !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    }
+    
+    [data-theme='dark'] .navbar {
+        background-color: var(--bs-dark) !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+    }
+    
+    /* Add padding to body to account for fixed navbar */
+    body {
+        padding-top: 80px !important;
+    }
+    
+    /* Ensure navbar brand and links are properly aligned */
+    .navbar-brand {
+        font-size: 1.5rem !important;
+        padding: 0.5rem 0 !important;
+    }
+    
+    .navbar-nav {
+        padding: 1rem 0 !important;
+    }
+    
+    /* Ensure dropdown menus appear above fixed navbar */
+    .navbar .dropdown-menu {
+        z-index: 1040 !important;
+    }
+}
+
+/* Enhanced Statistics with + Symbols */
+[data-toggle="counter-up"] {
+    position: relative;
+    display: inline-block;
+}
+
+[data-toggle="counter-up"]::before {
+    content: '+';
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary);
+    font-size: 0.8em;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+/* Alternative approach for better + symbol styling */
+.counter-plus {
+    color: var(--primary);
+    font-weight: 700;
+    margin-right: 5px;
+    font-size: 0.9em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Enhanced counter box styling */
+.counter-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.counter-box h1 {
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] [data-toggle="counter-up"]::before {
+    color: var(--primary);
+    opacity: 1;
+}
+
+[data-theme='dark'] .counter-plus {
+    color: var(--primary);
 }
 
 /* Mobile specific hamburger menu fixes */
@@ -534,16 +686,45 @@ h6,
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+        width: 50px !important;
+        height: 50px !important;
+        padding: 10px !important;
+        border: none !important;
     }
     
     [data-theme='light'] .navbar-toggler {
-        border-color: #333 !important;
-        background-color: rgba(255, 255, 255, 0.1) !important;
+        border-color: transparent !important;
+        background-color: #fff !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
     }
     
     [data-theme='light'] .navbar-toggler:hover {
-        background-color: rgba(0, 0, 0, 0.1) !important;
-        border-color: #000 !important;
+        background-color: #f8f9fa !important;
+        border-color: transparent !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+    }
+    
+    [data-theme='light'] .navbar-toggler:focus {
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.25) !important;
+        border-color: transparent !important;
+    }
+    
+    /* Tablet specific fixes */
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        .navbar-toggler {
+            width: 45px !important;
+            height: 45px !important;
+            margin-right: 10px !important;
+        }
+    }
+    
+    /* Small mobile specific fixes */
+    @media (max-width: 767.98px) {
+        .navbar-toggler {
+            width: 40px !important;
+            height: 40px !important;
+            margin-right: 8px !important;
+        }
     }
 }
 
