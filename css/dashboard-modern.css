@@ -320,6 +320,104 @@ h1, h2, h3, h4, h5, h6 {
 .progress-100 { width: 100%; }
 .progress-45 { width: 45%; }
 
+/* Form Select Dropdown Styling */
+.form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    padding-right: 2.5rem !important;
+    position: relative;
+    z-index: 1;
+}
+
+[data-theme='dark'] .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+    background-color: var(--dark-secondary);
+    color: var(--light);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile dropdown improvements */
+@media (max-width: 991.98px) {
+    .form-select {
+        font-size: 14px;
+        padding: 0.6rem 2.5rem 0.6rem 0.75rem !important;
+        min-height: 44px; /* Touch-friendly size */
+        position: relative;
+        z-index: 10;
+    }
+    
+    /* Ensure dropdown appears above other elements */
+    .form-select:focus {
+        z-index: 100;
+        position: relative;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .form-select {
+        font-size: 16px; /* Prevent zoom on iOS */
+        padding: 0.75rem 2.5rem 0.75rem 1rem !important;
+        min-height: 48px;
+    }
+}
+
+/* Additional dropdown positioning fixes */
+.form-select option {
+    padding: 8px 12px;
+    background-color: white;
+    color: #333;
+    font-size: 14px;
+}
+
+[data-theme='dark'] .form-select option {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+/* Support section specific fixes */
+#support-section .form-select {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Ensure dropdown container doesn't interfere */
+#support-section .form-group,
+#support-section .mb-3 {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fix for dropdown opening downwards issue */
+.form-select:focus + .dropdown-options,
+.form-select:active + .dropdown-options {
+    z-index: 1000;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+/* Alternative approach - use custom dropdown if native select causes issues */
+@media (max-width: 991.98px) {
+    #supportSubject {
+        position: relative !important;
+        z-index: 100 !important;
+    }
+    
+    /* Ensure the dropdown options are visible */
+    #supportSubject option {
+        display: block !important;
+        width: 100% !important;
+        padding: 10px !important;
+    }
+}
+
 /* Table Widths */
 .w-200 { width: 200px; }
 
@@ -334,6 +432,88 @@ h1, h2, h3, h4, h5, h6 {
     }
     .w-200 {
         width: 120px !important;
+    }
+    
+    /* Orders section mobile improvements */
+    .premium-table th:nth-child(2),
+    .premium-table td:nth-child(2) {
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .premium-table th:nth-child(4),
+    .premium-table td:nth-child(4) {
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 10px;
+    }
+    
+    /* Status badges mobile optimization */
+    .premium-table td:nth-child(3) .badge-pill {
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+    }
+    
+    /* Specific handling for longer status text */
+    .badge-info {
+        font-size: 9px !important;
+        padding: 3px 6px !important;
+        max-width: 70px;
+    }
+}
+
+/* Mobile-specific orders section improvements */
+@media (max-width: 767.98px) {
+    .premium-table th, .premium-table td {
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+    
+    .premium-table th:nth-child(5),
+    .premium-table td:nth-child(5) {
+        display: none; /* Hide progress column on small mobile */
+    }
+    
+    .premium-table th:nth-child(2),
+    .premium-table td:nth-child(2) {
+        max-width: 80px;
+    }
+    
+    .premium-table th:nth-child(4),
+    .premium-table td:nth-child(4) {
+        max-width: 70px;
+        font-size: 9px;
+    }
+    
+    /* Stack layout for very small screens */
+    .premium-table {
+        font-size: 9px;
+    }
+    
+    .badge-pill {
+        font-size: 8px !important;
+        padding: 2px 5px !important;
+        max-width: 60px;
+    }
+    
+    /* Extra small mobile optimizations */
+    .badge-info {
+        max-width: 50px !important;
+        font-size: 7px !important;
+        padding: 2px 4px !important;
+    }
+    
+    .badge-warning {
+        max-width: 55px !important;
+        font-size: 7px !important;
+        padding: 2px 4px !important;
     }
 }
 

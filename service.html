@@ -424,6 +424,7 @@
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
+        const cartButton = document.querySelector('a[href="cart.html"]');
 
         const savedTheme = localStorage.getItem('bakerTheme') || 'dark';
         htmlElement.setAttribute('data-theme', savedTheme);
@@ -446,17 +447,37 @@
                 themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
                 themeToggle.classList.replace('btn-outline-light', 'btn-outline-dark');
                 themeToggle.classList.replace('border-light', 'border-dark');
+                themeToggle.style.background = '#ffffff';
+                themeToggle.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
                 if(rtlToggle) {
                    rtlToggle.classList.replace('btn-outline-light', 'btn-outline-dark');
                    rtlToggle.classList.replace('border-light', 'border-dark');
+                   rtlToggle.style.background = '#ffffff';
+                   rtlToggle.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                }
+                if(cartButton) {
+                   cartButton.classList.replace('btn-outline-light', 'btn-outline-dark');
+                   cartButton.classList.replace('border-light', 'border-dark');
+                   cartButton.style.background = '#ffffff';
+                   cartButton.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
                 }
             } else {
                 themeIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
                 themeToggle.classList.replace('btn-outline-dark', 'btn-outline-light');
                 themeToggle.classList.replace('border-dark', 'border-light');
+                themeToggle.style.background = 'transparent';
+                themeToggle.style.boxShadow = 'none';
                 if(rtlToggle) {
                    rtlToggle.classList.replace('btn-outline-dark', 'btn-outline-light');
                    rtlToggle.classList.replace('border-dark', 'border-light');
+                   rtlToggle.style.background = 'transparent';
+                   rtlToggle.style.boxShadow = 'none';
+                }
+                if(cartButton) {
+                   cartButton.classList.replace('btn-outline-dark', 'btn-outline-light');
+                   cartButton.classList.replace('border-dark', 'border-light');
+                   cartButton.style.background = 'transparent';
+                   cartButton.style.boxShadow = 'none';
                 }
             }
         }

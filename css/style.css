@@ -144,25 +144,97 @@ h6,
     [data-theme='light'] .d-flex.align-items-center.ms-lg-3 {
         border-top: 1px solid rgba(0, 0, 0, .1);
     }
+    
+    /* Fix cart button visibility in light theme mobile view */
+    [data-theme='light'] .d-flex.align-items-center.ms-lg-3 .btn-outline-light {
+        border-color: #333 !important;
+        color: #333 !important;
+        background-color: #ffffff !important;
+    }
+    
+    [data-theme='light'] .d-flex.align-items-center.ms-lg-3 .btn-outline-light i {
+        color: #333 !important;
+    }
+    
+    /* Keep phone numbers in single line on mobile */
+    .d-inline-flex .fs-1.fw-bold.mb-0 {
+        white-space: nowrap !important;
+        font-size: clamp(1.5rem, 4vw, 3rem) !important;
+    }
+    
+    /* Footer phone number single line */
+    .footer .mb-2 {
+        white-space: nowrap !important;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .navbar .navbar-nav .nav-link {
-        padding: 35px 10px;
-        font-size: 15px;
+        padding: 35px 8px;
+        font-size: 14px;
+        white-space: nowrap;
     }
     
     .navbar .navbar-brand {
-        margin-right: 1rem !important;
+        margin-right: 0.5rem !important;
     }
 
     .navbar .ms-lg-3 {
-        margin-left: 0.5rem !important;
+        margin-left: 0.25rem !important;
     }
 
     .navbar .ms-lg-3 .btn {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+        font-size: 13px;
+    }
+    
+    /* Ensure cart button is visible at 1024px */
+    .navbar .ms-lg-3 a[href="cart.html"] {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+    }
+    
+    /* Fix for Home 2 link staying in one line */
+    .navbar .navbar-nav .nav-link:nth-child(2) {
+        min-width: 60px;
+        text-align: center;
+    }
+}
+
+/* Specific 1024px breakpoint fixes */
+@media (min-width: 1024px) and (max-width: 1024px) {
+    .navbar .navbar-nav .nav-link {
+        padding: 35px 6px !important;
+        font-size: 13px !important;
+    }
+    
+    .navbar .navbar-brand {
+        margin-right: 0.25rem !important;
+        font-size: 1.5rem !important;
+    }
+    
+    /* Force cart button visibility */
+    .navbar .ms-lg-3 a[href="cart.html"] {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    /* Ensure navigation doesn't collapse */
+    .navbar .navbar-collapse {
+        display: flex !important;
+    }
+    
+    .navbar .navbar-toggler {
+        display: none !important;
     }
 }
 @media (min-width: 992px) {
@@ -321,6 +393,158 @@ h6,
     width: 100%;
     height: auto;
     object-fit: contain;
+}
+
+/* Mobile and Tablet optimizations for Our Best Sellers carousel */
+@media (max-width: 767.98px) {
+    .product-item {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+    
+    .product-item img {
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .product-item .p-4 {
+        padding: 1.5rem !important;
+    }
+    
+    .product-item h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .product-item .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.5rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .product-item img {
+        height: 180px;
+        object-fit: cover;
+    }
+    
+    .product-item .p-4 {
+        padding: 1.25rem !important;
+    }
+    
+    .product-item h4 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Dropdown positioning fixes */
+.dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Prevent dropdown from going off-screen */
+.dropdown-menu {
+    position: absolute !important;
+    left: 0 !important;
+    right: auto !important;
+    max-width: 250px;
+    min-width: 150px;
+}
+
+/* For dropdowns near right edge */
+.dropdown-menu.dropdown-menu-end {
+    left: auto !important;
+    right: 0 !important;
+}
+
+/* Mobile dropdown fixes */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 90vw !important;
+        max-width: 300px !important;
+        max-height: 70vh !important;
+        overflow-y: auto !important;
+        z-index: 9999 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+    }
+}
+
+/* Tablet dropdown fixes */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .dropdown-menu {
+        max-width: 200px;
+        left: auto !important;
+        right: 0 !important;
+    }
+    
+    /* Check if dropdown would go off screen and reposition */
+    .dropdown-menu {
+        position: absolute !important;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: rotateX(0deg);
+    }
+}
+
+/* Hamburger menu visibility fixes */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    padding: 4px 8px !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Light theme hamburger menu fixes */
+[data-theme='light'] .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.5) !important;
+    background-color: transparent !important;
+}
+
+[data-theme='light'] .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+[data-theme='light'] .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Dark theme hamburger menu fixes */
+[data-theme='dark'] .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Mobile specific hamburger menu fixes */
+@media (max-width: 991.98px) {
+    .navbar-toggler {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    [data-theme='light'] .navbar-toggler {
+        border-color: #333 !important;
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    [data-theme='light'] .navbar-toggler:hover {
+        background-color: rgba(0, 0, 0, 0.1) !important;
+        border-color: #000 !important;
+    }
 }
 
 .product-item .product-overlay {
@@ -707,6 +931,24 @@ h6,
 [data-theme='dark'] .testimonial-item {
     background-color: #1e1e1e !important;
     border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme='dark'] .team-title {
+    background-color: #2a2a2a !important;
+}
+
+[data-theme='dark'] .team-title h5,
+[data-theme='dark'] .team-title span {
+    color: #ffffff !important;
+}
+
+/* Team section heading contrast fix */
+[data-theme='dark'] .text-primary.text-uppercase {
+    color: var(--primary) !important;
+}
+
+[data-theme='dark'] .display-6 {
+    color: #ffffff !important;
 }
 
 [data-theme='dark'] .border {

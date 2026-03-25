@@ -80,7 +80,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="index.html" class="nav-item nav-link">Home 1</a>
                 <a href="index2.html" class="nav-item nav-link active">Home 2</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="service.html" class="nav-item nav-link">Services</a>
@@ -142,7 +142,7 @@
     <div class="container-xxl py-6">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase fw-bold mb-2">// Why Choose Us</p>
+                <p class="text-primary text-uppercase fw-bold mb-2">Why Choose Us</p>
                 <h1 class="display-6 mb-4">The Secret Of Our Success</h1>
             </div>
             <div class="row g-4">
@@ -187,7 +187,7 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-end mb-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div style="max-width: 500px;">
-                    <p class="text-primary text-uppercase fw-bold mb-2">// Featured Products</p>
+                    <p class="text-primary text-uppercase fw-bold mb-2">Featured Products</p>
                     <h1 class="display-6 mb-0">Our Best Sellers</h1>
                 </div>
                 <a href="product.html" class="btn btn-primary rounded-pill py-3 px-5">View All</a>
@@ -248,7 +248,7 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp text-center" data-wow-delay="0.1s">
-                    <p class="text-primary text-uppercase fw-bold mb-2">// Our Story</p>
+                    <p class="text-primary text-uppercase fw-bold mb-2">Our Story</p>
                     <h1 class="display-6 mb-4">A Legacy Of Fine Baking Since 1974</h1>
                     <p class="mb-4">It all started in a small kitchen with a single oven and a passion for perfection.
                         Over the decades, we've grown into a community staple, but our values remain the same.</p>
@@ -304,7 +304,7 @@
     <div class="container-xxl py-6">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase fw-bold mb-2">// Our Specialities</p>
+                <p class="text-primary text-uppercase fw-bold mb-2">Our Specialities</p>
                 <h1 class="display-6 mb-4">Signature Creations</h1>
             </div>
             <div class="row g-4 justify-content-center">
@@ -349,7 +349,7 @@
         <div class="container">
             <div class="row g-5 align-items-center flex-column-reverse flex-lg-row">
                 <div class="col-lg-6 wow fadeInUp text-white text-center" data-wow-delay="0.1s">
-                    <p class="text-white text-uppercase fw-bold mb-2">// The Journey</p>
+                    <p class="text-white text-uppercase fw-bold mb-2">The Journey</p>
                     <h1 class="display-6 mb-4 text-white">Morning Freshness</h1>
                     <p class="mb-4">A great day starts with great bread. Our bakers craft each loaf from
                         scratch, ensuring that the aroma of warm, freshly baked goodness welcomes you the moment you
@@ -494,6 +494,7 @@
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
+        const cartButton = document.querySelector('a[href="cart.html"]');
 
         const savedTheme = localStorage.getItem('bakerTheme') || 'dark';
         htmlElement.setAttribute('data-theme', savedTheme);
@@ -524,16 +525,29 @@
                     rtlToggle.style.background = '#ffffff';
                     rtlToggle.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
                 }
+                if(cartButton) {
+                   cartButton.classList.replace('btn-outline-light', 'btn-outline-dark');
+                   cartButton.classList.replace('border-light', 'border-dark');
+                   cartButton.style.background = '#ffffff';
+                   cartButton.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                }
             } else {
                 themeIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
                 themeToggle.classList.replace('btn-outline-dark', 'btn-outline-light');
                 themeToggle.classList.replace('border-dark', 'border-light');
+                themeToggle.style.background = 'transparent';
                 themeToggle.style.boxShadow = 'none';
                 if (rtlToggle) {
                     rtlToggle.classList.replace('btn-outline-dark', 'btn-outline-light');
                     rtlToggle.classList.replace('border-dark', 'border-light');
                     rtlToggle.style.background = 'transparent';
                     rtlToggle.style.boxShadow = 'none';
+                }
+                if(cartButton) {
+                   cartButton.classList.replace('btn-outline-dark', 'btn-outline-light');
+                   cartButton.classList.replace('border-dark', 'border-light');
+                   cartButton.style.background = 'transparent';
+                   cartButton.style.boxShadow = 'none';
                 }
             }
         }
