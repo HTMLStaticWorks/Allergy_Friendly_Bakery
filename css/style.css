@@ -544,6 +544,325 @@ h6,
     }
 }
 
+/* Universal Card Styling for All Pages */
+.card, 
+.fact-item, 
+.team-item, 
+.product-item, 
+.testimonial-item, 
+.service-item,
+.counter-box,
+.hover-scale {
+    background: var(--bs-white) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease !important;
+    overflow: hidden !important;
+}
+
+/* Dark theme card styling */
+[data-theme='dark'] .card,
+[data-theme='dark'] .fact-item,
+[data-theme='dark'] .team-item,
+[data-theme='dark'] .product-item,
+[data-theme='dark'] .testimonial-item,
+[data-theme='dark'] .service-item,
+[data-theme='dark'] .counter-box,
+[data-theme='dark'] .hover-scale {
+    background: var(--bs-dark) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hover effects for all cards */
+.card:hover,
+.fact-item:hover,
+.team-item:hover,
+.product-item:hover,
+.testimonial-item:hover,
+.service-item:hover,
+.counter-box:hover,
+.hover-scale:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    border-color: var(--primary) !important;
+}
+
+/* Dark theme hover effects */
+[data-theme='dark'] .card:hover,
+[data-theme='dark'] .fact-item:hover,
+[data-theme='dark'] .team-item:hover,
+[data-theme='dark'] .product-item:hover,
+[data-theme='dark'] .testimonial-item:hover,
+[data-theme='dark'] .service-item:hover,
+[data-theme='dark'] .counter-box:hover,
+[data-theme='dark'] .hover-scale:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important;
+    border-color: var(--primary) !important;
+}
+
+/* Specific card content styling */
+.card h1, .card h2, .card h3, .card h4, .card h5,
+.fact-item h1, .fact-item h2, .fact-item h3, .fact-item h4, .fact-item h5,
+.team-item h1, .team-item h2, .team-item h3, .team-item h4, .team-item h5,
+.product-item h1, .product-item h2, .product-item h3, .product-item h4, .product-item h5,
+.testimonial-item h1, .testimonial-item h2, .testimonial-item h3, .testimonial-item h4, .testimonial-item h5,
+.service-item h1, .service-item h2, .service-item h3, .service-item h4, .service-item h5,
+.counter-box h1, .counter-box h2, .counter-box h3, .counter-box h4, .counter-box h5 {
+    color: var(--bs-dark) !important;
+    transition: color 0.3s ease !important;
+}
+
+/* Dark theme text styling */
+[data-theme='dark'] .card h1, [data-theme='dark'] .card h2, [data-theme='dark'] .card h3, [data-theme='dark'] .card h4, [data-theme='dark'] .card h5,
+[data-theme='dark'] .fact-item h1, [data-theme='dark'] .fact-item h2, [data-theme='dark'] .fact-item h3, [data-theme='dark'] .fact-item h4, [data-theme='dark'] .fact-item h5,
+[data-theme='dark'] .team-item h1, [data-theme='dark'] .team-item h2, [data-theme='dark'] .team-item h3, [data-theme='dark'] .team-item h4, [data-theme='dark'] .team-item h5,
+[data-theme='dark'] .product-item h1, [data-theme='dark'] .product-item h2, [data-theme='dark'] .product-item h3, [data-theme='dark'] .product-item h4, [data-theme='dark'] .product-item h5,
+[data-theme='dark'] .testimonial-item h1, [data-theme='dark'] .testimonial-item h2, [data-theme='dark'] .testimonial-item h3, [data-theme='dark'] .testimonial-item h4, [data-theme='dark'] .testimonial-item h5,
+[data-theme='dark'] .service-item h1, [data-theme='dark'] .service-item h2, [data-theme='dark'] .service-item h3, [data-theme='dark'] .service-item h4, [data-theme='dark'] .service-item h5,
+[data-theme='dark'] .counter-box h1, [data-theme='dark'] .counter-box h2, [data-theme='dark'] .counter-box h3, [data-theme='dark'] .counter-box h4, [data-theme='dark'] .counter-box h5 {
+    color: var(--bs-white) !important;
+}
+
+/* Card paragraph and text styling */
+.card p, .card span,
+.fact-item p, .fact-item span,
+.team-item p, .team-item span,
+.product-item p, .product-item span,
+.testimonial-item p, .testimonial-item span,
+.service-item p, .service-item span,
+.counter-box p, .counter-box span {
+    color: var(--bs-gray) !important;
+    transition: color 0.3s ease !important;
+}
+
+/* Dark theme paragraph styling */
+[data-theme='dark'] .card p, [data-theme='dark'] .card span,
+[data-theme='dark'] .fact-item p, [data-theme='dark'] .fact-item span,
+[data-theme='dark'] .team-item p, [data-theme='dark'] .team-item span,
+[data-theme='dark'] .product-item p, [data-theme='dark'] .product-item span,
+[data-theme='dark'] .testimonial-item p, [data-theme='dark'] .testimonial-item span,
+[data-theme='dark'] .service-item p, [data-theme='dark'] .service-item span,
+[data-theme='dark'] .counter-box p, [data-theme='dark'] .counter-box span {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Card icon visibility fixes */
+.card i, .card .fa,
+.fact-item i, .fact-item .fa,
+.team-item i, .team-item .fa,
+.product-item i, .product-item .fa,
+.testimonial-item i, .testimonial-item .fa,
+.service-item i, .service-item .fa,
+.counter-box i, .counter-box .fa {
+    color: var(--primary) !important;
+    transition: color 0.3s ease !important;
+}
+
+/* Dark theme icon fixes */
+[data-theme='dark'] .card i, [data-theme='dark'] .card .fa,
+[data-theme='dark'] .fact-item i, [data-theme='dark'] .fact-item .fa,
+[data-theme='dark'] .team-item i, [data-theme='dark'] .team-item .fa,
+[data-theme='dark'] .product-item i, [data-theme='dark'] .product-item .fa,
+[data-theme='dark'] .testimonial-item i, [data-theme='dark'] .testimonial-item .fa,
+[data-theme='dark'] .service-item i, [data-theme='dark'] .service-item .fa,
+[data-theme='dark'] .counter-box i, [data-theme='dark'] .counter-box .fa {
+    color: var(--primary) !important;
+}
+
+/* Icon hover effects */
+.card:hover i, .card:hover .fa,
+.fact-item:hover i, .fact-item:hover .fa,
+.team-item:hover i, .team-item:hover .fa,
+.product-item:hover i, .product-item:hover .fa,
+.testimonial-item:hover i, .testimonial-item:hover .fa,
+.service-item:hover i, .service-item:hover .fa,
+.counter-box:hover i, .counter-box:hover .fa {
+    color: var(--primary) !important;
+    transform: scale(1.1) !important;
+}
+
+/* Bootstrap icons specific fixes */
+.card .bi, .fact-item .bi, .team-item .bi, .product-item .bi, .testimonial-item .bi, .service-item .bi, .counter-box .bi {
+    color: var(--primary) !important;
+}
+
+[data-theme='dark'] .card .bi, [data-theme='dark'] .fact-item .bi, [data-theme='dark'] .team-item .bi, [data-theme='dark'] .product-item .bi, [data-theme='dark'] .testimonial-item .bi, [data-theme='dark'] .service-item .bi, [data-theme='dark'] .counter-box .bi {
+    color: var(--primary) !important;
+}
+
+/* Icon glow effects */
+.card .fa-4x, .fact-item .fa-4x, .team-item .fa-4x, .product-item .fa-4x, .testimonial-item .fa-4x, .service-item .fa-4x, .counter-box .fa-4x {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)) !important;
+}
+
+.card .fa-3x, .fact-item .fa-3x, .team-item .fa-3x, .product-item .fa-3x, .testimonial-item .fa-3x, .service-item .fa-3x, .counter-box .fa-3x {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
+}
+
+.card .fa-2x, .fact-item .fa-2x, .team-item .fa-2x, .product-item .fa-2x, .testimonial-item .fa-2x, .service-item .fa-2x, .counter-box .fa-2x {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
+}
+
+/* Dark theme icon glow */
+[data-theme='dark'] .card .fa-4x, [data-theme='dark'] .fact-item .fa-4x, [data-theme='dark'] .team-item .fa-4x, [data-theme='dark'] .product-item .fa-4x, [data-theme='dark'] .testimonial-item .fa-4x, [data-theme='dark'] .service-item .fa-4x, [data-theme='dark'] .counter-box .fa-4x {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* Enhanced hover state for headings */
+.card:hover h1, .card:hover h2, .card:hover h3, .card:hover h4, .card:hover h5,
+.fact-item:hover h1, .fact-item:hover h2, .fact-item:hover h3, .fact-item:hover h4, .fact-item:hover h5,
+.team-item:hover h1, .team-item:hover h2, .team-item:hover h3, .team-item:hover h4, .team-item:hover h5,
+.product-item:hover h1, .product-item:hover h2, .product-item:hover h3, .product-item:hover h4, .product-item:hover h5,
+.testimonial-item:hover h1, .testimonial-item:hover h2, .testimonial-item:hover h3, .testimonial-item:hover h4, .testimonial-item:hover h5,
+.service-item:hover h1, .service-item:hover h2, .service-item:hover h3, .service-item:hover h4, .service-item:hover h5,
+.counter-box:hover h1, .counter-box:hover h2, .counter-box:hover h3, .counter-box:hover h4, .counter-box:hover h5 {
+    color: var(--primary) !important;
+}
+
+/* Specific cart icon fixes - highest priority */
+.btn-outline-light.rounded-circle i.bi-cart-fill,
+.btn-outline-light.rounded-circle[href="cart.html"] i.bi-cart-fill,
+#rtlToggle i,
+#themeToggle i {
+    color: var(--primary) !important;
+    font-size: 16px !important;
+}
+
+/* Cart icon hover states */
+.btn-outline-light.rounded-circle:hover i.bi-cart-fill,
+.btn-outline-light.rounded-circle[href="cart.html"]:hover i.bi-cart-fill,
+#rtlToggle:hover i,
+#themeToggle:hover i {
+    color: white !important;
+}
+
+/* Dark theme cart icon fixes */
+[data-theme='dark'] .btn-outline-light.rounded-circle i.bi-cart-fill,
+[data-theme='dark'] .btn-outline-light.rounded-circle[href="cart.html"] i.bi-cart-fill,
+[data-theme='dark'] #rtlToggle i,
+[data-theme='dark'] #themeToggle i {
+    color: var(--primary) !important;
+}
+
+[data-theme='dark'] .btn-outline-light.rounded-circle:hover i.bi-cart-fill,
+[data-theme='dark'] .btn-outline-light.rounded-circle[href="cart.html"]:hover i.bi-cart-fill,
+[data-theme='dark'] #rtlToggle:hover i,
+[data-theme='dark'] #themeToggle:hover i {
+    color: var(--dark) !important;
+}
+
+/* Force cart icon visibility with !important overrides */
+i.bi-cart-fill {
+    color: var(--primary) !important;
+}
+
+/* Dark theme override for cart icon */
+[data-theme='dark'] i.bi-cart-fill {
+    color: var(--primary) !important;
+}
+
+/* Cart icon in active state */
+.btn-outline-light.rounded-circle.active i.bi-cart-fill,
+.btn-outline-light.rounded-circle[href="cart.html"].active i.bi-cart-fill {
+    color: white !important;
+}
+
+[data-theme='dark'] .btn-outline-light.rounded-circle.active i.bi-cart-fill,
+[data-theme='dark'] .btn-outline-light.rounded-circle[href="cart.html"].active i.bi-cart-fill {
+    color: var(--dark) !important;
+}
+
+/* Cart page specific button fixes */
+.btn-outline-light.rounded-circle {
+    border-color: var(--primary) !important;
+    background-color: transparent !important;
+    color: var(--primary) !important;
+}
+
+.btn-outline-light.rounded-circle:hover {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+/* RTL button specific fixes */
+#rtlToggle {
+    border-color: var(--primary) !important;
+    background-color: transparent !important;
+    color: var(--primary) !important;
+}
+
+#rtlToggle:hover {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+/* Theme toggle button specific fixes */
+#themeToggle {
+    border-color: var(--primary) !important;
+    background-color: transparent !important;
+    color: var(--primary) !important;
+}
+
+#themeToggle:hover {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+/* Dark theme fixes for cart page buttons */
+[data-theme='dark'] .btn-outline-light.rounded-circle {
+    border-color: var(--primary) !important;
+    background-color: transparent !important;
+    color: var(--primary) !important;
+}
+
+[data-theme='dark'] .btn-outline-light.rounded-circle:hover {
+    background-color: var(--primary) !important;
+    color: var(--dark) !important;
+    border-color: var(--primary) !important;
+}
+
+[data-theme='dark'] #rtlToggle {
+    border-color: var(--primary) !important;
+    background-color: transparent !important;
+    color: var(--primary) !important;
+}
+
+[data-theme='dark'] #rtlToggle:hover {
+    background-color: var(--primary) !important;
+    color: var(--dark) !important;
+    border-color: var(--primary) !important;
+}
+
+[data-theme='dark'] #themeToggle {
+    border-color: var(--primary) !important;
+    background-color: transparent !important;
+    color: var(--primary) !important;
+}
+
+[data-theme='dark'] #themeToggle:hover {
+    background-color: var(--primary) !important;
+    color: var(--dark) !important;
+    border-color: var(--primary) !important;
+}
+
+/* Icon visibility fixes */
+.btn-outline-light.rounded-circle i,
+#rtlToggle span,
+#themeToggle i {
+    color: inherit !important;
+}
+
+/* RTL text visibility */
+#rtlText {
+    color: inherit !important;
+    font-weight: bold !important;
+}
+
 /* Cart button visibility fixes for both themes */
 .btn-outline-light.rounded-circle[href="cart.html"] {
     border-color: var(--primary) !important;
