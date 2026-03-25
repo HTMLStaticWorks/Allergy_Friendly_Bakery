@@ -551,8 +551,7 @@ h6,
 .product-item, 
 .testimonial-item, 
 .service-item,
-.counter-box,
-.hover-scale {
+.counter-box {
     background: var(--bs-white) !important;
     border: 1px solid rgba(0, 0, 0, 0.1) !important;
     border-radius: 12px !important;
@@ -568,8 +567,7 @@ h6,
 [data-theme='dark'] .product-item,
 [data-theme='dark'] .testimonial-item,
 [data-theme='dark'] .service-item,
-[data-theme='dark'] .counter-box,
-[data-theme='dark'] .hover-scale {
+[data-theme='dark'] .counter-box {
     background: var(--bs-dark) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
@@ -596,8 +594,7 @@ h6,
 [data-theme='dark'] .product-item:hover,
 [data-theme='dark'] .testimonial-item:hover,
 [data-theme='dark'] .service-item:hover,
-[data-theme='dark'] .counter-box:hover,
-[data-theme='dark'] .hover-scale:hover {
+[data-theme='dark'] .counter-box:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important;
     border-color: var(--primary) !important;
 }
@@ -972,7 +969,8 @@ i.bi-cart-fill {
 .counter-plus {
     color: var(--primary);
     font-weight: 700;
-    margin-right: 5px;
+    margin-right: 0px !important;
+    margin-left: 2px !important;
     font-size: 0.9em;
     display: inline-block;
     vertical-align: middle;
