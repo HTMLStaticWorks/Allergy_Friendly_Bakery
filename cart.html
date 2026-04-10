@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | SafeBakes - Allergy Friendly Bakery</title>
+    <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .cart-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 1.5rem 2rem;
+        }
+        
+        .cart-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .cart-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .cart-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .cart-items {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: var(--radius);
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+        
+        .cart-item-description {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cart-item-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .quantity-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            color: var(--text-main);
+            transition: background-color 0.3s ease;
+        }
+        
+        .quantity-btn:hover {
+            background-color: var(--accent);
+        }
+        
+        .quantity-input {
+            border: none;
+            width: 50px;
+            text-align: center;
+            font-weight: 600;
+            background: transparent;
+        }
+        
+        .remove-item {
+            background: none;
+            border: none;
+            color: #dc3545;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .remove-item:hover {
+            transform: scale(1.1);
+        }
+        
+        .cart-summary {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 6rem;
+        }
+        
+        .summary-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+        
+        .summary-row.total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            padding-top: 1rem;
+            border-top: 2px solid var(--border);
+            margin-top: 1rem;
+        }
+        
+        .promo-code {
+            margin: 2rem 0;
+        }
+        
+        .promo-input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .promo-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .promo-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .promo-btn:hover {
+            filter: brightness(1.1);
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+        
+        .checkout-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .empty-cart-icon {
+            font-size: 4rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .empty-cart h2 {
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+        
+        .empty-cart p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .continue-shopping {
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .continue-shopping:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 991.98px) {
+            .cart-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .cart-summary {
+                position: static;
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .cart-container {
+                padding: 5rem 1rem 2rem;
+            }
+            
+            .cart-header h1 {
+                font-size: 2rem;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cart-item-image {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+            }
+            
+            .cart-item-details {
+                text-align: center;
+            }
+            
+            /* Social Links Mobile */
+            .social-link {
+                font-size: 2rem !important;
+            }
+            
+            .social-hashtag {
+                font-size: 0.8rem !important;
+                padding: 0.4rem 0.8rem !important;
+            }
+        }
+        
+        /* Social Links Hover Effects */
+        .social-link:hover {
+            transform: scale(1.1) !important;
+        }
+        
+        .social-hashtag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container nav-container">
+        <div class="mobile-nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
+            <button class="navbar-toggler" type="button" id="mobileMenuToggle">
+                <div class="navbar-toggler-icon">
+                    <span></span>
+                </div>
+            </button>
+        </div>
+        
+        <nav>
+            <ul class="nav-links">
+                <li><a href="home-premium.html">Premium</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+        
+        <div class="nav-actions">
+            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i></button>
+            <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-globe"></i></button>
+            <a href="login.html" class="btn btn-outline">Login</a>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-menu-nav">
+            <li><a href="home-premium.html">Premium</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+        
+        <div class="mobile-menu-actions">
+            <button id="mobile-theme-toggle" class="btn btn-outline">
+                <i class="fas fa-moon"></i> Theme
+            </button>
+            <button id="mobile-rtl-toggle" class="btn btn-outline">
+                <i class="fas fa-globe"></i> RTL
+            </button>
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="register.html" class="btn btn-primary">Register</a>
+            <a href="cart.html" class="btn btn-primary">Cart</a>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu Backdrop -->
+    <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+</header>
+
+<div class="cart-container">
+    <div class="cart-header">
+        <h1><i class="fas fa-shopping-cart"></i> Shopping Cart</h1>
+        <p>Review your allergy-friendly treats before checkout</p>
+    </div>
+    
+    <div class="cart-grid">
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        
+        <div class="cart-summary">
+            <h2 class="summary-title">Order Summary</h2>
+            
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="subtotal">$0.00</span>
+            </div>
+            
+            <div class="summary-row">
+                <span>Delivery:</span>
+                <span id="delivery">$5.00</span>
+            </div>
+            
+            <div class="summary-row">
+                <span>Tax:</span>
+                <span id="tax">$0.00</span>
+            </div>
+            
+            <div class="promo-code">
+                <label for="promoCode">Promo Code:</label>
+                <div class="promo-input-group">
+                    <input type="text" id="promoCode" class="promo-input" placeholder="Enter code">
+                    <button class="promo-btn" onclick="applyPromo()">Apply</button>
+                </div>
+            </div>
+            
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span id="total">$0.00</span>
+            </div>
+            
+            <button class="checkout-btn" onclick="proceedToCheckout()">
+                <i class="fas fa-lock"></i> Proceed to Checkout
+            </button>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h4><i class="fas fa-bread-slice"></i> SafeBakes</h4>
+                <p style="margin-top: 1rem; opacity: 0.8;">The world's leading premium allergy-friendly bakery.</p>
+            </div>
+            <div>
+                <h4>Shop</h4>
+                <ul style="list-style: none; margin-top: 1rem; opacity: 0.8;">
+                    <li><a href="menu.html" style="color: white; text-decoration: none;">Full Menu</a></li>
+                    <li><a href="plans.html" style="color: white; text-decoration: none;">Subscriptions</a></li>
+                    <li><a href="services.html" style="color: white; text-decoration: none;">Custom Cakes</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul style="list-style: none; margin-top: 1rem; opacity: 0.8;">
+                    <li><a href="contact.html" style="color: white; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Shipping Info</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Social</h4>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white;"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Follow our Journey Section -->
+    
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// Sample cart data (in real app, this would come from localStorage or backend)
+let cartItems = [
+    {
+        id: 1,
+        name: "Signature Brownies",
+        description: "Triple chocolate, fudgy, and 100% vegan & gluten-free",
+        price: 18.00,
+        quantity: 2,
+        image: "img/WhatsApp Image 2026-04-10 at 3.21.31 PM.jpeg"
+    },
+    {
+        id: 2,
+        name: "Fruit Artisan Tarts",
+        description: "Crispy crust filled with organic fruit preserves",
+        price: 24.00,
+        quantity: 1,
+        image: "img/WhatsApp Image 2026-04-10 at 3.21.28 PM.jpeg"
+    }
+];
+
+function renderCart() {
+    const cartContainer = document.getElementById('cartItems');
+    
+    if (cartItems.length === 0) {
+        cartContainer.innerHTML = `
+            <div class="empty-cart">
+                <div class="empty-cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h2>Your cart is empty</h2>
+                <p>Looks like you haven't added any delicious treats yet!</p>
+                <a href="menu.html" class="continue-shopping">
+                    <i class="fas fa-arrow-left"></i> Continue Shopping
+                </a>
+            </div>
+        `;
+        updateSummary();
+        return;
+    }
+    
+    cartContainer.innerHTML = cartItems.map(item => `
+        <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+            <div class="cart-item-details">
+                <h3 class="cart-item-title">${item.name}</h3>
+                <p class="cart-item-description">${item.description}</p>
+                <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                <div class="cart-item-quantity">
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <input type="number" class="quantity-input" value="${item.quantity}" min="1" max="99" readonly>
+                        <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <button class="remove-item" onclick="removeItem(${item.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+    
+    updateSummary();
+}
+
+function updateQuantity(itemId, change) {
+    const item = cartItems.find(item => item.id === itemId);
+    if (item) {
+        item.quantity = Math.max(1, Math.min(99, item.quantity + change));
+        renderCart();
+    }
+}
+
+function removeItem(itemId) {
+    cartItems = cartItems.filter(item => item.id !== itemId);
+    renderCart();
+}
+
+function updateSummary() {
+    const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const delivery = cartItems.length > 0 ? 5.00 : 0;
+    const tax = subtotal * 0.08; // 8% tax
+    const total = subtotal + delivery + tax;
+    
+    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('delivery').textContent = `$${delivery.toFixed(2)}`;
+    document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+    document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+}
+
+function applyPromo() {
+    const promoCode = document.getElementById('promoCode').value.trim();
+    if (promoCode) {
+        // Simple promo logic (in real app, this would validate against backend)
+        if (promoCode.toUpperCase() === 'SAFE10') {
+            alert('Promo code applied! 10% discount will be applied at checkout.');
+        } else {
+            alert('Invalid promo code');
+        }
+    }
+}
+
+function proceedToCheckout() {
+    if (cartItems.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+    // In real app, this would navigate to checkout page
+    alert('Proceeding to checkout... (Checkout page would be implemented here)');
+}
+
+// Initialize cart on page load
+document.addEventListener('DOMContentLoaded', () => {
+    renderCart();
+});
+</script>
+
+</body>
+</html>

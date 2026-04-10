@@ -13,6 +13,14 @@ let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
 
 function initCart() {
     updateCartBadge();
+    
+    // Add click event to cart buttons
+    const cartButtons = document.querySelectorAll('.cart-btn');
+    cartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            window.location.href = 'cart.html';
+        });
+    });
 }
 
 function updateCartBadge() {
