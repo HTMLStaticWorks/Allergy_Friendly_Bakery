@@ -9,13 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        .auth-main {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            background: var(--bg-main);
-            padding: 2rem 0;
+            padding: 6rem 1rem 3rem;
         }
 
         .auth-card {
@@ -28,21 +27,10 @@
             text-align: center;
         }
 
-        .logo-auth {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            text-decoration: none;
-        }
-
         .form-group {
             text-align: left;
             margin-bottom: 1.2rem;
+            position: relative;
         }
 
         .form-group label {
@@ -58,6 +46,31 @@
             border: 1px solid var(--border);
             background: var(--bg-main);
             color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg-card);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--text-main);
         }
 
         .auth-footer {
@@ -71,45 +84,106 @@
             text-decoration: none;
             font-weight: 700;
         }
+
+        .terms-row {
+            text-align: left;
+            font-size: 0.9rem;
+            margin: 1rem 0 1.5rem;
+            line-height: 1.5;
+        }
+
+        .terms-row label {
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+
+        body.auth-page-standalone {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--bg-main);
+            padding-top: 0 !important;
+        }
+
+        .auth-floating-controls {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        [dir="rtl"] .auth-floating-controls {
+            right: auto;
+            left: 1rem;
+        }
     </style>
 </head>
-<body>
+<body class="auth-page-standalone">
 
+<div class="auth-floating-controls">
+    <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+    <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+</div>
+
+<main class="auth-main">
 <div class="auth-card">
-    <a href="home-premium.html" class="logo" style="justify-content: center; margin-bottom: 2rem; font-size: 2rem;">
+    <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 2rem; font-size: 2rem; display: inline-flex; width: 100%;">
         <i class="fas fa-bread-slice"></i> SafeBakes
     </a>
     <div class="card-body">
         <h1 style="margin-bottom: 2rem; font-size: 2rem;">Create Account</h1>
         
-        <form>
+        <form action="#" method="post">
             <div class="form-group">
                 <label for="reg_name">Full Name</label>
-                <input type="text" id="reg_name" placeholder="John Doe">
+                <input type="text" id="reg_name" name="name" placeholder="Your Name" autocomplete="name">
             </div>
             <div class="form-group">
                 <label for="reg_email">Email Address</label>
-                <input type="email" id="reg_email" placeholder="name@company.com">
+                <input type="email" id="reg_email" name="email" placeholder="you@example.com" autocomplete="email">
             </div>
             <div class="form-group">
                 <label for="reg_password">Password</label>
-                <input type="password" id="reg_password" placeholder="••••••••">
+                <input type="password" id="reg_password" name="password" placeholder="Create a password" autocomplete="new-password">
             </div>
             <div class="form-group">
                 <label for="reg_confirm">Confirm Password</label>
-                <input type="password" id="reg_confirm" placeholder="••••••••">
+                <input type="password" id="reg_confirm" name="password_confirm" placeholder="Confirm your password" autocomplete="new-password">
+            </div>
+
+            <div class="terms-row">
+                <label>
+                    <input type="checkbox" name="terms" required>
+                    <span>I agree to the <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy</a>.</span>
+                </label>
             </div>
             
             <div class="btn-wrapper">
-                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" title="Create your SafeBakes account">Register</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" title="Create your SafeBakes account">Register</button>
             </div>
         </form>
+    </div>
+
+    <div style="margin-top: 2rem; position: relative;">
+        <hr style="border: 0; border-top: 1px solid var(--border);">
+        <span style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--bg-card); padding: 0 1rem; color: var(--text-muted); font-size: 0.8rem;">OR</span>
+    </div>
+
+    <div class="social-login">
+        <button type="button" class="social-btn" title="Sign up with Google"><i class="fab fa-google"></i> Google</button>
+        <button type="button" class="social-btn" title="Sign up with Facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
     </div>
     
     <div class="auth-footer">
         Already have an account? <a href="login.html">Login</a>
     </div>
 </div>
+</main>
 
+<script src="js/main.js"></script>
 </body>
 </html>

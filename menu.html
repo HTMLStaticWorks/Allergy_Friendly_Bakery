@@ -67,8 +67,8 @@
 <header class="header">
     <div class="container nav-container">
         <div class="mobile-nav-container">
-            <a href="home-premium.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
-            <button class="navbar-toggler" type="button" id="mobileMenuToggle">
+            <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
+            <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Open menu">
                 <div class="navbar-toggler-icon">
                     <span></span>
                 </div>
@@ -76,9 +76,9 @@
         </div>
         <nav>
             <ul class="nav-links" id="nav-menu">
-                <li><a href="home-premium.html">Premium</a></li>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="home-premium.html">Premium</a></li>
+                <li><a href="menu.html">Menu</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -86,9 +86,9 @@
             </ul>
         </nav>
         <div class="nav-actions">
-            <button id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
-            <button id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
-            <button class="toggle-btn cart-btn" title="View Cart">
+            <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            <button type="button" class="toggle-btn cart-btn" title="View Cart">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-badge">0</span>
             </button>
@@ -100,14 +100,14 @@
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
         <div class="mobile-menu-header">
             <h3>Menu</h3>
-            <button class="mobile-menu-close" id="mobileMenuClose">
+            <button type="button" class="mobile-menu-close" id="mobileMenuClose" title="Close menu">
                 <i class="fas fa-times"></i>
             </button>
         </div>
 
         <ul class="mobile-menu-nav">
-            <li><a href="home-premium.html">Premium</a></li>
             <li><a href="index.html">Home</a></li>
+            <li><a href="home-premium.html">Premium</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="about.html">About</a></li>
@@ -116,14 +116,15 @@
         </ul>
 
         <div class="mobile-menu-actions">
-            <button id="mobile-theme-toggle" class="btn btn-outline">
+            <button type="button" id="mobile-theme-toggle" class="btn btn-outline">
                 <i class="fas fa-moon"></i> Theme
             </button>
-            <button id="mobile-rtl-toggle" class="btn btn-outline">
+            <button type="button" id="mobile-rtl-toggle" class="btn btn-outline">
                 <i class="fas fa-globe"></i> RTL
             </button>
             <a href="login.html" class="btn btn-outline">Login</a>
             <a href="register.html" class="btn btn-primary">Register</a>
+            <a href="cart.html" class="btn btn-primary">Cart</a>
         </div>
     </div>
 
@@ -133,8 +134,8 @@
 
 <div class="page-header">
     <div class="container">
-        <h1>Deliciously Safe Menu</h1>
-        <p>Filtered for your safety, baked for your pleasure.</p>
+        <h1>Bakery Menu &amp; Weekly Specials</h1>
+        <p>Explore categories, chef favorites, and dishes made fresh to order—with allergen clarity in every bite.</p>
     </div>
 </div>
 
@@ -157,88 +158,88 @@
         <!-- Product 1 -->
         <div class="card reveal">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Blueberry Muffin">
-            <div class="card-body">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-gf">Gluten-Free</span>
                     <span class="tag tag-v">Vegan</span>
                 </div>
                 <h3>Blueberry Bliss Muffins</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">Wild blueberries in a moist almond-flour crumb.</p>
-                <div class="price" style="margin-bottom: 1rem;">$4.50</div>
-                <button onclick="addToCart(1)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <div class="price menu-price">$4.50</div>
+                <button onclick="addToCart(1, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
         <!-- Product 2 -->
         <div class="card reveal">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.18 PM.jpeg" alt="Chocolate Cookie">
-            <div class="card-body">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-gf">Gluten-Free</span>
                     <span class="tag tag-sf">Sugar-Free</span>
                 </div>
                 <h3>Triple Choc Cookies</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">Dark chocolate chunks with stevia sweetener.</p>
-                <div class="price" style="margin-bottom: 1rem;">$3.25</div>
-                <button onclick="addToCart(2)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <div class="price menu-price">$3.25</div>
+                <button onclick="addToCart(2, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
         <!-- Product 3 -->
         <div class="card reveal">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM (1).jpeg" alt="Lemon Poppy">
-            <div class="card-body">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-v">Vegan</span>
                 </div>
                 <h3>Lemon Poppyseed Loaf</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">Zesty lemon glaze over a soft, plant-based sponge.</p>
-                <div class="price" style="margin-bottom: 1rem;">$12.00</div>
-                <button onclick="addToCart(3)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <div class="price menu-price">$12.00</div>
+                <button onclick="addToCart(3, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
         <!-- Product 4 -->
         <div class="card reveal">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM (2).jpeg" alt="Scone">
-            <div class="card-body">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-gf">Gluten-Free</span>
                 </div>
                 <h3>Cranberry Scones</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">Buttery, flaky scones without the gluten.</p>
-                <div class="price" style="margin-bottom: 1rem;">$3.75</div>
-                <button onclick="addToCart(4)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <div class="price menu-price">$3.75</div>
+                <button onclick="addToCart(4, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
         <!-- Product 5 -->
         <div class="card reveal">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM (1).jpeg" alt="Bagel">
-            <div class="card-body">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-gf">Gluten-Free</span>
                     <span class="tag tag-v">Vegan</span>
                 </div>
                 <h3>Multigrain Bagels (4pk)</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">Sesame, flax, and sunflower seeds in a chewy bagel.</p>
-                <div class="price" style="margin-bottom: 1rem;">$8.50</div>
-                <button onclick="addToCart(5)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <div class="price menu-price">$8.50</div>
+                <button onclick="addToCart(5, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
         <!-- Product 6 -->
         <div class="card reveal">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM (2).jpeg" alt="Cupcake">
-            <div class="card-body">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-v">Vegan</span>
                     <span class="tag tag-sf">Sugar-Free</span>
                 </div>
                 <h3>Raspberry Velvet Cupcake</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">Rich raspberry frosting on a cocoa base.</p>
-                <div class="price" style="margin-bottom: 1rem;">$5.00</div>
-                <button onclick="addToCart(6)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <div class="price menu-price">$5.00</div>
+                <button onclick="addToCart(6, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
     </div>
@@ -248,7 +249,7 @@
 <section class="section" style="background: var(--bg-main);">
     <div class="container">
         <h2>🔥 Popular This Week</h2>
-        <div class="grid grid-3">
+        <div class="grid grid-3 popular-week-grid">
             <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.31 PM.jpeg">
                 <div class="card-body">
@@ -316,8 +317,8 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-col" style="flex: 1.5;">
-                <a href="home-premium.html" class="footer-logo">
+            <div class="footer-col footer-col-brand" style="flex: 1.5;">
+                <a href="index.html" class="footer-logo">
                     <i class="fas fa-bread-slice"></i> SafeBakes
                 </a>
                 <p>Bringing you the finest allergy-friendly, gluten-free, and vegan treats. Baked with love and safety in mind.</p>
@@ -336,7 +337,7 @@
                 <h4>Contact</h4>
                 <p>123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
             </div>
-            <div class="footer-col">
+            <div class="footer-col footer-follow-block">
                 <h4>Follow Us</h4>
                 <div class="footer-social">
                     <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>

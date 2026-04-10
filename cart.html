@@ -323,7 +323,7 @@
     <div class="container nav-container">
         <div class="mobile-nav-container">
             <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
-            <button class="navbar-toggler" type="button" id="mobileMenuToggle">
+            <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Open menu">
                 <div class="navbar-toggler-icon">
                     <span></span>
                 </div>
@@ -331,9 +331,9 @@
         </div>
         
         <nav>
-            <ul class="nav-links">
-                <li><a href="home-premium.html">Premium</a></li>
+            <ul class="nav-links" id="nav-menu">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="home-premium.html">Premium</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
@@ -343,24 +343,27 @@
         </nav>
         
         <div class="nav-actions">
-            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i></button>
-            <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-globe"></i></button>
+            <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            <button type="button" class="toggle-btn cart-btn" title="View Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </button>
             <a href="login.html" class="btn btn-outline">Login</a>
         </div>
     </div>
     
-    <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
         <div class="mobile-menu-header">
             <h3>Menu</h3>
-            <button class="mobile-menu-close" id="mobileMenuClose">
+            <button type="button" class="mobile-menu-close" id="mobileMenuClose" title="Close menu">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         
         <ul class="mobile-menu-nav">
-            <li><a href="home-premium.html">Premium</a></li>
             <li><a href="index.html">Home</a></li>
+            <li><a href="home-premium.html">Premium</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="about.html">About</a></li>
@@ -369,10 +372,10 @@
         </ul>
         
         <div class="mobile-menu-actions">
-            <button id="mobile-theme-toggle" class="btn btn-outline">
+            <button type="button" id="mobile-theme-toggle" class="btn btn-outline">
                 <i class="fas fa-moon"></i> Theme
             </button>
-            <button id="mobile-rtl-toggle" class="btn btn-outline">
+            <button type="button" id="mobile-rtl-toggle" class="btn btn-outline">
                 <i class="fas fa-globe"></i> RTL
             </button>
             <a href="login.html" class="btn btn-outline">Login</a>
@@ -381,7 +384,6 @@
         </div>
     </div>
     
-    <!-- Mobile Menu Backdrop -->
     <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
 </header>
 
@@ -437,38 +439,39 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
-            <div>
-                <h4><i class="fas fa-bread-slice"></i> SafeBakes</h4>
-                <p style="margin-top: 1rem; opacity: 0.8;">The world's leading premium allergy-friendly bakery.</p>
+            <div class="footer-col footer-col-brand" style="flex: 1.5;">
+                <a href="index.html" class="footer-logo">
+                    <i class="fas fa-bread-slice"></i> SafeBakes
+                </a>
+                <p>Bringing you the finest allergy-friendly, gluten-free, and vegan treats. Baked with love and safety in mind.</p>
             </div>
-            <div>
-                <h4>Shop</h4>
-                <ul style="list-style: none; margin-top: 1rem; opacity: 0.8;">
-                    <li><a href="menu.html" style="color: white; text-decoration: none;">Full Menu</a></li>
-                    <li><a href="plans.html" style="color: white; text-decoration: none;">Subscriptions</a></li>
-                    <li><a href="services.html" style="color: white; text-decoration: none;">Custom Cakes</a></li>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            <div>
-                <h4>Support</h4>
-                <ul style="list-style: none; margin-top: 1rem; opacity: 0.8;">
-                    <li><a href="contact.html" style="color: white; text-decoration: none;">Contact Us</a></li>
-                    <li><a href="#" style="color: white; text-decoration: none;">Shipping Info</a></li>
-                    <li><a href="#" style="color: white; text-decoration: none;">FAQ</a></li>
-                </ul>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
             </div>
-            <div>
-                <h4>Social</h4>
-                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                    <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
-                    <a href="#" style="color: white;"><i class="fab fa-facebook"></i></a>
+            <div class="footer-col footer-follow-block">
+                <h4>Follow Us</h4>
+                <div class="footer-social">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
+        <div class="footer-bottom">
+            &copy; 2026 SafeBakes. All rights reserved.
+        </div>
     </div>
-    
-    <!-- Follow our Journey Section -->
-    
 </footer>
 
 <script src="js/main.js"></script>

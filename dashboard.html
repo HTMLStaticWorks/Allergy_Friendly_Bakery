@@ -14,6 +14,7 @@
             height: 100vh;
             overflow: hidden;
             background: var(--bg-main);
+            padding-top: 0 !important;
         }
 
         /* Sidebar */
@@ -32,7 +33,21 @@
             color: var(--primary);
             text-decoration: none;
             margin-bottom: 3rem;
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-logo i {
+            color: var(--secondary);
+        }
+
+        [data-theme='dark'] .sidebar-logo {
+            color: var(--text-main);
+        }
+
+        [data-theme='dark'] .sidebar-logo i {
+            color: var(--secondary);
         }
 
         .sidebar-nav {
@@ -70,21 +85,34 @@
         .main-content {
             flex: 1;
             overflow-y: auto;
-            padding: 2rem 3rem;
+            padding: 0.75rem 3rem 2rem;
         }
 
         /* Top Bar */
         .top-bar {
             display: flex;
+            flex-direction: column;
+            margin-bottom: 2rem;
+        }
+
+        .top-bar-row {
+            display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 3rem;
+        }
+
+        .top-bar-title {
+            text-align: center;
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+            font-size: 1.4rem;
+            font-weight: 600;
         }
 
         .top-bar-actions {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .action-icon {
@@ -120,21 +148,31 @@
             border: 1px solid var(--border);
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 0.5rem;
+            text-align: center;
         }
 
-        .stat-card h4 { text-align: left; color: var(--text-muted); margin: 0; }
-        .stat-card .value { font-size: 2rem; font-weight: 700; color: var(--primary); }
+        .stat-card h4 { text-align: center; color: var(--text-muted); margin: 0; }
+        .stat-card .value { font-size: 2rem; font-weight: 700; color: var(--primary); text-align: center; }
 
         /* Tables & Lists */
         .section-title {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            gap: 1.5rem;
             margin-bottom: 1.5rem;
+            text-align: center;
         }
 
-        .section-title h3 { text-align: left; margin: 0; }
+        .section-title h3 { text-align: center; margin: 0; }
+
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: var(--radius);
+        }
 
         .data-table {
             width: 100%;
@@ -146,12 +184,51 @@
         }
 
         .data-table th, .data-table td {
-            text-align: left;
+            text-align: center;
             padding: 1.2rem 1.5rem;
             border-bottom: 1px solid var(--border);
+            white-space: nowrap;
         }
 
         .data-table th { background: var(--bg-main); font-weight: 600; color: var(--text-muted); }
+
+        /* Mobile order cards */
+        .mobile-order-cards { display: none; }
+
+        .mobile-order-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .mobile-order-card .order-id {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .mobile-order-card .order-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .mobile-order-card .order-items {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .mobile-order-card .order-total {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
 
         .status-pill {
             padding: 0.3rem 0.8rem;
@@ -163,17 +240,166 @@
         .status-delivered { background: #dcfce7; color: #166534; }
         .status-pending { background: #fef9c3; color: #854d0e; }
 
+        .dashboard-sidebar-backdrop {
+            display: none;
+        }
+
+        .dashboard-sidebar-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg-card);
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .dashboard-sidebar-toggle:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .dashboard-sidebar-close {
+            display: none;
+            position: absolute;
+            top: 1.25rem;
+            inset-inline-end: 1rem;
+            z-index: 2;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg-main);
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        .dashboard-sidebar-close:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .sidebar {
+            position: relative;
+        }
+
         @media (max-width: 1024px) {
-            .sidebar { width: 80px; padding: 2rem 1rem; align-items: center; }
-            .sidebar-nav-link span, .sidebar-logo span { display: none; }
+            .dashboard-sidebar-backdrop {
+                display: block;
+                position: fixed;
+                inset: 0;
+                z-index: 1001;
+                background: rgba(0, 0, 0, 0.45);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            .dashboard-sidebar-backdrop.is-active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .dashboard-sidebar-toggle {
+                display: inline-flex;
+            }
+
+            .dashboard-sidebar-close {
+                display: inline-flex;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                inset-inline-start: 0;
+                width: min(280px, 88vw);
+                max-width: 300px;
+                height: 100vh;
+                height: 100dvh;
+                z-index: 1002;
+                margin: 0;
+                padding: 2rem 1.25rem;
+                padding-top: 3.5rem;
+                box-shadow: var(--shadow-lg);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                overflow-y: auto;
+            }
+
+            [dir='rtl'] .sidebar {
+                inset-inline-start: auto;
+                inset-inline-end: 0;
+                transform: translateX(100%);
+            }
+
+            .sidebar.is-open {
+                transform: translateX(0);
+            }
+
+            body.dashboard-sidebar-open {
+                overflow: hidden;
+            }
+
+            .main-content {
+                padding: 0.4rem 1rem 1.25rem;
+                width: 100%;
+            }
+
+            .top-bar {
+                margin-bottom: 1rem;
+            }
+
+            .top-bar-row {
+                padding: 4px 0;
+            }
+
+            .top-bar-title {
+                font-size: 1.15rem;
+                margin-top: 8px;
+            }
+
+            .top-bar-actions {
+                gap: 10px;
+            }
+
             .stats-grid { grid-template-columns: 1fr; }
+
+            .data-table th,
+            .data-table td {
+                text-align: center !important;
+            }
+
+            /* Switch to card layout on mobile/tablet */
+            .table-wrapper .data-table { display: none; }
+            .mobile-order-cards { display: block; }
+        }
+
+        @media (min-width: 1025px) {
+            .top-bar-title {
+                text-align: center;
+            }
         }
     </style>
 </head>
-<body>
+<body class="dashboard-page">
 
-<aside class="sidebar">
-    <a href="home-premium.html" class="sidebar-logo">
+<div class="dashboard-sidebar-backdrop" id="dashboardSidebarBackdrop" aria-hidden="true"></div>
+
+<aside class="sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+    <button type="button" class="dashboard-sidebar-close" id="dashboardSidebarClose" title="Close menu" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+    </button>
+    <a href="index.html" class="sidebar-logo">
         <span><i class="fas fa-bread-slice"></i> SafeBakes</span>
     </a>
     
@@ -218,77 +444,103 @@
 
     <main class="main-content">
         <header class="top-bar">
-            <h1>Welcome back, Surya 👋</h1>
-            
-            <div class="top-bar-actions">
-                <div class="action-icon" title="Notifications">
-                    <i class="fas fa-bell"></i>
-                    <span class="badge">3</span>
-                </div>
-                <div id="theme-toggle" class="action-icon" title="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                </div>
-                <div class="action-icon" title="Profile">
-                    <i class="fas fa-user-circle"></i>
+            <!-- Row 1: Hamburger left | Icons right -->
+            <div class="top-bar-row">
+                <button type="button" class="dashboard-sidebar-toggle" id="dashboardSidebarToggle" title="Open menu" aria-label="Open menu" aria-expanded="false" aria-controls="dashboardSidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="top-bar-actions">
+                    <div class="action-icon" title="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div id="theme-toggle" class="action-icon" role="button" tabindex="0" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="action-icon" title="Profile">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
                 </div>
             </div>
+            <!-- Row 2: Welcome title centered -->
+            <h1 class="top-bar-title">Welcome back!</h1>
         </header>
 
         <!-- Overview Section -->
         <section id="overview" class="dashboard-section active">
             <div class="stats-grid">
                 <div class="card reveal">
-                    <div class="card-body">
-                        <h4>Total Orders</h4>
-                        <div class="value" style="font-size: 2rem; font-weight: 700; color: var(--primary);">24</div>
+                    <div class="card-body" style="text-align: center; align-items: center;">
+                        <h4 style="text-align: center;">Total Orders</h4>
+                        <div class="value" style="font-size: 2rem; font-weight: 700; color: var(--primary); text-align: center;">24</div>
                     </div>
                 </div>
                 <div class="card reveal">
-                    <div class="card-body">
-                        <h4>Active Subscriptions</h4>
-                        <div class="value" style="font-size: 2rem; font-weight: 700; color: var(--primary);">2</div>
+                    <div class="card-body" style="text-align: center; align-items: center;">
+                        <h4 style="text-align: center;">Active Subscriptions</h4>
+                        <div class="value" style="font-size: 2rem; font-weight: 700; color: var(--primary); text-align: center;">2</div>
                     </div>
                 </div>
                 <div class="card reveal">
-                    <div class="card-body">
-                        <h4>Pending Deliveries</h4>
-                        <div class="value" style="font-size: 2rem; font-weight: 700; color: var(--primary);">1</div>
+                    <div class="card-body" style="text-align: center; align-items: center;">
+                        <h4 style="text-align: center;">Pending Deliveries</h4>
+                        <div class="value" style="font-size: 2rem; font-weight: 700; color: var(--primary); text-align: center;">1</div>
                     </div>
                 </div>
             </div>
 
             <div style="margin-top: 3rem;">
-                <div class="section-title">
-                    <h3>Recent activity</h3>
+                <div class="section-title" style="justify-content: center; gap: 1.5rem;">
+                    <h3 style="text-align: center;">Recent activity</h3>
                     <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 600;">View All</a>
                 </div>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Date</th>
-                            <th>Items</th>
-                            <th>Total</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>#SB-1024</td>
-                            <td>Oct 10, 2026</td>
-                            <td>6x GF Muffins</td>
-                            <td>$24.00</td>
-                            <td><span class="status-pill status-delivered">Delivered</span></td>
-                        </tr>
-                        <tr>
-                            <td>#SB-1023</td>
-                            <td>Oct 05, 2026</td>
-                            <td>1x Vegan Bread</td>
-                            <td>$12.00</td>
-                            <td><span class="status-pill status-delivered">Delivered</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+<div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#SB-1024</td>
+                                <td>Oct 10, 2026</td>
+                                <td>6x GF Muffins</td>
+                                <td>$24.00</td>
+                                <td><span class="status-pill status-delivered">Delivered</span></td>
+                            </tr>
+                            <tr>
+                                <td>#SB-1023</td>
+                                <td>Oct 05, 2026</td>
+                                <td>1x Vegan Bread</td>
+                                <td>$12.00</td>
+                                <td><span class="status-pill status-delivered">Delivered</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Mobile card layout -->
+                <div class="mobile-order-cards">
+                    <div class="mobile-order-card">
+                        <div class="order-id">#SB-1024</div>
+                        <div class="order-meta">Oct 10, 2026</div>
+                        <div class="order-items">6x GF Muffins</div>
+                        <div class="order-total">$24.00</div>
+                        <span class="status-pill status-delivered">Delivered</span>
+                    </div>
+                    <div class="mobile-order-card">
+                        <div class="order-id">#SB-1023</div>
+                        <div class="order-meta">Oct 05, 2026</div>
+                        <div class="order-items">1x Vegan Bread</div>
+                        <div class="order-total">$12.00</div>
+                        <span class="status-pill status-delivered">Delivered</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -297,44 +549,76 @@
             <div class="section-title">
                 <h3>Your Orders</h3>
             </div>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Date</th>
-                        <th>Items</th>
-                        <th>Total</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>#SB-1025</td>
-                        <td>Oct 12, 2026</td>
-                        <td>4x Cupcakes</td>
-                        <td>$18.50</td>
-                        <td><span class="status-pill status-pending">Pending</span></td>
-                        <td><button type="button" class="btn btn-outline btn-sm" title="Track this order">Track</button></td>
-                    </tr>
-                    <tr>
-                        <td>#SB-1024</td>
-                        <td>Oct 10, 2026</td>
-                        <td>6x GF Muffins</td>
-                        <td>$24.00</td>
-                        <td><span class="status-pill status-delivered">Delivered</span></td>
-                        <td><button class="btn btn-outline btn-sm">Reorder</button></td>
-                    </tr>
-                    <tr>
-                        <td>#SB-1023</td>
-                        <td>Oct 05, 2026</td>
-                        <td>1x Vegan Bread</td>
-                        <td>$12.00</td>
-                        <td><span class="status-pill status-delivered">Delivered</span></td>
-                        <td><button class="btn btn-outline btn-sm">Reorder</button></td>
-                    </tr>
-                </tbody>
-            </table>
+
+            <!-- Desktop table -->
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#SB-1025</td>
+                            <td>Oct 12, 2026</td>
+                            <td>4x Cupcakes</td>
+                            <td>$18.50</td>
+                            <td><span class="status-pill status-pending">Pending</span></td>
+                            <td><button type="button" class="btn btn-outline btn-sm" title="Track this order">Track</button></td>
+                        </tr>
+                        <tr>
+                            <td>#SB-1024</td>
+                            <td>Oct 10, 2026</td>
+                            <td>6x GF Muffins</td>
+                            <td>$24.00</td>
+                            <td><span class="status-pill status-delivered">Delivered</span></td>
+                            <td><button class="btn btn-outline btn-sm">Reorder</button></td>
+                        </tr>
+                        <tr>
+                            <td>#SB-1023</td>
+                            <td>Oct 05, 2026</td>
+                            <td>1x Vegan Bread</td>
+                            <td>$12.00</td>
+                            <td><span class="status-pill status-delivered">Delivered</span></td>
+                            <td><button class="btn btn-outline btn-sm">Reorder</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile card layout -->
+            <div class="mobile-order-cards">
+                <div class="mobile-order-card">
+                    <div class="order-id">#SB-1025</div>
+                    <div class="order-meta">Oct 12, 2026</div>
+                    <div class="order-items">4x Cupcakes</div>
+                    <div class="order-total">$18.50</div>
+                    <span class="status-pill status-pending">Pending</span>
+                    <button type="button" class="btn btn-outline btn-sm" style="margin-top: 0.5rem;" title="Track this order">Track</button>
+                </div>
+                <div class="mobile-order-card">
+                    <div class="order-id">#SB-1024</div>
+                    <div class="order-meta">Oct 10, 2026</div>
+                    <div class="order-items">6x GF Muffins</div>
+                    <div class="order-total">$24.00</div>
+                    <span class="status-pill status-delivered">Delivered</span>
+                    <button class="btn btn-outline btn-sm" style="margin-top: 0.5rem;">Reorder</button>
+                </div>
+                <div class="mobile-order-card">
+                    <div class="order-id">#SB-1023</div>
+                    <div class="order-meta">Oct 05, 2026</div>
+                    <div class="order-items">1x Vegan Bread</div>
+                    <div class="order-total">$12.00</div>
+                    <span class="status-pill status-delivered">Delivered</span>
+                    <button class="btn btn-outline btn-sm" style="margin-top: 0.5rem;">Reorder</button>
+                </div>
+            </div>
         </section>
 
         <!-- Favorites Section -->
@@ -367,43 +651,43 @@
             <div class="section-title">
                 <h3>Active Subscriptions</h3>
             </div>
-            <div class="sub-status-card">
-                <div class="sub-status-info">
-                    <h4>Current Plan</h4>
-                    <div class="plan-name">Premium Baker's Box</div>
-                    <p>Next delivery: Oct 25, 2026</p>
+            <div class="sub-status-card" style="text-align: center; align-items: center; justify-content: center; flex-direction: column;">
+                <div class="sub-status-info" style="text-align: center;">
+                    <h4 style="text-align: center;">Current Plan</h4>
+                    <div class="plan-name" style="text-align: center;">Premium Baker's Box</div>
+                    <p style="text-align: center;">Next delivery: Oct 25, 2026</p>
                 </div>
-                <div class="sub-status-actions">
-                    <button type="button" class="btn btn-secondary" title="Manage your subscription plan">Manage Plan</button>
+                <div class="sub-status-actions" style="display: flex; justify-content: center; margin-top: 1rem;">
+                    <button type="button" class="btn btn-secondary" style="white-space: nowrap;" title="Manage your subscription plan">Manage Plan</button>
                 </div>
             </div>
         </section>
 
         <!-- Addresses Section -->
         <section id="addresses" class="dashboard-section">
-            <div class="section-title">
-                <h3>Delivery Addresses</h3>
-                <div class="btn-wrapper">
+            <div class="section-title address-section-head" style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; width: 100%;">
+                <h3 style="text-align: center;">Delivery Addresses</h3>
+                <div class="btn-wrapper" style="margin: 0;">
                     <button type="button" class="btn btn-primary btn-sm" title="Add a new delivery address"><i class="fas fa-plus"></i> Add New</button>
                 </div>
             </div>
             <div class="address-grid">
-                <div class="card reveal">
-                    <div class="card-body">
+                <div class="card reveal address-card">
+                    <div class="card-body" style="align-items: center; text-align: center;">
                         <span class="tag tag-gf" style="margin-bottom: 1rem;">Default</span>
-                        <h4>Home</h4>
-                        <p>123 Healthy Street, Flat 4B<br>London, UK<br>NW1 8PT</p>
-                        <div class="btn-wrapper" style="gap: 1rem; margin-top: 1rem;">
+                        <h4 style="text-align: center;">Home</h4>
+                        <p style="text-align: center;">123 Healthy Street, Flat 4B<br>London, UK<br>NW1 8PT</p>
+                        <div class="btn-wrapper" style="gap: 1rem; margin-top: 1rem; justify-content: center;">
                             <a href="#" style="color: var(--primary); text-decoration: none;"><i class="fas fa-edit"></i> Edit</a>
                             <a href="#" style="color: #ef4444; text-decoration: none;"><i class="fas fa-trash"></i> Delete</a>
                         </div>
                     </div>
                 </div>
-                <div class="card reveal">
-                    <div class="card-body">
-                        <h4>Office</h4>
-                        <p>45 Bakery Towers, Level 12<br>London, UK<br>EC1A 1BB</p>
-                        <div class="btn-wrapper" style="gap: 1rem; margin-top: 1rem;">
+                <div class="card reveal address-card">
+                    <div class="card-body" style="align-items: center; text-align: center;">
+                        <h4 style="text-align: center;">Office</h4>
+                        <p style="text-align: center;">45 Bakery Towers, Level 12<br>London, UK<br>EC1A 1BB</p>
+                        <div class="btn-wrapper" style="gap: 1rem; margin-top: 1rem; justify-content: center;">
                             <a href="#" style="color: var(--primary); text-decoration: none;"><i class="fas fa-edit"></i> Edit</a>
                             <a href="#" style="color: #ef4444; text-decoration: none;"><i class="fas fa-trash"></i> Delete</a>
                         </div>
@@ -414,29 +698,29 @@
 
         <!-- Settings Section -->
         <section id="settings" class="dashboard-section">
-            <div class="section-title">
-                <h3>Profile Settings</h3>
+            <div class="section-title" style="justify-content: center;">
+                <h3 style="text-align: center;">Profile Settings</h3>
             </div>
-            <div class="settings-form">
+            <div class="settings-form" style="max-width: 600px; margin: 0 auto;">
                 <form>
                     <div class="settings-grid">
-                        <div class="form-group">
-                            <label for="first_name">First Name</label>
-                            <input type="text" id="first_name" value="Surya" placeholder="Your first name" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--radius);">
+                        <div class="form-group" style="text-align: center;">
+                            <label for="first_name" style="display: block; text-align: center;">First Name</label>
+                            <input type="text" id="first_name" placeholder="Your first name" autocomplete="given-name" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-main); color: var(--text-main); text-align: center;">
                         </div>
-                        <div class="form-group">
-                            <label for="last_name">Last Name</label>
-                            <input type="text" id="last_name" value="Bakery" placeholder="Your last name" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--radius);">
+                        <div class="form-group" style="text-align: center;">
+                            <label for="last_name" style="display: block; text-align: center;">Last Name</label>
+                            <input type="text" id="last_name" placeholder="Your last name" autocomplete="family-name" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-main); color: var(--text-main); text-align: center;">
                         </div>
                     </div>
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label for="profile_email">Email Address</label>
-                        <input type="email" id="profile_email" value="surya@example.com" placeholder="Your email address" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--radius);">
+                    <div class="form-group" style="margin-bottom: 1.5rem; text-align: center;">
+                        <label for="profile_email" style="display: block; text-align: center;">Email Address</label>
+                        <input type="email" id="profile_email" placeholder="Your email address" autocomplete="email" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-main); color: var(--text-main); text-align: center;">
                     </div>
                     <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
-                    <div class="btn-wrapper">
+                    <div class="btn-wrapper settings-actions" style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
                         <button type="submit" class="btn btn-primary" title="Save profile changes">Save Changes</button>
-                        <button type="button" class="btn btn-outline" style="margin-left: 1rem;" title="Change your password">Change Password</button>
+                        <button type="button" class="btn btn-outline" title="Change your password">Change Password</button>
                     </div>
                 </form>
             </div>

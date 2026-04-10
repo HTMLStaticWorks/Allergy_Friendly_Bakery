@@ -49,24 +49,8 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .steps-grid-modern {
             text-align: center;
-        }
-
-        .step-card {
-            padding: 2rem;
-            border-radius: var(--radius);
-            background: var(--accent);
-            color: var(--primary);
-        }
-
-        .step-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            opacity: 0.3;
         }
     </style>
 </head>
@@ -75,8 +59,8 @@
 <header class="header">
     <div class="container nav-container">
         <div class="mobile-nav-container">
-            <a href="home-premium.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
-            <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Toggle Search">
+            <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
+            <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Open menu">
                 <div class="navbar-toggler-icon">
                     <span></span>
                 </div>
@@ -85,8 +69,8 @@
         
         <nav>
             <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="home-premium.html">Premium</a></li>
-                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
@@ -96,9 +80,10 @@
         </nav>
 
         <div class="nav-actions">
-            <button id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
-            <button id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
-            <button class="toggle-btn cart-btn" title="View Cart">
+           
+            <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            <button type="button" class="toggle-btn cart-btn" title="View Cart">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-badge">0</span>
             </button>
@@ -110,14 +95,14 @@
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
         <div class="mobile-menu-header">
             <h3>Menu</h3>
-            <button class="mobile-menu-close" id="mobileMenuClose" title="Close Menu">
+            <button type="button" class="mobile-menu-close" id="mobileMenuClose" title="Close Menu">
                 <i class="fas fa-times"></i>
             </button>
         </div>
 
         <ul class="mobile-menu-nav">
-            <li><a href="home-premium.html">Premium</a></li>
             <li><a href="index.html">Home</a></li>
+            <li><a href="home-premium.html">Premium</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="about.html">About</a></li>
@@ -154,11 +139,13 @@
         </div>
     </section>
 
-    <section class="container section">
-        <h2>🍰 Product Preview</h2>
+    <section class="container section pure-ingredients-home">
+        <h2>🍰 Pure Ingredients</h2>
         <div class="grid grid-4">
             <div class="card reveal">
-                <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Gluten-Free Cake">
+                <div class="card-img-wrap">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Gluten-Free Cake">
+                </div>
                 <div class="card-body">
                     <h3>Gluten-Free Cakes</h3>
                     <p>Moist, rich, and completely safe for gluten-sensitive lovers.</p>
@@ -166,7 +153,9 @@
                 </div>
             </div>
             <div class="card reveal">
-                <img src="img/WhatsApp Image 2026-04-10 at 3.21.18 PM.jpeg" alt="Vegan Cookie">
+                <div class="card-img-wrap">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.18 PM.jpeg" alt="Vegan Cookie">
+                </div>
                 <div class="card-body">
                     <h3>Vegan Cookies</h3>
                     <p>Plant-based goodness that melts in your mouth.</p>
@@ -174,7 +163,9 @@
                 </div>
             </div>
             <div class="card reveal">
-                <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM.jpeg" alt="Dairy-Free Dessert">
+                <div class="card-img-wrap">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM.jpeg" alt="Dairy-Free Dessert">
+                </div>
                 <div class="card-body">
                     <h3>Dairy-Free Desserts</h3>
                     <p>Creamy and delicious without a drop of dairy.</p>
@@ -182,7 +173,9 @@
                 </div>
             </div>
             <div class="card reveal">
-                <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM.jpeg" alt="Healthy Bread">
+                <div class="card-img-wrap">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM.jpeg" alt="Healthy Bread">
+                </div>
                 <div class="card-body">
                     <h3>Healthy Breads</h3>
                     <p>Freshly baked artisanal breads with zero allergens.</p>
@@ -192,29 +185,43 @@
         </div>
     </section>
 
-    <section class="section" style="background: var(--bg-card);">
+    <section class="section section-how-it-works" style="background: var(--bg-card);">
         <div class="container">
             <h2>📊 How It Works</h2>
-            <div class="steps-grid">
-                <div class="step-card reveal">
-                    <div class="step-number">01</div>
-                    <h3>Browse Menu</h3>
-                    <p>Explore our wide range of allergy-friendly treats.</p>
+            <div class="steps-grid-modern">
+                <div class="step-card step-card-visual reveal">
+                    <div class="step-card-icon-wrap">
+                        <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600&q=80" alt="Choosing fresh ingredients" loading="lazy">
+                    </div>
+                    <h3>Choose Ingredients</h3>
+                    <p>We source clean, transparent ingredients you can trust for every bake.</p>
                 </div>
-                <div class="step-card reveal">
-                    <div class="step-number">02</div>
-                    <h3>Choose Products</h3>
-                    <p>Select your favorites and add them to your cart.</p>
+                <div class="step-card step-card-visual reveal">
+                    <div class="step-card-icon-wrap">
+                        <svg class="step-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M12 3v18M8 8h8M6 14h12" stroke-linecap="round"/>
+                            <ellipse cx="12" cy="6" rx="7" ry="3"/>
+                        </svg>
+                    </div>
+                    <h3>Bake with Care</h3>
+                    <p>Dedicated equipment and timed batches keep flavors bold and allergens out.</p>
                 </div>
-                <div class="step-card reveal">
-                    <div class="step-number">03</div>
-                    <h3>Customize</h3>
-                    <p>Tell us about your specific allergy needs.</p>
+                <div class="step-card step-card-visual reveal">
+                    <div class="step-card-icon-wrap">
+                        <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=600&q=80" alt="Delivery" loading="lazy">
+                    </div>
+                    <h3>Delivered Fresh</h3>
+                    <p>Packed safely and brought to your door—ready to enjoy.</p>
                 </div>
-                <div class="step-card reveal">
-                    <div class="step-number">04</div>
-                    <h3>Order & Enjoy</h3>
-                    <p>Fast delivery to your doorstep, safe to eat!</p>
+                <div class="step-card step-card-visual reveal">
+                    <div class="step-card-icon-wrap">
+                        <svg class="step-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="9"/>
+                        </svg>
+                    </div>
+                    <h3>Enjoy Confidently</h3>
+                    <p>Every order is labeled and checked so you can dig in without second-guessing.</p>
                 </div>
             </div>
         </div>
@@ -222,18 +229,27 @@
 
     <section class="container section">
         <h2>❤️ Testimonials</h2>
-        <div class="grid grid-3">
-            <div class="card reveal">
-                <p>"Finally a place where I can eat everything without worry. The GF chocolate cake is divine!"</p>
-                <div style="margin-top: 1rem; font-weight: 700;">- Sarah M.</div>
+        <div class="grid-testimonials">
+            <div class="card reveal testimonial-card">
+                <p class="testimonial-quote">"Finally a place where I can eat everything without worry. The GF chocolate cake is divine!"</p>
+                <div class="testimonial-meta">
+                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+                    <div style="font-weight: 700;">Sarah M.</div>
+                </div>
             </div>
-            <div class="card reveal">
-                <p>"Best vegan cookies in town! My kids love them and they are so much healthier."</p>
-                <div style="margin-top: 1rem; font-weight: 700;">- John D.</div>
+            <div class="card reveal testimonial-card">
+                <p class="testimonial-quote">"Best vegan cookies in town! My kids love them and they are so much healthier."</p>
+                <div class="testimonial-meta">
+                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+                    <div style="font-weight: 700;">John D.</div>
+                </div>
             </div>
-            <div class="card reveal">
-                <p>"Professional service and incredibly tasty products. SafeBakes is a lifesaver for our family."</p>
-                <div style="margin-top: 1rem; font-weight: 700;">- Emma R.</div>
+            <div class="card reveal testimonial-card">
+                <p class="testimonial-quote">"Professional service and incredibly tasty products. SafeBakes is a lifesaver for our family."</p>
+                <div class="testimonial-meta">
+                    <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+                    <div style="font-weight: 700;">Emma R.</div>
+                </div>
             </div>
         </div>
     </section>
@@ -274,8 +290,8 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-col" style="flex: 1.5;">
-                <a href="home-premium.html" class="footer-logo">
+            <div class="footer-col footer-col-brand" style="flex: 1.5;">
+                <a href="index.html" class="footer-logo">
                     <i class="fas fa-bread-slice"></i> SafeBakes
                 </a>
                 <p>Bringing you the finest allergy-friendly, gluten-free, and vegan treats. Baked with love and safety in mind.</p>
@@ -294,7 +310,7 @@
                 <h4>Contact</h4>
                 <p>123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
             </div>
-            <div class="footer-col">
+            <div class="footer-col footer-follow-block">
                 <h4>Follow Us</h4>
                 <div class="footer-social">
                     <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>

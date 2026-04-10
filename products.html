@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products | SafeBakes - Allergy Friendly Treats</title>
+    <title>Products | SafeBakes - Retail &amp; Pantry</title>
     <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -50,31 +50,28 @@
         .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; }
         .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
         .toggle-btn { background: none; border: none; color: var(--text-main); cursor: pointer; font-size: 1.2rem; }
-        
+
         .filter-bar { background: var(--bg-card); padding: 1rem 0; border-bottom: 1px solid var(--border); position: sticky; top: 70px; z-index: 900; }
         .filter-container { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
         .filter-chip { padding: 0.5rem 1.2rem; border-radius: 20px; border: 1px solid var(--border); cursor: pointer; background: var(--bg-main); transition: 0.3s; }
         .filter-chip.active { background: var(--primary); color: white; border-color: var(--primary); }
 
         .banner-offer { background: linear-gradient(rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05)); padding: 2rem; border-radius: var(--radius); border: 1px dashed var(--secondary); margin-bottom: 3rem; text-align: center; }
-        
-        .safety-card { background: var(--accent); padding: 2rem; border-radius: var(--radius); text-align: center; }
 
         @media (max-width: 1024px) {
-            .grid-3 {
+            .products-page .grid-3 {
                 grid-template-columns: 1fr !important;
             }
         }
-
     </style>
 </head>
-<body>
+<body class="products-page">
 
 <header class="header">
     <div class="container nav-container">
         <div class="mobile-nav-container">
-            <a href="home-premium.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
-            <button class="navbar-toggler" type="button" id="mobileMenuToggle">
+            <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
+            <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Open menu">
                 <div class="navbar-toggler-icon">
                     <span></span>
                 </div>
@@ -82,19 +79,19 @@
         </div>
         <nav>
             <ul class="nav-links" id="nav-menu">
-                <li><a href="home-premium.html">Premium</a></li>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="home-premium.html">Premium</a></li>
                 <li><a href="menu.html">Menu</a></li>
-                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
             </ul>
         </nav>
         <div class="nav-actions">
-            <button id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
-            <button id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
-            <button class="toggle-btn cart-btn" title="View Cart">
+            <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            <button type="button" class="toggle-btn cart-btn" title="View Cart">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-badge" id="cart-count">0</span>
             </button>
@@ -102,18 +99,17 @@
         </div>
     </div>
 
-    <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
         <div class="mobile-menu-header">
             <h3>Menu</h3>
-            <button class="mobile-menu-close" id="mobileMenuClose">
+            <button type="button" class="mobile-menu-close" id="mobileMenuClose" title="Close menu">
                 <i class="fas fa-times"></i>
             </button>
         </div>
 
         <ul class="mobile-menu-nav">
-            <li><a href="home-premium.html">Premium</a></li>
             <li><a href="index.html">Home</a></li>
+            <li><a href="home-premium.html">Premium</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="about.html">About</a></li>
@@ -122,25 +118,25 @@
         </ul>
 
         <div class="mobile-menu-actions">
-            <button id="mobile-theme-toggle" class="btn btn-outline">
+            <button type="button" id="mobile-theme-toggle" class="btn btn-outline">
                 <i class="fas fa-moon"></i> Theme
             </button>
-            <button id="mobile-rtl-toggle" class="btn btn-outline">
+            <button type="button" id="mobile-rtl-toggle" class="btn btn-outline">
                 <i class="fas fa-globe"></i> RTL
             </button>
             <a href="login.html" class="btn btn-outline">Login</a>
             <a href="register.html" class="btn btn-primary">Register</a>
+            <a href="cart.html" class="btn btn-primary">Cart</a>
         </div>
     </div>
 
-    <!-- Mobile Menu Backdrop -->
     <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
 </header>
 
 <div class="page-header">
     <div class="container">
-        <h1>Our Premium Products</h1>
-        <p>Filtered for your safety, baked for your pleasure.</p>
+        <h1>Packaged Treats &amp; Pantry Staples</h1>
+        <p>Retail-ready bakes with clear labels, ingredient highlights, and fast reorder—built for home, office, and gifting.</p>
     </div>
 </div>
 
@@ -156,127 +152,123 @@
 
 <main class="container section">
     <div class="banner-offer reveal">
-        <h3 style="color: var(--secondary);">🌱 Special Offer: Get 10% off on all Vegan Bundles!</h3>
-        <p>Use code: <strong>VEGANPOWER</strong> at checkout.</p>
+        <h3 style="color: var(--secondary);">📦 Free shipping on retail orders over £45</h3>
+        <p>Stack with subscription savings—see cart for details.</p>
     </div>
     <div class="grid grid-3">
-        <!-- Product 1 -->
         <div class="card reveal" data-category="pastries">
-            <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Blueberry Muffin">
-            <div class="card-body">
+            <img src="https://images.unsplash.com/photo-1514996937319-3444542b8354?w=800&q=80" alt="Seeded morning muffins retail pack" loading="lazy">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-gf">Gluten-Free</span>
                     <span class="tag tag-v">Vegan</span>
                 </div>
-                <h3>Blueberry Bliss Muffins</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Wild blueberries in a moist almond-flour crumb.</p>
-                <div class="price" style="margin-bottom: 1rem;">$4.50</div>
-                <button onclick="addToCart(1)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <h3>Morning Muffin 4-Pack</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Shelf-stable retail box—sunflower, flax, and blueberry.</p>
+                <div class="price menu-price">£9.95</div>
+                <button type="button" onclick="addToCart(1, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
-        <!-- Product 2 -->
         <div class="card reveal" data-category="cookies">
-            <img src="img/WhatsApp Image 2026-04-10 at 3.21.18 PM.jpeg" alt="Chocolate Cookie">
-            <div class="card-body">
+            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=80" alt="Chocolate chip cookie tin" loading="lazy">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-gf">Gluten-Free</span>
-                    <span class="tag tag-sf">Sugar-Free</span>
+                    <span class="tag tag-sf">Lower Sugar</span>
                 </div>
-                <h3>Triple Choc Cookies</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Dark chocolate chunks with stevia sweetener.</p>
-                <div class="price" style="margin-bottom: 1rem;">$3.25</div>
-                <button onclick="addToCart(2)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <h3>Dark Choc Cookie Tin</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Gift-ready tin with full ingredient QR on the lid.</p>
+                <div class="price menu-price">£14.50</div>
+                <button type="button" onclick="addToCart(2, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
-        <!-- Product 3 -->
         <div class="card reveal" data-category="breads">
-            <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM (1).jpeg" alt="Lemon Poppy">
-            <div class="card-body">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80" alt="Artisan sliced loaf" loading="lazy">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-v">Vegan</span>
                 </div>
-                <h3>Lemon Poppyseed Loaf</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Zesty lemon glaze over a soft, plant-based sponge.</p>
-                <div class="price" style="margin-bottom: 1rem;">$12.00</div>
-                <button onclick="addToCart(3)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <h3>Country Loaf (Sliced)</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Frozen retail loaf—bake-off instructions on pack.</p>
+                <div class="price menu-price">£7.80</div>
+                <button type="button" onclick="addToCart(3, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
-        <!-- Product 4 -->
         <div class="card reveal" data-category="pastries">
-            <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM (2).jpeg" alt="Scone">
-            <div class="card-body">
+            <img src="https://images.unsplash.com/photo-1626082926739-88b07879decb?w=800&q=80" alt="Granola bars box" loading="lazy">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-gf">Gluten-Free</span>
                 </div>
-                <h3>Cranberry Scones</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Buttery, flaky scones without the gluten.</p>
-                <div class="price" style="margin-bottom: 1rem;">$3.75</div>
-                <button onclick="addToCart(4)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <h3>Soft-Bake Granola Bars (8)</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Individually wrapped for lunchboxes and travel.</p>
+                <div class="price menu-price">£11.20</div>
+                <button type="button" onclick="addToCart(4, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
-        <!-- Product 5 -->
         <div class="card reveal" data-category="breads">
-            <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM (1).jpeg" alt="Bagel">
-            <div class="card-body">
+            <img src="https://images.unsplash.com/photo-1607962833509-fefc1d5d0780?w=800&q=80" alt="Baking mix pouch" loading="lazy">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-gf">Gluten-Free</span>
                     <span class="tag tag-v">Vegan</span>
                 </div>
-                <h3>Multigrain Bagels (4pk)</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Sesame, flax, and sunflower seeds in a chewy bagel.</p>
-                <div class="price" style="margin-bottom: 1rem;">$8.50</div>
-                <button onclick="addToCart(5)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <h3>GF Pancake &amp; Waffle Mix</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Pantry pouch—just add plant milk and oil.</p>
+                <div class="price menu-price">£6.40</div>
+                <button type="button" onclick="addToCart(5, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
-        <!-- Product 6 -->
         <div class="card reveal" data-category="cakes">
-            <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM (2).jpeg" alt="Cupcake">
-            <div class="card-body">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80" alt="Layer cake retail box" loading="lazy">
+            <div class="card-body menu-card-body">
                 <div style="margin-bottom: 0.5rem;">
                     <span class="tag tag-v">Vegan</span>
-                    <span class="tag tag-sf">Sugar-Free</span>
+                    <span class="tag tag-sf">Lower Sugar</span>
                 </div>
-                <h3>Raspberry Velvet Cupcake</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Rich raspberry frosting on a cocoa base.</p>
-                <div class="price" style="margin-bottom: 1rem;">$5.00</div>
-                <button onclick="addToCart(6)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                <h3>Celebration Mini Layer Cake</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Frozen retail cake—thaw &amp; serve guide inside.</p>
+                <div class="price menu-price">£24.00</div>
+                <button type="button" onclick="addToCart(6, event)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
-    </div>
     </div>
 </main>
 
 <section class="section" style="background: var(--bg-main);">
     <div class="container">
-        <h2>🔥 Popular This Week</h2>
-        <div class="grid grid-3">
+        <h2>🎁 Gift sets &amp; pantry picks</h2>
+        <div class="grid grid-3 popular-week-grid">
             <div class="card reveal">
-                <img src="img/WhatsApp Image 2026-04-10 at 3.21.31 PM.jpeg">
-                <div class="card-body">
-                    <h3>Party Pack Bundle</h3>
-                    <p>Perfect for families with mixed dietary Needs.</p>
-                    <div class="price">$55.00</div>
+                <img src="https://images.unsplash.com/photo-1464306076886-de434f2a4a60?w=600&q=80" alt="Gift box of baked goods" loading="lazy">
+                <div class="card-body menu-card-body">
+                    <h3>Office Treat Tower</h3>
+                    <p>Assorted labeled packs for shared kitchens.</p>
+                    <div class="price menu-price">£48.00</div>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%;">Request invoice</a>
                 </div>
             </div>
             <div class="card reveal">
-                <img src="img/WhatsApp Image 2026-04-10 at 3.21.28 PM.jpeg">
-                <div class="card-body">
-                    <h3>Subscription Box</h3>
-                    <p>Our best bakes delivered to your door.</p>
-                    <div class="price">$29.00</div>
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=80" alt="Ingredients flat lay" loading="lazy">
+                <div class="card-body menu-card-body">
+                    <h3>Starter Pantry Bundle</h3>
+                    <p>Mixes, oats, and chocolate chips for batch baking.</p>
+                    <div class="price menu-price">£32.00</div>
+                    <a href="cart.html" class="btn btn-primary" style="width: 100%;">Add bundle</a>
                 </div>
             </div>
             <div class="card reveal">
-                <img src="img/WhatsApp Image 2026-04-10 at 3.21.29 PM.jpeg">
-                <div class="card-body">
-                    <h3>Celebration Cake</h3>
-                    <p>Fully custom allergen profile included.</p>
-                    <div class="price">$45.00</div>
+                <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&q=80" alt="Coffee and pastry pairing" loading="lazy">
+                <div class="card-body menu-card-body">
+                    <h3>Café Counter Display Kit</h3>
+                    <p>Signage + sealed trays for wholesale partners.</p>
+                    <div class="price menu-price">£62.00</div>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%;">Talk to sales</a>
                 </div>
             </div>
         </div>
@@ -286,46 +278,44 @@
 <section class="container section">
     <div class="card reveal">
         <div class="card-body">
-            <h3 style="color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-shield-alt"></i> Our Safety Promise</h3>
-            <p>We use dedicated equipment for our Gluten-Free and Vegan products to ensure zero cross-contamination. Every batch is tested and verified by our health experts.</p>
-            <a href="about.html" style="color: var(--primary); font-weight: 700; text-decoration: none;">Learn more about our process &rarr;</a>
+            <h3 style="color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-list-alt"></i> Ingredient transparency</h3>
+            <p>Every retail pack lists facility protocols, may-contain statements, and batch codes. Download allergen PDFs from your order confirmation or scan the QR on the box.</p>
+            <a href="about.html" style="color: var(--primary); font-weight: 700; text-decoration: none;">How we label products &rarr;</a>
         </div>
     </div>
 </section>
 
 <section class="safety-assurance">
     <div class="container">
-        <h2>Our Safety Commitment</h2>
+        <h2>Packaging &amp; cold chain</h2>
         <div class="safety-grid">
             <div class="safety-item reveal">
-                <div class="safety-icon"><i class="fas fa-microscope"></i></div>
-                <h4>Lab-Tested Batches</h4>
-                <p>Every ingredient is screened for trace allergens before entering our dedicated kitchen.</p>
+                <div class="safety-icon"><i class="fas fa-box-open"></i></div>
+                <h4>Sealed retail packs</h4>
+                <p>Tamper-evident wraps and moisture barriers keep bakes stable from our kitchen to your shelf.</p>
             </div>
             <div class="safety-item reveal">
-                <div class="safety-icon"><i class="fas fa-hand-sparkles"></i></div>
-                <h4>Zero Cross-Contamination</h4>
-                <p>We use color-coded, dedicated equipment for every allergen group to ensure 100% purity.</p>
+                <div class="safety-icon"><i class="fas fa-snowflake"></i></div>
+                <h4>Insulated shipping</h4>
+                <p>Frozen cakes and doughs ship with gel packs and tracked next-day options.</p>
             </div>
             <div class="safety-item reveal">
-                <div class="safety-icon"><i class="fas fa-certificate"></i></div>
-                <h4>Certified Safe</h4>
-                <p>Proudly recognized by leading allergy associations for our strict safety protocols.</p>
+                <div class="safety-icon"><i class="fas fa-sync-alt"></i></div>
+                <h4>Easy reorder</h4>
+                <p>Subscriptions and one-click repurchase from your dashboard—same specs, predictable delivery.</p>
             </div>
         </div>
         <div class="btn-wrapper">
-            <a href="about.html" class="btn btn-secondary">Learn More About Our Process</a>
+            <a href="dashboard.html" class="btn btn-secondary">Manage orders</a>
         </div>
     </div>
 </section>
 
-
-
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-col" style="flex: 1.5;">
-                <a href="home-premium.html" class="footer-logo">
+            <div class="footer-col footer-col-brand" style="flex: 1.5;">
+                <a href="index.html" class="footer-logo">
                     <i class="fas fa-bread-slice"></i> SafeBakes
                 </a>
                 <p>Bringing you the finest allergy-friendly, gluten-free, and vegan treats. Baked with love and safety in mind.</p>
@@ -344,7 +334,7 @@
                 <h4>Contact</h4>
                 <p>123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
             </div>
-            <div class="footer-col">
+            <div class="footer-col footer-follow-block">
                 <h4>Follow Us</h4>
                 <div class="footer-social">
                     <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>

@@ -18,8 +18,8 @@
 <header class="header">
     <div class="container nav-container">
         <div class="mobile-nav-container">
-            <a href="home-premium.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
-            <button class="navbar-toggler" type="button" id="mobileMenuToggle">
+            <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
+            <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Open menu">
                 <div class="navbar-toggler-icon">
                     <span></span>
                 </div>
@@ -27,8 +27,8 @@
         </div>
         <nav>
             <ul class="nav-links" id="nav-menu">
-                <li><a href="home-premium.html">Premium</a></li>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="home-premium.html">Premium</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
@@ -37,9 +37,9 @@
             </ul>
         </nav>
         <div class="nav-actions">
-            <button id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
-            <button id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
-            <button class="toggle-btn cart-btn" title="View Cart">
+            <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            <button type="button" class="toggle-btn cart-btn" title="View Cart">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-badge" id="cart-count">0</span>
             </button>
@@ -47,18 +47,17 @@
         </div>
     </div>
 
-    <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
         <div class="mobile-menu-header">
             <h3>Menu</h3>
-            <button class="mobile-menu-close" id="mobileMenuClose">
+            <button type="button" class="mobile-menu-close" id="mobileMenuClose" title="Close menu">
                 <i class="fas fa-times"></i>
             </button>
         </div>
 
         <ul class="mobile-menu-nav">
-            <li><a href="home-premium.html">Premium</a></li>
             <li><a href="index.html">Home</a></li>
+            <li><a href="home-premium.html">Premium</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="about.html">About</a></li>
@@ -67,18 +66,18 @@
         </ul>
 
         <div class="mobile-menu-actions">
-            <button id="mobile-theme-toggle" class="btn btn-outline">
+            <button type="button" id="mobile-theme-toggle" class="btn btn-outline">
                 <i class="fas fa-moon"></i> Theme
             </button>
-            <button id="mobile-rtl-toggle" class="btn btn-outline">
+            <button type="button" id="mobile-rtl-toggle" class="btn btn-outline">
                 <i class="fas fa-globe"></i> RTL
             </button>
             <a href="login.html" class="btn btn-outline">Login</a>
             <a href="register.html" class="btn btn-primary">Register</a>
+            <a href="cart.html" class="btn btn-primary">Cart</a>
         </div>
     </div>
 
-    <!-- Mobile Menu Backdrop -->
     <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
 </header>
 
@@ -198,8 +197,8 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-col" style="flex: 1.5;">
-                <a href="home-premium.html" class="footer-logo">
+            <div class="footer-col footer-col-brand" style="flex: 1.5;">
+                <a href="index.html" class="footer-logo">
                     <i class="fas fa-bread-slice"></i> SafeBakes
                 </a>
                 <p>Bringing you the finest allergy-friendly, gluten-free, and vegan treats. Baked with love and safety in mind.</p>
@@ -218,7 +217,7 @@
                 <h4>Contact</h4>
                 <p>123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
             </div>
-            <div class="footer-col">
+            <div class="footer-col footer-follow-block">
                 <h4>Follow Us</h4>
                 <div class="footer-social">
                     <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
