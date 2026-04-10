@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Plans | SafeBakes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header { padding: 8rem 0 4rem; background: var(--bg-card); text-align: center; }
+        .plan-price { font-size: 2.5rem; font-weight: 700; color: var(--primary); margin: 1rem 0; }
+        .plan-price span { font-size: 1rem; color: var(--text-muted); }
+        .feature-list { list-style: none; margin: 2rem 0; text-align: left; }
+        .feature-list li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+        .feature-list i { color: var(--secondary); }
+        .header { position: fixed; top: 0; width: 100%; background: var(--bg-card); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; box-shadow: var(--shadow); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
+        .toggle-btn { background: none; border: none; color: var(--text-main); cursor: pointer; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">SafeBakes 🍰</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i></button>
+            <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-globe"></i></button>
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="menu.html" class="btn btn-primary">Order Now</a>
+        </div>
+    </div>
+</header>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Baking on Autopilot</h1>
+        <p>Choose a plan and never run out of your favorite safe treats.</p>
+    </div>
+</div>
+
+<main class="container section">
+    <div class="grid grid-3">
+        <div class="card reveal" style="text-align: center;">
+            <h3>Weekly Healthy Box</h3>
+            <div class="plan-price">$29<span>/week</span></div>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> 6 Assorted Muffins</li>
+                <li><i class="fas fa-check-circle"></i> 1 Artisan Bread Loaf</li>
+                <li><i class="fas fa-check-circle"></i> Free Same-Day Delivery</li>
+                <li><i class="fas fa-check-circle"></i> 100% GF & Vegan</li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="width: 100%;">Subscribe Now</a>
+        </div>
+
+        <div class="card reveal" style="text-align: center; border-color: var(--secondary); transform: scale(1.05); box-shadow: var(--shadow-lg);">
+            <div style="background: var(--secondary); color: white; padding: 0.3rem; border-radius: 20px; font-size: 0.8rem; margin-bottom: 1rem;">MOST POPULAR</div>
+            <h3>Monthly Dessert Plan</h3>
+            <div class="plan-price">$89<span>/month</span></div>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> 12 Gourmet Cupcakes</li>
+                <li><i class="fas fa-check-circle"></i> 2 Specialty Tarts</li>
+                <li><i class="fas fa-check-circle"></i> Monthly Surprises</li>
+                <li><i class="fas fa-check-circle"></i> Priority Support</li>
+            </ul>
+            <a href="#" class="btn btn-secondary" style="width: 100%;">Subscribe Now</a>
+        </div>
+
+        <div class="card reveal" style="text-align: center;">
+            <h3>Fitness Snack Pack</h3>
+            <div class="plan-price">$45<span>/month</span></div>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> 20 High-Protein Cookies</li>
+                <li><i class="fas fa-check-circle"></i> Sugar-Free Options</li>
+                <li><i class="fas fa-check-circle"></i> Nut-Free Guaranteed</li>
+                <li><i class="fas fa-check-circle"></i> Resealable Packaging</li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="width: 100%;">Subscribe Now</a>
+        </div>
+    </div>
+</main>
+
+<section class="section" style="background: var(--bg-card);">
+    <div class="container">
+        <h2>📊 How It Works</h2>
+        <div class="grid grid-3" style="text-align: center;">
+            <div class="reveal">
+                <i class="fas fa-mouse-pointer" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                <h3>1. Select Plan</h3>
+                <p>Pick the box that fits your lifestyle and allergen needs.</p>
+            </div>
+            <div class="reveal">
+                <i class="fas fa-box-open" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                <h3>2. We Bake & Pack</h3>
+                <p>Fresh bakes, packed in eco-friendly, sanitized containers.</p>
+            </div>
+            <div class="reveal">
+                <i class="fas fa-truck" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                <h3>3. Regular Delivery</h3>
+                <p>Get your safe treats delivered to your door every week or month.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container section">
+    <h2>📦 What's Inside?</h2>
+    <div class="grid grid-2" style="align-items: center;">
+        <div class="reveal">
+            <img src="img/WhatsApp Image 2026-04-10 at 3.21.32 PM.jpeg" style="width: 100%; border-radius: var(--radius);">
+        </div>
+        <div class="reveal">
+            <h3>The October Subscription Box</h3>
+            <p style="margin: 1.5rem 0;">This month's box is all about autumn flavors! Our members are currently enjoying:</p>
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 0.5rem;"></i> Pumpkin Spice GF Donuts</li>
+                <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 0.5rem;"></i> Chai-Infused Vegan Cookies</li>
+                <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 0.5rem;"></i> Maple Pecan Artisan Bread</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background: var(--primary); color: white;">
+    <div class="container text-center">
+        <h2 style="color: white;">🌟 Members-Only Perks</h2>
+        <div class="grid grid-3" style="margin-top: 3rem;">
+            <div class="reveal">
+                <h4>Early Access</h4>
+                <p style="opacity: 0.8;">Be the first to try our seasonal limited edition bakes.</p>
+            </div>
+            <div class="reveal">
+                <h4>Free Shipping</h4>
+                <p style="opacity: 0.8;">Never pay for delivery on your subscription or any add-on orders.</p>
+            </div>
+            <div class="reveal">
+                <h4>Exclusive Recipes</h4>
+                <p style="opacity: 0.8;">Monthly digital recipe cards sent to your inbox.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container section">
+    <h2>❓ Subscription FAQ</h2>
+    <div class="grid grid-2" style="margin-top: 2rem;">
+        <div class="reveal">
+            <h4>Can I skip a week?</h4>
+            <p>Absolutely! You can pause or skip a delivery anytime through your dashboard.</p>
+        </div>
+        <div class="reveal">
+            <h4>When will my box arrive?</h4>
+            <p>Subscription boxes are shipped every Tuesday for Wednesday delivery.</p>
+        </div>
+        <div class="reveal">
+            <h4>Are the boxes nut-free?</h4>
+            <p>You can specify "Nut-Free" in your profile and we will customize your box accordingly.</p>
+        </div>
+        <div class="reveal">
+            <h4>How do I cancel?</h4>
+            <p>No long-term contracts. Cancel anytime with just 48 hours notice before your next box.</p>
+        </div>
+    </div>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>

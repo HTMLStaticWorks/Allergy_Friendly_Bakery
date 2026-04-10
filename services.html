@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | SafeBakes - Beyond Baking</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header { padding: 8rem 0 4rem; background: var(--bg-card); text-align: center; }
+        .service-icon { font-size: 3rem; color: var(--secondary); margin-bottom: 1.5rem; }
+        .header { position: fixed; top: 0; width: 100%; background: var(--bg-card); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; box-shadow: var(--shadow); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; }
+        .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
+        .toggle-btn { background: none; border: none; color: var(--text-main); cursor: pointer; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">SafeBakes 🍰</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i></button>
+            <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-globe"></i></button>
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="menu.html" class="btn btn-primary">Order Now</a>
+        </div>
+    </div>
+</header>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Our Premium Services</h1>
+        <p>Tailored solutions for every allergy and every occasion.</p>
+    </div>
+</div>
+
+<main class="container section">
+    <div class="grid grid-3">
+        <div class="card reveal" style="text-align: center; padding: 3rem;">
+            <div class="service-icon"><i class="fas fa-birthday-cake"></i></div>
+            <h3>Custom Cakes</h3>
+            <p style="margin-bottom: 2rem;">Bespoke cake designs for birthdays, weddings, or anniversaries. Fully customizable allergen profiles.</p>
+            <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+
+        <div class="card reveal" style="text-align: center; padding: 3rem;">
+            <div class="service-icon"><i class="fas fa-truck-loading"></i></div>
+            <h3>Event Orders</h3>
+            <p style="margin-bottom: 2rem;">Large-scale catering for corporate events, parties, and gatherings. We make sure everyone can eat safely.</p>
+            <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+
+        <div class="card reveal" style="text-align: center; padding: 3rem;">
+            <div class="service-icon"><i class="fas fa-apple-alt"></i></div>
+            <h3>Diet Consultation</h3>
+            <p style="margin-bottom: 2rem;">Work with our nutritionists to create a personalized baking plan that fits your specific dietary restrictions.</p>
+            <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+    </div>
+</main>
+
+<section class="section" style="background: var(--bg-card);">
+    <div class="container">
+        <h2>✨ Recent Custom Work</h2>
+        <div class="grid grid-4" style="margin-top: 3rem;">
+            <div class="reveal"><img src="img/WhatsApp Image 2026-04-10 at 3.22.27 PM (1).jpeg" style="width: 100%; border-radius: var(--radius);"></div>
+            <div class="reveal"><img src="img/WhatsApp Image 2026-04-10 at 3.21.29 PM.jpeg" style="width: 100%; border-radius: var(--radius);"></div>
+            <div class="reveal"><img src="img/WhatsApp Image 2026-04-10 at 3.21.32 PM.jpeg" style="width: 100%; border-radius: var(--radius);"></div>
+            <div class="reveal"><img src="img/WhatsApp Image 2026-04-10 at 3.22.21 PM.jpeg" style="width: 100%; border-radius: var(--radius);"></div>
+        </div>
+    </div>
+</section>
+
+<section class="container section">
+    <h2>🛠️ The Consultation Process</h2>
+    <div class="grid grid-2" style="align-items: center; gap: 4rem;">
+        <div class="reveal">
+            <h3>From Idea to Edible Masterpiece</h3>
+            <p style="margin: 1.5rem 0;">We take custom orders seriously. Our process ensures that your vision is brought to life safely and beautifully.</p>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <div style="background: var(--secondary); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+                    <p><strong>Discovery Call:</strong> We discuss your theme, guest count, and specific allergen needs.</p>
+                </div>
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <div style="background: var(--secondary); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+                    <p><strong>Design Proposal:</strong> We send sketches and ingredient sourcing details for approval.</p>
+                </div>
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <div style="background: var(--secondary); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+                    <p><strong>Baking & QC:</strong> Our team bakes in a sanitized environment with double verification.</p>
+                </div>
+            </div>
+        </div>
+        <div class="reveal">
+            <img src="img/WhatsApp Image 2026-04-10 at 3.22.25 PM.jpeg" style="width: 100%; border-radius: var(--radius);">
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background: var(--accent);">
+    <div class="container">
+        <h2>❓ Service FAQ</h2>
+        <div class="grid grid-2" style="margin-top: 3rem;">
+            <div class="reveal">
+                <h4>What is the lead time for custom cakes?</h4>
+                <p>We require at least 14 days notice for wedding cakes and 7 days for specialty birthday cakes.</p>
+            </div>
+            <div class="reveal">
+                <h4>Do you deliver event orders?</h4>
+                <p>Yes, we provide safe transport and setup for all large event orders within a 50-mile radius.</p>
+            </div>
+            <div class="reveal">
+                <h4>Can you match exact color themes?</h4>
+                <p>We use natural, plant-based food coloring. While we can get very close, some neon shades may differ slightly.</p>
+            </div>
+            <div class="reveal">
+                <h4>Is there a minimum for wholesale?</h4>
+                <p>Yes, we typically require a minimum weekly order of 24 items for wholesale partners.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background: var(--primary); color: white;">
+    <div class="container text-center">
+        <h2 style="color: white; margin-bottom: 2rem;">Ready to start your safe baking project?</h2>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a href="contact.html" class="btn btn-secondary btn-lg">Book a Consultation</a>
+            <a href="#" class="btn btn-outline" style="color: white; border-color: white;">Pricing Guide</a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer" style="background: var(--primary); color: white; padding: 4rem 0 2rem; margin-top: 5rem;">
+    <div class="container">
+        <div style="text-align: center; opacity: 0.8;">
+            &copy; 2026 SafeBakes. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,436 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="utf-8">
-    <title>Baker - Bakery Website Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-        <link rel="icon" type="image/png" href="img/favicon.png">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-
-    
-</head>
-
-<body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-    <!-- Spinner End -->
-
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-            <h1 class="text-primary m-0">Baker</h1>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-                                                <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav mx-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="index2.html" class="nav-item nav-link">Home 2</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link">Services</a>
-                <a href="product.html" class="nav-item nav-link">Products</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-item nav-link active">Contact</a>
-                <a href="dashboard.html" class="nav-item nav-link">Dashboard</a>
-            </div>
-            <div class="d-flex align-items-center ms-lg-3">
-                <a href="login.html" class="btn btn-primary rounded-pill py-2 px-4 me-3 mt-3 mt-lg-0">Login</a>
-                <a href="cart.html" class="btn btn-sm btn-outline-light rounded-circle border-light me-2 mt-3 mt-lg-0" title="Shopping Cart" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; position: relative;">
-                    <i class="bi bi-cart-fill"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary" id="cartCount" style="font-size: 0.6rem;">0</span>
-                </a>
-                <button id="rtlToggle" class="btn btn-sm btn-outline-light rounded-circle border-light me-2 mt-3 mt-lg-0" title="Toggle RTL" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
-                    <span id="rtlText" style="font-size: 10px; font-weight: bold;">RTL</span>
-                </button>
-                <button id="themeToggle" class="btn btn-sm btn-outline-light rounded-circle border-light mt-3 mt-lg-0" title="Toggle theme" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-moon-fill" id="themeIcon"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-    <!-- Navbar End -->
-
-
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header py-6 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center pt-5 pb-3">
-            <h1 class="display-4 text-white animated slideInDown mb-3">Contact Us</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">Contact</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <!-- Page Header End -->
-
-
-    <!-- Contact Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase mb-2">Contact Us</p>
-                <h1 class="display-6 mb-4">If You Have Any Query, Please Contact Us</h1>
-            </div>
-            <div class="row g-0 justify-content-center">
-                <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="text-center mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-                            </div>
-                            <div class="col-12 text-center">
-                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Contact End -->
-
-
-    <!-- Google Map Start -->
-    <div class="container-xxl py-6 px-0 wow fadeInUp" data-wow-delay="0.1s">
-        <iframe class="w-100 mb-n2" style="height: 450px;"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-            frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-    </div>
-    <!-- Google Map End -->
-
-
-        <!-- Three Sections Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="row g-4 text-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="bg-light rounded p-4 h-100 shadow-sm">
-                        <h4 class="mb-3">Quality Ingredients</h4>
-                        <p class="mb-0">We source only the highest quality organic flour and the freshest dairy to ensure our products taste exceptional.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="bg-light rounded p-4 h-100 shadow-sm">
-                        <h4 class="mb-3">Master Bakers</h4>
-                        <p class="mb-0">Our experienced team of bakers brings decades of passion and skill to every loaf, cake, and pastry.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="bg-light rounded p-4 h-100 shadow-sm">
-                        <h4 class="mb-3">Baked Fresh Daily</h4>
-                        <p class="mb-0">Every morning, our ovens are fired up before dawn so you can enjoy warm, fresh bread straight from the bakery.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Three Sections End -->
-
-        <!-- Section 1: Highlights -->
-    <div class="container-xxl py-6 bg-light">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase fw-bold mb-2">Locations</p>
-                <h1 class="display-6 mb-4">Visit Us</h1>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="bg-white rounded text-center h-100 p-4 hover-scale shadow-sm">
-                        <i class="fa fa-map-marker-alt fa-3x text-primary mb-3 icon-glow"></i>
-                        <h4 class="mb-2">Downtown Store</h4>
-                        <p class="mb-0 ">123 Street, New York, USA<br>Open 6 AM - 8 PM</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="bg-white rounded text-center h-100 p-4 hover-scale shadow-sm">
-                        <i class="fa fa-map-marker-alt fa-3x text-primary mb-3 icon-glow"></i>
-                        <h4 class="mb-2">Brooklyn Branch</h4>
-                        <p class="mb-0 ">456 Avenue, Brooklyn, NY<br>Open 7 AM - 9 PM</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="bg-white rounded text-center h-100 p-4 hover-scale shadow-sm">
-                        <i class="fa fa-map-marker-alt fa-3x text-primary mb-3 icon-glow"></i>
-                        <h4 class="mb-2">Queens Outlet</h4>
-                        <p class="mb-0 ">789 Blvd, Queens, NY<br>Open 6 AM - 7 PM</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 2: Content + Image -->
-    <div class="container-xxl py-6 my-6">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="position-relative shadow-sm rounded overflow-hidden hover-scale border border-primary p-2">
-                        <img class="img-fluid w-100 rounded" src="img/about-1.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp text-center" data-wow-delay="0.5s">
-                    <p class="text-primary text-uppercase fw-bold mb-2">Connect</p>
-                    <h1 class="display-6 mb-4">We Love Hearing From You</h1>
-                    <p class="mb-4">Whether you have a question about an order, want to learn more about our gluten-free options, or simply want to say hi, our dedicated support team is here to help you.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 3: Stats -->
-    <div class="container-xxl py-6 mb-6">
-        <div class="container">
-            <div class="row g-4 text-center">
-                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="counter-box bg-dark hover-scale">
-                        <h1 class="display-4 text-primary mb-0">2<span class="counter-plus">+</span> Hrs</h1>
-                        <h5 class="mt-2 text-white">Average Email Response Time</h5>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="counter-box bg-primary hover-scale">
-                        <h1 class="display-4 text-white mb-0">15<span class="counter-plus">+</span> Mins</h1>
-                        <h5 class="mt-2 text-white">Average Delivery Delay</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer my-6 mb-0 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-6">
-                    <a href="index.html" class="navbar-brand d-block mb-4">
-                        <h1 class="text-primary m-0">Baker</h1>
-                    </a>
-                    <h4 class="text-light mb-4">Office Address</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="" title="Twitter"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="" title="Facebook"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="" title="YouTube"><i
-                                class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href="" title="LinkedIn" title="LinkedIn"><i
-                                class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="service.html">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h4 class="text-light mb-4">Newsletter</h4>
-                    <p>Get the latest updates and special offers directly in your inbox.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control bg-transparent border-light w-100 py-3 ps-4 pe-5" type="text"
-                            placeholder="Your email">
-                        <button type="button"
-                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright text-light py-4 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a href="#">Baker</a>, All Right Reserved.
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Copyright End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
-            <script>
-        // RTL Toggle
-        const rtlToggle = document.getElementById('rtlToggle');
-        const rtlText = document.getElementById('rtlText');
-        const htmlElement = document.documentElement;
-
-        const savedDir = localStorage.getItem('bakerDir') || 'ltr';
-        htmlElement.setAttribute('dir', savedDir);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | SafeBakes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header { padding: 8rem 0 4rem; background: var(--bg-card); text-align: center; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
+        .contact-form { background: var(--bg-card); padding: 2.5rem; border-radius: var(--radius); border: 1px solid var(--border); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg-main); color: var(--text-main); }
+        .header { position: fixed; top: 0; width: 100%; background: var(--bg-card); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; box-shadow: var(--shadow); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
+        .toggle-btn { background: none; border: none; color: var(--text-main); cursor: pointer; font-size: 1.2rem; }
         
-        if (savedDir === 'rtl') {
-            document.body.classList.add('text-end');
-            if(rtlText) rtlText.innerText = 'LTR';
-        } else {
-            document.body.classList.remove('text-end');
-            if(rtlText) rtlText.innerText = 'RTL';
-        }
+        .contact-card { background: var(--bg-card); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border); text-align: center; }
+        .faq-item { margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+        .wholesale-banner { background: var(--primary); color: white; padding: 4rem 0; text-align: center; border-radius: var(--radius); }
+    </style>
+</head>
+<body>
 
-        if(rtlToggle) {
-            rtlToggle.addEventListener('click', () => {
-                const currentDir = htmlElement.getAttribute('dir');
-                const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
-                
-                htmlElement.setAttribute('dir', newDir);
-                localStorage.setItem('bakerDir', newDir);
-                
-                if (newDir === 'rtl') {
-                    document.body.classList.add('text-end');
-                    if(rtlText) rtlText.innerText = 'LTR';
-                } else {
-                    document.body.classList.remove('text-end');
-                    if(rtlText) rtlText.innerText = 'RTL';
-                }
-            });
-        }
+<header class="header">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">SafeBakes 🍰</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i></button>
+            <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-globe"></i></button>
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="menu.html" class="btn btn-primary">Order Now</a>
+        </div>
+    </div>
+</header>
 
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const cartButton = document.querySelector('a[href="cart.html"]');
+<div class="page-header">
+    <div class="container">
+        <h1>Let's Get in Touch</h1>
+        <p>Have questions about allergens or custom orders? We're here to help.</p>
+    </div>
+</div>
 
-        const savedTheme = localStorage.getItem('bakerTheme') || 'dark';
-        htmlElement.setAttribute('data-theme', savedTheme);
-        updateIcon(savedTheme);
+<main>
+    <section class="container section">
+        <div class="grid grid-3">
+            <div class="contact-card reveal">
+                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Our Location</h3>
+                <p>123 Bakery Lane, London, UK</p>
+            </div>
+            <div class="contact-card reveal">
+                <i class="fas fa-phone" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Call Us</h3>
+                <p>+44 20 1234 5678</p>
+            </div>
+            <div class="contact-card reveal">
+                <i class="fas fa-clock" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Opening Hours</h3>
+                <p>Mon - Sat: 8am - 6pm<br>Sun: 9am - 4pm</p>
+            </div>
+        </div>
+    </section>
 
-        if(themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = htmlElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                htmlElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('bakerTheme', newTheme);
-                updateIcon(newTheme);
-            });
-        }
+    <section class="section" style="background: var(--bg-card);">
+        <div class="container contact-grid">
+            <div class="reveal">
+                <h3 style="text-align: left; margin-bottom: 2rem;">Find Us</h3>
+                <div style="width: 100%; height: 400px; background: #eee; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: #999;">
+                    <p><i class="fas fa-map-marked-alt" style="font-size: 3rem; display: block; margin-bottom: 1rem; text-align: center;"></i> Map View</p>
+                </div>
+            </div>
+            <div class="contact-form reveal">
+                <h3 style="text-align: left; margin-bottom: 2rem;">Send us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-        function updateIcon(theme) {
-            if (!themeIcon || !themeToggle) return;
-            if (theme === 'light') {
-                themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
-                themeToggle.classList.replace('btn-outline-light', 'btn-outline-dark');
-                themeToggle.classList.replace('border-light', 'border-dark');
-                themeToggle.style.background = '#ffffff';
-                themeToggle.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                if(rtlToggle) {
-                   rtlToggle.classList.replace('btn-outline-light', 'btn-outline-dark');
-                   rtlToggle.classList.replace('border-light', 'border-dark');
-                   rtlToggle.style.background = '#ffffff';
-                   rtlToggle.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                }
-                if(cartButton) {
-                   cartButton.classList.replace('btn-outline-light', 'btn-outline-dark');
-                   cartButton.classList.replace('border-light', 'border-dark');
-                   cartButton.style.background = '#ffffff';
-                   cartButton.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                }
-            } else {
-                themeIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
-                themeToggle.classList.replace('btn-outline-dark', 'btn-outline-light');
-                themeToggle.classList.replace('border-dark', 'border-light');
-                themeToggle.style.background = 'transparent';
-                themeToggle.style.boxShadow = 'none';
-                if(rtlToggle) {
-                   rtlToggle.classList.replace('btn-outline-dark', 'btn-outline-light');
-                   rtlToggle.classList.replace('border-dark', 'border-light');
-                   rtlToggle.style.background = 'transparent';
-                   rtlToggle.style.boxShadow = 'none';
-                }
-                if(cartButton) {
-                   cartButton.classList.replace('btn-outline-dark', 'btn-outline-light');
-                   cartButton.classList.replace('border-dark', 'border-light');
-                   cartButton.style.background = 'transparent';
-                   cartButton.style.boxShadow = 'none';
-                }
-            }
-        }
-    </script>
+    <section class="container section">
+        <div class="wholesale-banner reveal">
+            <h2 style="color: white;">Wholesale & Event Inquiries</h2>
+            <p style="margin: 1.5rem 0 2rem; opacity: 0.9;">Need SafeBakes for your coffee shop or a special event?</p>
+            <a href="#" class="btn btn-secondary">Get Wholesale Quote</a>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--accent);">
+        <div class="container">
+            <h2>❓ Frequently Asked Questions</h2>
+            <div class="grid grid-2" style="margin-top: 3rem;">
+                <div class="reveal faq-item">
+                    <h4>Do you offer nut-free options?</h4>
+                    <p>Yes, we have a dedicated nut-free line, although some products are made in the same facility with strict protocols.</p>
+                </div>
+                <div class="reveal faq-item">
+                    <h4>Can I order a custom cake with 24h notice?</h4>
+                    <p>We typically require 48-72h for custom orders to ensure the safest ingredients are sourced.</p>
+                </div>
+                <div class="reveal faq-item">
+                    <h4>Do you ship internationally?</h4>
+                    <p>Currently we ship within the UK. We are working on EU shipping soon!</p>
+                </div>
+                <div class="reveal faq-item">
+                    <h4>How should I store my treats?</h4>
+                    <p>Most bakes stay fresh for 3 days in an airtight container at room temperature.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container section">
+        <h2>📸 Follow our Journey</h2>
+        <div class="grid grid-4" style="margin-top: 2rem;">
+            <div class="reveal"><div style="aspect-ratio: 1/1; background: #ddd; border-radius: var(--radius); display: flex; align-items: center; justify-content: center;"><i class="fab fa-instagram" style="font-size: 2rem; opacity: 0.3;"></i></div></div>
+            <div class="reveal"><div style="aspect-ratio: 1/1; background: #ddd; border-radius: var(--radius); display: flex; align-items: center; justify-content: center;"><i class="fab fa-instagram" style="font-size: 2rem; opacity: 0.3;"></i></div></div>
+            <div class="reveal"><div style="aspect-ratio: 1/1; background: #ddd; border-radius: var(--radius); display: flex; align-items: center; justify-content: center;"><i class="fab fa-instagram" style="font-size: 2rem; opacity: 0.3;"></i></div></div>
+            <div class="reveal"><div style="aspect-ratio: 1/1; background: #ddd; border-radius: var(--radius); display: flex; align-items: center; justify-content: center;"><i class="fab fa-instagram" style="font-size: 2rem; opacity: 0.3;"></i></div></div>
+        </div>
+    </section>
+</main>
+
+<script src="js/main.js"></script>
 </body>
-
 </html>

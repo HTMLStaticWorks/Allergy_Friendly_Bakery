@@ -1,864 +1,323 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="utf-8">
-    <title>Baker - Bakery Website Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergy-Friendly Bakery | Deliciously Safe, Naturally Made</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Home Specific Styles */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/WhatsApp Image 2026-04-10 at 3.21.19 PM (1).jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
 
-    <!-- Favicon -->
-        <link rel="icon" type="image/png" href="img/favicon.png">
+        .hero-content h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
-        rel="stylesheet">
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-    
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h4 { color: white; text-align: left; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .step-card {
+            padding: 2rem;
+            border-radius: var(--radius);
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .step-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            opacity: 0.3;
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-    <!-- Spinner End -->
 
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-            <h1 class="text-primary m-0">Baker</h1>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-                                                <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav mx-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home 1</a>
-                <a href="index2.html" class="nav-item nav-link">Home 2</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link">Services</a>
-                <a href="product.html" class="nav-item nav-link">Products</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
-                <a href="dashboard.html" class="nav-item nav-link">Dashboard</a>
-            </div>
-            <div class="d-flex align-items-center ms-lg-3">
-                <a href="login.html" class="btn btn-primary rounded-pill py-2 px-4 me-3 mt-3 mt-lg-0">Login</a>
-                <a href="cart.html" class="btn btn-sm btn-outline-light rounded-circle border-light me-2 mt-3 mt-lg-0" title="Shopping Cart" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; position: relative;">
-                    <i class="bi bi-cart-fill"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary" id="cartCount" style="font-size: 0.6rem;">0</span>
-                </a>
-                <button id="rtlToggle" class="btn btn-sm btn-outline-light rounded-circle border-light me-3 mt-3 mt-lg-0" title="Toggle RTL" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
-                    <span id="rtlText" style="font-size: 10px; font-weight: bold;">RTL</span>
-                </button>
-                <button id="themeToggle" class="btn btn-sm btn-outline-light rounded-circle border-light ms-2 mt-3 mt-lg-0" title="Toggle theme" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-moon-fill" id="themeIcon"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-    <!-- Navbar End -->
-
-
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="owl-carousel header-carousel position-relative">
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-1.jpg" alt="">
-                <div class="owl-carousel-inner">
-                    <div class="container">
-                        <div class="row justify-content-center text-center">
-                            <div class="col-lg-8">
-                                <p class="text-primary text-uppercase fw-bold mb-2">The Best Bakery</p>
-                                <h1 class="display-1 text-light mb-4 animated slideInDown">We Bake With Passion</h1>
-                                <p class="text-light fs-5 mb-4 pb-3">Savor the rich, comforting flavors of our freshly baked artisanal treats.</p>
-                                <a href="" class="btn btn-primary rounded-pill py-3 px-5">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-2.jpg" alt="">
-                <div class="owl-carousel-inner">
-                    <div class="container">
-                        <div class="row justify-content-center text-center">
-                            <div class="col-lg-8">
-                                <p class="text-primary text-uppercase fw-bold mb-2">The Best Bakery</p>
-                                <h1 class="display-1 text-light mb-4 animated slideInDown">We Bake With Passion</h1>
-                                <p class="text-light fs-5 mb-4 pb-3">Savor the rich, comforting flavors of our freshly baked artisanal treats.</p>
-                                <a href="" class="btn btn-primary rounded-pill py-3 px-5">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Carousel End -->
-
-
-    <!-- Facts Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="fact-item bg-light rounded text-center h-100 p-5">
-                        <i class="fa fa-certificate fa-4x text-primary mb-4"></i>
-                        <p class="mb-2">Years Experience</p>
-                        <h1 class="display-5 mb-0">50<span class="counter-plus">+</span></h1>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="fact-item bg-light rounded text-center h-100 p-5">
-                        <i class="fa fa-users fa-4x text-primary mb-4"></i>
-                        <p class="mb-2">Skilled Professionals</p>
-                        <h1 class="display-5 mb-0">175<span class="counter-plus">+</span></h1>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="fact-item bg-light rounded text-center h-100 p-5">
-                        <i class="fa fa-bread-slice fa-4x text-primary mb-4"></i>
-                        <p class="mb-2">Total Products</p>
-                        <h1 class="display-5 mb-0">135<span class="counter-plus">+</span></h1>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="fact-item bg-light rounded text-center h-100 p-5">
-                        <i class="fa fa-cart-plus fa-4x text-primary mb-4"></i>
-                        <p class="mb-2">Order Everyday</p>
-                        <h1 class="display-5 mb-0">9357<span class="counter-plus">+</span></h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Facts End -->
-
-
-    <!-- About Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp mb-5 mb-lg-0" data-wow-delay="0.1s">
-
-                    <div class="row img-twice position-relative h-100">
-                        <div class="col-6">
-                            <img class="img-fluid rounded" src="img/about-1.jpg" alt="">
-                        </div>
-                        <div class="col-6 align-self-end">
-                            <img class="img-fluid rounded" src="img/about-2.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp text-center" data-wow-delay="0.5s">
-                    <div class="h-100">
-                        <p class="text-primary text-uppercase mb-2">About Us</p>
-                        <h1 class="display-6 mb-4">We Bake Every Item From The Core Of Our Hearts</h1>
-                        <p>Experience the finest baked goods crafted with passion. Our bakery uses only premium ingredients to bring you authentic, mouth-watering pastries and breads every single day.
-                        </p>
-                        <p>Experience the finest baked goods crafted with passion. Our bakery uses only premium ingredients to bring you authentic, mouth-watering pastries and breads every single day.
-                        </p>
-                        <div class="row g-2 mb-4 justify-content-center">
-                            <div class="col-sm-6">
-                                <span class="text-primary me-2 fw-bold">+</span>Quality Products
-                            </div>
-                            <div class="col-sm-6">
-                                <span class="text-primary me-2 fw-bold">+</span>Custom Products
-                            </div>
-                            <div class="col-sm-6">
-                                <span class="text-primary me-2 fw-bold">+</span>Online Order
-                            </div>
-                            <div class="col-sm-6">
-                                <span class="text-primary me-2 fw-bold">+</span>Home Delivery
-                            </div>
-                        </div>
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-
-    <!-- Product Start -->
-    <div class="container-xxl bg-light my-6 py-6 pt-0">
-        <div class="container">
-            <div class="bg-primary text-light rounded-bottom p-5 my-6 mt-0 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="row g-4 align-items-center text-center justify-content-center">
-                    <div class="col-lg-12">
-                        <h1 class="display-4 text-light mb-4">The Best Bakery In Your City</h1>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="d-inline-flex align-items-center text-start justify-content-center w-100">
-                            <i class="fa fa-phone-alt fa-4x flex-shrink-0"></i>
-                            <div class="ms-4">
-                                <p class="fs-5 fw-bold mb-0">Call Us</p>
-                                <p class="fs-1 fw-bold mb-0">+012 345 6789</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase mb-2">Bakery Products</p>
-                <h1 class="display-6 mb-4">Explore The Categories Of Our Bakery Products</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="product-item d-flex flex-column bg-white rounded h-100">
-                        <div class="text-center p-4">
-                            <div class="d-inline-block border border-primary rounded-pill px-3 mb-3">$11 - $99</div>
-                            <h3 class="mb-3">Cake</h3>
-                            <span>Handcrafted with premium organic ingredients and absolute devotion.</span>
-                            <div class="mt-4">
-                                <a href="#" class="btn btn-outline-primary rounded-pill px-4 add-to-cart">Add To Cart</a>
-                            </div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/product-1.jpg" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i
-                                        class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="product-item d-flex flex-column bg-white rounded h-100">
-                        <div class="text-center p-4">
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">$11 - $99
-                            </div>
-                            <h3 class="mb-3">Bread</h3>
-                            <span>Handcrafted with premium organic ingredients and absolute devotion.</span>
-                            <div class="mt-4">
-                                <a href="#" class="btn btn-outline-primary rounded-pill px-4 add-to-cart">Add To Cart</a>
-                            </div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/product-2.jpg" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i
-                                        class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="product-item d-flex flex-column bg-white rounded h-100">
-                        <div class="text-center p-4">
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">$11 - $99
-                            </div>
-                            <h4 class="mb-3">Cookies</h4>
-                            <span>Handcrafted with premium organic ingredients and absolute devotion.</span>
-                            <div class="mt-4">
-                                <a href="#" class="btn btn-outline-primary rounded-pill px-4 add-to-cart">Add To Cart</a>
-                            </div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/product-3.jpg" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i
-                                        class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Product End -->
-
-
-    <!-- Service Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp text-center" data-wow-delay="0.1s">
-                    <p class="text-primary text-uppercase mb-2">Our Services</p>
-                    <h1 class="display-6 mb-4">What Do We Offer For You?</h1>
-                    <p class="mb-5">Experience the finest baked goods crafted with passion. Our bakery uses only premium ingredients to bring you authentic, mouth-watering pastries and breads every single day.
-                    </p>
-                    <div class="row gy-5 gx-4 justify-content-center">
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                    <i class="fa fa-bread-slice text-white"></i>
-                                </div>
-                                <h5 class="mb-0">Quality Products</h5>
-                            </div>
-                            <span>Authentic recipes layered with incredible, rich flavors.</span>
-                        </div>
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                    <i class="fa fa-birthday-cake text-white"></i>
-                                </div>
-                                <h5 class="mb-0">Custom Products</h5>
-                            </div>
-                            <span>Authentic recipes layered with incredible, rich flavors.</span>
-                        </div>
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                    <i class="fa fa-cart-plus text-white"></i>
-                                </div>
-                                <h5 class="mb-0">Online Order</h5>
-                            </div>
-                            <span>Authentic recipes layered with incredible, rich flavors.</span>
-                        </div>
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                    <i class="fa fa-truck text-white"></i>
-                                </div>
-                                <h5 class="mb-0">Home Delivery</h5>
-                            </div>
-                            <span>Authentic recipes layered with incredible, rich flavors.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp mt-5 mt-lg-0" data-wow-delay="0.5s">
-                    <div class="row img-twice position-relative h-100">
-                        <div class="col-6">
-                            <img class="img-fluid rounded" src="img/service-1.jpg" alt="">
-                        </div>
-                        <div class="col-6 align-self-end">
-                            <img class="img-fluid rounded" src="img/service-2.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
-
-    <!-- Team Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase mb-2">Our Team</p>
-                <h1 class="display-6 mb-4">We're Super Professional At Our Skills</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <img class="img-fluid" src="img/team-1.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Alexander Smith</h5>
-                                <span>Master Baker</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <img class="img-fluid" src="img/team-2.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Sarah Johnson</h5>
-                                <span>Pastry Chef</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <img class="img-fluid" src="img/team-3.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>David Miller</h5>
-                                <span>Cake Decorator</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <img class="img-fluid" src="img/team-4.jpg" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Emily Davis</h5>
-                                <span>Bakery Manager</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-light rounded-circle" href=""><i
-                                        class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
-
-
-    <!-- Testimonial Start -->
-    <div class="container-xxl bg-light my-6 py-6 pb-0">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase mb-2">Client's Review</p>
-                <h1 class="display-6 mb-4">More Than 20000+ Customers Trusted Us</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item bg-white rounded p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-1.jpg" alt="">
-                        <div class="ms-4">
-                            <h5 class="mb-1">Michael Brown</h5>
-                            <span>Local Foodie</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Freshly baked delights made with love and care, bringing joy and sweetness to your everyday moments.</p>
-                </div>
-                <div class="testimonial-item bg-white rounded p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-2.jpg" alt="">
-                        <div class="ms-4">
-                            <h5 class="mb-1">Linda Williams</h5>
-                            <span>Coffee Enthusiast</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Freshly baked delights made with love and care, bringing joy and sweetness to your everyday moments.</p>
-                </div>
-                <div class="testimonial-item bg-white rounded p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-3.jpg" alt="">
-                        <div class="ms-4">
-                            <h5 class="mb-1">James Wilson</h5>
-                            <span>Event Planner</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Freshly baked delights made with love and care, bringing joy and sweetness to your everyday moments.</p>
-                </div>
-                <div class="testimonial-item bg-white rounded p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 rounded-circle border p-1" src="img/testimonial-4.jpg" alt="">
-                        <div class="ms-4">
-                            <h5 class="mb-1">Sophia Garcia</h5>
-                            <span>Frequent Visitor</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Freshly baked delights made with love and care, bringing joy and sweetness to your everyday moments.</p>
-                </div>
-            </div>
-            <div class="bg-primary text-light rounded-top p-5 my-6 mb-0 wow fadeInUp text-center" data-wow-delay="0.1s">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-10">
-                        <h1 class="display-4 text-light mb-4">Subscribe Our Newsletter</h1>
-                        <div class="position-relative mx-auto" style="max-width: 500px;">
-                            <input class="form-control bg-transparent border-light w-100 py-3 ps-4 pe-5" type="text"
-                                placeholder="Your email">
-                            <button type="button"
-                                class="btn btn-dark py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
-
-
-        <!-- Three Sections Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="row g-4 text-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="bg-light rounded p-4 h-100 shadow-sm">
-                        <h4 class="mb-3">Quality Ingredients</h4>
-                        <p class="mb-0">We source only the highest quality organic flour and the freshest dairy to ensure our products taste exceptional.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="bg-light rounded p-4 h-100 shadow-sm">
-                        <h4 class="mb-3">Master Bakers</h4>
-                        <p class="mb-0">Our experienced team of bakers brings decades of passion and skill to every loaf, cake, and pastry.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="bg-light rounded p-4 h-100 shadow-sm">
-                        <h4 class="mb-3">Baked Fresh Daily</h4>
-                        <p class="mb-0">Every morning, our ovens are fired up before dawn so you can enjoy warm, fresh bread straight from the bakery.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Three Sections End -->
-
-        <!-- Section 1: Highlights -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase fw-bold mb-2">Why Choose Us</p>
-                <h1 class="display-6 mb-4">Baked to Perfection</h1>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="bg-light rounded text-center h-100 p-5 hover-scale shadow-sm">
-                        <div class="btn-lg-square bg-white text-primary rounded-circle mx-auto mb-4 border border-primary">
-                            <i class="fa fa-leaf fa-2x icon-glow"></i>
-                        </div>
-                        <h4 class="mb-3">100% Organic</h4>
-                        <p class="mb-0 ">We only use the finest organic ingredients sourced from local farms for the purest taste.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="bg-light text-center h-100 p-5 hover-scale shadow-sm rounded" style="background-color: var(--primary) !important;">
-                        <div class="btn-lg-square bg-white text-primary rounded-circle mx-auto mb-4 border border-light">
-                            <i class="fa fa-clock fa-2x icon-glow"></i>
-                        </div>
-                        <h4 class="mb-3 text-white">Fresh Daily</h4>
-                        <p class="mb-0 text-white ">Our ovens start at 3 AM every morning so you can wake up to perfectly fresh pastries.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="bg-light rounded text-center h-100 p-5 hover-scale shadow-sm">
-                        <div class="btn-lg-square bg-white text-primary rounded-circle mx-auto mb-4 border border-primary">
-                            <i class="fa fa-heart fa-2x icon-glow"></i>
-                        </div>
-                        <h4 class="mb-3">Made with Love</h4>
-                        <p class="mb-0 ">Decades of passion and family recipes go into every single cake we bake for you.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 2: Image + Content -->
-    <div class="container-xxl py-6 bg-light my-6">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="position-relative shadow-sm rounded overflow-hidden hover-scale">
-                        <img class="img-fluid w-100" src="img/carousel-2.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp text-center" data-wow-delay="0.5s">
-                    <p class="text-primary text-uppercase fw-bold mb-2">The Art of Baking</p>
-                    <h1 class="display-6 mb-4">Discover Our Mastery</h1>
-                    <p class="mb-4">Baking is our passion. Every slice, every crumb, and every bite brings out the
-                        timeless tradition of our artisanal techniques perfectly balanced with modern flavors.</p>
-                    <a href="about.html" class="btn btn-primary rounded-pill py-3 px-5 hover-scale">Learn Our Story</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 3: Stats -->
-    <div class="container-xxl py-6 mb-6">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="counter-box hover-scale">
-                        <h1 class="display-4 text-primary mb-0">25000<span class="counter-plus">+</span></h1>
-                        <h5 class="mt-2">Happy Customers</h5>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="counter-box hover-scale" style="background-color: var(--primary);">
-                        <h1 class="display-4 text-white mb-0">150<span class="counter-plus">+</span></h1>
-                        <h5 class="mt-2 text-white">Original Recipes</h5>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="counter-box hover-scale">
-                        <h1 class="display-4 text-primary mb-0">35<span class="counter-plus">+</span></h1>
-                        <h5 class="mt-2">Master Bakers</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer my-6 mb-0 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-6">
-                    <a href="index.html" class="navbar-brand d-block mb-4">
-                        <h1 class="text-primary m-0">Baker</h1>
-                    </a>
-                    <h4 class="text-light mb-4">Office Address</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="" title="Twitter"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="" title="Facebook"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="" title="YouTube"><i
-                                class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href="" title="LinkedIn" title="LinkedIn"><i
-                                class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="service.html">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h4 class="text-light mb-4">Newsletter</h4>
-                    <p>Get the latest updates and special offers directly in your inbox.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control bg-transparent border-light w-100 py-3 ps-4 pe-5" type="text"
-                            placeholder="Your email">
-                        <button type="button"
-                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright text-light py-4 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center mb-3 mb-md-0">
-                    &copy; <a href="#">Baker</a>, All Right Reserved.
-                </div>
-                <div class="col-md-6 text-center">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Copyright End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-            class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
-            <script>
-        // RTL Toggle
-        const rtlToggle = document.getElementById('rtlToggle');
-        const rtlText = document.getElementById('rtlText');
-        const htmlElement = document.documentElement;
-
-        const savedDir = localStorage.getItem('bakerDir') || 'ltr';
-        htmlElement.setAttribute('dir', savedDir);
+<header class="header">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">SafeBakes 🍰</a>
         
-        if (savedDir === 'rtl') {
-            document.body.classList.add('text-end');
-            if(rtlText) rtlText.innerText = 'LTR';
-        } else {
-            document.body.classList.remove('text-end');
-            if(rtlText) rtlText.innerText = 'RTL';
-        }
+        <nav>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
 
-        if(rtlToggle) {
-            rtlToggle.addEventListener('click', () => {
-                const currentDir = htmlElement.getAttribute('dir');
-                const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
-                
-                htmlElement.setAttribute('dir', newDir);
-                localStorage.setItem('bakerDir', newDir);
-                
-                if (newDir === 'rtl') {
-                    document.body.classList.add('text-end');
-                    if(rtlText) rtlText.innerText = 'LTR';
-                } else {
-                    document.body.classList.remove('text-end');
-                    if(rtlText) rtlText.innerText = 'RTL';
-                }
-            });
-        }
+        <div class="nav-actions">
+            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i></button>
+            <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-globe"></i></button>
+            <a href="login.html" class="btn btn-outline" style="padding: 0.5rem 1.2rem;">Login</a>
+            <a href="menu.html" class="btn btn-primary" style="padding: 0.5rem 1.2rem;">Order Now</a>
+        </div>
+    </div>
+</header>
 
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const cartButton = document.querySelector('a[href="cart.html"]');
+<main>
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Deliciously Safe, Naturally Made</h1>
+            <p>Enjoy gluten-free and vegan treats crafted with love and care.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="menu.html" class="btn btn-primary">Order Now</a>
+                <a href="menu.html" class="btn btn-outline" style="border-color: white; color: white;">Explore Menu</a>
+            </div>
+        </div>
+    </section>
 
-        const savedTheme = localStorage.getItem('bakerTheme') || 'dark';
-        htmlElement.setAttribute('data-theme', savedTheme);
-        updateIcon(savedTheme);
+    <section class="container section">
+        <h2>🍰 Product Preview</h2>
+        <div class="grid grid-4">
+            <div class="card reveal">
+                <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Gluten-Free Cake">
+                <h3>Gluten-Free Cakes</h3>
+                <p>Moist, rich, and completely safe for gluten-sensitive lovers.</p>
+                <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+            </div>
+            <div class="card reveal">
+                <img src="img/WhatsApp Image 2026-04-10 at 3.21.18 PM.jpeg" alt="Vegan Cookie">
+                <h3>Vegan Cookies</h3>
+                <p>Plant-based goodness that melts in your mouth.</p>
+                <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+            </div>
+            <div class="card reveal">
+                <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM.jpeg" alt="Dairy-Free Dessert">
+                <h3>Dairy-Free Desserts</h3>
+                <p>Creamy and delicious without a drop of dairy.</p>
+                <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+            </div>
+            <div class="card reveal">
+                <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM.jpeg" alt="Healthy Bread">
+                <h3>Healthy Breads</h3>
+                <p>Freshly baked artisanal breads with zero allergens.</p>
+                <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+            </div>
+        </div>
+    </section>
 
-        if(themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = htmlElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                htmlElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('bakerTheme', newTheme);
-                updateIcon(newTheme);
-            });
-        }
+    <section class="section" style="background: var(--bg-card);">
+        <div class="container">
+            <h2>📊 How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card reveal">
+                    <div class="step-number">01</div>
+                    <h3>Browse Menu</h3>
+                    <p>Explore our wide range of allergy-friendly treats.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">02</div>
+                    <h3>Choose Products</h3>
+                    <p>Select your favorites and add them to your cart.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">03</div>
+                    <h3>Customize</h3>
+                    <p>Tell us about your specific allergy needs.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">04</div>
+                    <h3>Order & Enjoy</h3>
+                    <p>Fast delivery to your doorstep, safe to eat!</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function updateIcon(theme) {
-            if (!themeIcon || !themeToggle) return;
-            if (theme === 'light') {
-                themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
-                themeToggle.classList.replace('btn-outline-light', 'btn-outline-dark');
-                themeToggle.classList.replace('border-light', 'border-dark');
-                themeToggle.style.background = '#ffffff';
-                themeToggle.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                if(rtlToggle) {
-                   rtlToggle.classList.replace('btn-outline-light', 'btn-outline-dark');
-                   rtlToggle.classList.replace('border-light', 'border-dark');
-                   rtlToggle.style.background = '#ffffff';
-                   rtlToggle.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                }
-                if(cartButton) {
-                   cartButton.classList.replace('btn-outline-light', 'btn-outline-dark');
-                   cartButton.classList.replace('border-light', 'border-dark');
-                   cartButton.style.background = '#ffffff';
-                   cartButton.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                }
-            } else {
-                themeIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
-                themeToggle.classList.replace('btn-outline-dark', 'btn-outline-light');
-                themeToggle.classList.replace('border-dark', 'border-light');
-                themeToggle.style.background = 'transparent';
-                themeToggle.style.boxShadow = 'none';
-                if(rtlToggle) {
-                   rtlToggle.classList.replace('btn-outline-dark', 'btn-outline-light');
-                   rtlToggle.classList.replace('border-dark', 'border-light');
-                   rtlToggle.style.background = 'transparent';
-                   rtlToggle.style.boxShadow = 'none';
-                }
-                if(cartButton) {
-                   cartButton.classList.replace('btn-outline-dark', 'btn-outline-light');
-                   cartButton.classList.replace('border-dark', 'border-light');
-                   cartButton.style.background = 'transparent';
-                   cartButton.style.boxShadow = 'none';
-                }
-            }
-        }
-    </script>
-    
-    <!-- Dropdown Position Fix Script -->
-    <script>
-        // Fix dropdown positioning to prevent going off-screen
-        document.addEventListener('DOMContentLoaded', function() {
-            const dropdowns = document.querySelectorAll('.dropdown-toggle');
-            
-            dropdowns.forEach(function(dropdown) {
-                dropdown.addEventListener('click', function(e) {
-                    setTimeout(function() {
-                        const dropdownMenu = dropdown.nextElementSibling;
-                        if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
-                            repositionDropdown(dropdownMenu);
-                        }
-                    }, 10);
-                });
-            });
-            
-            function repositionDropdown(dropdownMenu) {
-                const rect = dropdownMenu.getBoundingClientRect();
-                const windowWidth = window.innerWidth;
-                
-                // If dropdown goes off the right edge
-                if (rect.right > windowWidth) {
-                    dropdownMenu.style.left = 'auto';
-                    dropdownMenu.style.right = '0';
-                    dropdownMenu.classList.add('dropdown-menu-end');
-                }
-                
-                // If dropdown goes off the left edge
-                if (rect.left < 0) {
-                    dropdownMenu.style.left = '0';
-                    dropdownMenu.style.right = 'auto';
-                    dropdownMenu.classList.remove('dropdown-menu-end');
-                }
-                
-                // If dropdown goes off the bottom edge
-                if (rect.bottom > window.innerHeight) {
-                    const parentRect = dropdownMenu.parentElement.getBoundingClientRect();
-                    const newTop = -(rect.height + 5);
-                    dropdownMenu.style.top = newTop + 'px';
-                }
-            }
-            
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                const visibleDropdowns = document.querySelectorAll('.dropdown-menu.show');
-                visibleDropdowns.forEach(repositionDropdown);
-            });
-        });
-    </script>
+    <section class="container section">
+        <h2>❤️ Testimonials</h2>
+        <div class="grid grid-3">
+            <div class="card reveal">
+                <p>"Finally a place where I can eat everything without worry. The GF chocolate cake is divine!"</p>
+                <div style="margin-top: 1rem; font-weight: 700;">- Sarah M.</div>
+            </div>
+            <div class="card reveal">
+                <p>"Best vegan cookies in town! My kids love them and they are so much healthier."</p>
+                <div style="margin-top: 1rem; font-weight: 700;">- John D.</div>
+            </div>
+            <div class="card reveal">
+                <p>"Professional service and incredibly tasty products. SafeBakes is a lifesaver for our family."</p>
+                <div style="margin-top: 1rem; font-weight: 700;">- Emma R.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container section">
+        <h2>📚 Blog / Recipes Preview</h2>
+        <div class="grid grid-2">
+            <div class="card reveal" style="display: flex; gap: 2rem; align-items: center; text-align: left;">
+                <div style="flex: 1;"><img src="img/WhatsApp Image 2026-04-10 at 3.22.24 PM.jpeg" style="margin: 0; height: 200px;"></div>
+                <div style="flex: 1.5;">
+                    <span style="color: var(--secondary); font-weight: 700;">RECIPE</span>
+                    <h3>5-Ingredient GF Brownies</h3>
+                    <p>Learn how to make our famous fudgy brownies at home with just a few simple items.</p>
+                    <a href="#" style="color: var(--primary); font-weight: 700; text-decoration: none;">Read More &rarr;</a>
+                </div>
+            </div>
+            <div class="card reveal" style="display: flex; gap: 2rem; align-items: center; text-align: left;">
+                <div style="flex: 1;"><img src="img/WhatsApp Image 2026-04-10 at 3.22.26 PM.jpeg" style="margin: 0; height: 200px;"></div>
+                <div style="flex: 1.5;">
+                    <span style="color: var(--secondary); font-weight: 700;">HEALTH TIPS</span>
+                    <h3>Living Allergy-Free</h3>
+                    <p>Top 10 tips for navigating the grocery store when you have multiple food allergies.</p>
+                    <a href="#" style="color: var(--primary); font-weight: 700; text-decoration: none;">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--accent);">
+        <div class="container" style="text-align: center;">
+            <h2>📞 Order your healthy treats today</h2>
+            <p style="margin-bottom: 2rem;">Safe, delicious, and delivered right to you.</p>
+            <a href="menu.html" class="btn btn-primary btn-lg">Order Now</a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h4>Quick Links</h4>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li><a href="#" style="color: white; text-decoration: none;">Home</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Menu</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">About Us</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Categories</h4>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li><a href="#" style="color: white; text-decoration: none;">Gluten-Free</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Vegan</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Sugar-Free</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p style="margin-top: 1rem;">123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
+            </div>
+            <div>
+                <h4>Follow Us</h4>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+            &copy; 2026 SafeBakes. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
-
 </html>
