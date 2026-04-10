@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | SafeBakes - Allergy Friendly Treats</title>
+    <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -58,31 +59,82 @@
         .banner-offer { background: linear-gradient(rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05)); padding: 2rem; border-radius: var(--radius); border: 1px dashed var(--secondary); margin-bottom: 3rem; text-align: center; }
         
         .safety-card { background: var(--accent); padding: 2rem; border-radius: var(--radius); text-align: center; }
-        .newsletter-section { background: var(--primary); color: white; padding: 4rem 0; text-align: center; }
+
+        @media (max-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
     </style>
 </head>
 <body>
 
 <header class="header">
     <div class="container nav-container">
-        <a href="index.html" class="logo">SafeBakes 🍰</a>
+        <div class="mobile-nav-container">
+            <a href="home-premium.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
+            <button class="navbar-toggler" type="button" id="mobileMenuToggle">
+                <div class="navbar-toggler-icon">
+                    <span></span>
+                </div>
+            </button>
+        </div>
         <nav>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="home-premium.html">Premium</a></li>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
-                <li><a href="products.html">Products</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
             </ul>
         </nav>
         <div class="nav-actions">
-            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i></button>
-            <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-globe"></i></button>
+            <button id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            <button class="toggle-btn cart-btn" title="View Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge" id="cart-count">0</span>
+            </button>
             <a href="login.html" class="btn btn-outline">Login</a>
-            <a href="menu.html" class="btn btn-primary">Order Now</a>
         </div>
     </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-menu-nav">
+            <li><a href="home-premium.html">Premium</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+
+        <div class="mobile-menu-actions">
+            <button id="mobile-theme-toggle" class="btn btn-outline">
+                <i class="fas fa-moon"></i> Theme
+            </button>
+            <button id="mobile-rtl-toggle" class="btn btn-outline">
+                <i class="fas fa-globe"></i> RTL
+            </button>
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="register.html" class="btn btn-primary">Register</a>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Backdrop -->
+    <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
 </header>
 
 <div class="page-header">
@@ -94,11 +146,11 @@
 
 <div class="filter-bar">
     <div class="container filter-container">
-        <div class="filter-chip active">All Products</div>
-        <div class="filter-chip">Gluten-Free</div>
-        <div class="filter-chip">Vegan</div>
-        <div class="filter-chip">Sugar-Free</div>
-        <div class="filter-chip">Nut-Free</div>
+        <div class="filter-chip active" data-filter="all">All</div>
+        <div class="filter-chip" data-filter="cakes">Cakes</div>
+        <div class="filter-chip" data-filter="cookies">Cookies</div>
+        <div class="filter-chip" data-filter="breads">Breads</div>
+        <div class="filter-chip" data-filter="pastries">Pastries</div>
     </div>
 </div>
 
@@ -109,90 +161,90 @@
     </div>
     <div class="grid grid-3">
         <!-- Product 1 -->
-        <div class="card reveal">
+        <div class="card reveal" data-category="pastries">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Blueberry Muffin">
-            <div style="margin-bottom: 0.5rem;">
-                <span class="tag tag-gf">Gluten-Free</span>
-                <span class="tag tag-v">Vegan</span>
-            </div>
-            <h3>Blueberry Bliss Muffins</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Wild blueberries in a moist almond-flour crumb.</p>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span class="price">$4.50</span>
-                <button onclick="addToCart(1)" class="btn btn-primary" style="padding: 0.5rem 1rem;">Add to Cart</button>
+            <div class="card-body">
+                <div style="margin-bottom: 0.5rem;">
+                    <span class="tag tag-gf">Gluten-Free</span>
+                    <span class="tag tag-v">Vegan</span>
+                </div>
+                <h3>Blueberry Bliss Muffins</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Wild blueberries in a moist almond-flour crumb.</p>
+                <div class="price" style="margin-bottom: 1rem;">$4.50</div>
+                <button onclick="addToCart(1)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
         <!-- Product 2 -->
-        <div class="card reveal">
+        <div class="card reveal" data-category="cookies">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.18 PM.jpeg" alt="Chocolate Cookie">
-            <div style="margin-bottom: 0.5rem;">
-                <span class="tag tag-gf">Gluten-Free</span>
-                <span class="tag tag-sf">Sugar-Free</span>
-            </div>
-            <h3>Triple Choc Cookies</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Dark chocolate chunks with stevia sweetener.</p>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span class="price">$3.25</span>
-                <button onclick="addToCart(2)" class="btn btn-primary" style="padding: 0.5rem 1rem;">Add to Cart</button>
+            <div class="card-body">
+                <div style="margin-bottom: 0.5rem;">
+                    <span class="tag tag-gf">Gluten-Free</span>
+                    <span class="tag tag-sf">Sugar-Free</span>
+                </div>
+                <h3>Triple Choc Cookies</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Dark chocolate chunks with stevia sweetener.</p>
+                <div class="price" style="margin-bottom: 1rem;">$3.25</div>
+                <button onclick="addToCart(2)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
         <!-- Product 3 -->
-        <div class="card reveal">
+        <div class="card reveal" data-category="breads">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM (1).jpeg" alt="Lemon Poppy">
-            <div style="margin-bottom: 0.5rem;">
-                <span class="tag tag-v">Vegan</span>
-            </div>
-            <h3>Lemon Poppyseed Loaf</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Zesty lemon glaze over a soft, plant-based sponge.</p>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span class="price">$12.00</span>
-                <button onclick="addToCart(3)" class="btn btn-primary" style="padding: 0.5rem 1rem;">Add to Cart</button>
+            <div class="card-body">
+                <div style="margin-bottom: 0.5rem;">
+                    <span class="tag tag-v">Vegan</span>
+                </div>
+                <h3>Lemon Poppyseed Loaf</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Zesty lemon glaze over a soft, plant-based sponge.</p>
+                <div class="price" style="margin-bottom: 1rem;">$12.00</div>
+                <button onclick="addToCart(3)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
         <!-- Product 4 -->
-        <div class="card reveal">
+        <div class="card reveal" data-category="pastries">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM (2).jpeg" alt="Scone">
-            <div style="margin-bottom: 0.5rem;">
-                <span class="tag tag-gf">Gluten-Free</span>
-            </div>
-            <h3>Cranberry Scones</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Buttery, flaky scones without the gluten.</p>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span class="price">$3.75</span>
-                <button onclick="addToCart(4)" class="btn btn-primary" style="padding: 0.5rem 1rem;">Add to Cart</button>
+            <div class="card-body">
+                <div style="margin-bottom: 0.5rem;">
+                    <span class="tag tag-gf">Gluten-Free</span>
+                </div>
+                <h3>Cranberry Scones</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Buttery, flaky scones without the gluten.</p>
+                <div class="price" style="margin-bottom: 1rem;">$3.75</div>
+                <button onclick="addToCart(4)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
         <!-- Product 5 -->
-        <div class="card reveal">
+        <div class="card reveal" data-category="breads">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM (1).jpeg" alt="Bagel">
-            <div style="margin-bottom: 0.5rem;">
-                <span class="tag tag-gf">Gluten-Free</span>
-                <span class="tag tag-v">Vegan</span>
-            </div>
-            <h3>Multigrain Bagels (4pk)</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Sesame, flax, and sunflower seeds in a chewy bagel.</p>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span class="price">$8.50</span>
-                <button onclick="addToCart(5)" class="btn btn-primary" style="padding: 0.5rem 1rem;">Add to Cart</button>
+            <div class="card-body">
+                <div style="margin-bottom: 0.5rem;">
+                    <span class="tag tag-gf">Gluten-Free</span>
+                    <span class="tag tag-v">Vegan</span>
+                </div>
+                <h3>Multigrain Bagels (4pk)</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Sesame, flax, and sunflower seeds in a chewy bagel.</p>
+                <div class="price" style="margin-bottom: 1rem;">$8.50</div>
+                <button onclick="addToCart(5)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
 
         <!-- Product 6 -->
-        <div class="card reveal">
+        <div class="card reveal" data-category="cakes">
             <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM (2).jpeg" alt="Cupcake">
-            <div style="margin-bottom: 0.5rem;">
-                <span class="tag tag-v">Vegan</span>
-                <span class="tag tag-sf">Sugar-Free</span>
-            </div>
-            <h3>Raspberry Velvet Cupcake</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Rich raspberry frosting on a cocoa base.</p>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span class="price">$5.00</span>
-                <button onclick="addToCart(6)" class="btn btn-primary" style="padding: 0.5rem 1rem;">Add to Cart</button>
+            <div class="card-body">
+                <div style="margin-bottom: 0.5rem;">
+                    <span class="tag tag-v">Vegan</span>
+                    <span class="tag tag-sf">Sugar-Free</span>
+                </div>
+                <h3>Raspberry Velvet Cupcake</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Rich raspberry frosting on a cocoa base.</p>
+                <div class="price" style="margin-bottom: 1rem;">$5.00</div>
+                <button onclick="addToCart(6)" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
             </div>
         </div>
     </div>
@@ -205,58 +257,104 @@
         <div class="grid grid-3">
             <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.31 PM.jpeg">
-                <h3>Party Pack Bundle</h3>
-                <p>Perfect for families with mixed dietary Needs.</p>
-                <div class="price">$55.00</div>
+                <div class="card-body">
+                    <h3>Party Pack Bundle</h3>
+                    <p>Perfect for families with mixed dietary Needs.</p>
+                    <div class="price">$55.00</div>
+                </div>
             </div>
             <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.28 PM.jpeg">
-                <h3>Subscription Box</h3>
-                <p>Our best bakes delivered to your door.</p>
-                <div class="price">$29.00</div>
+                <div class="card-body">
+                    <h3>Subscription Box</h3>
+                    <p>Our best bakes delivered to your door.</p>
+                    <div class="price">$29.00</div>
+                </div>
             </div>
             <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.29 PM.jpeg">
-                <h3>Celebration Cake</h3>
-                <p>Fully custom allergen profile included.</p>
-                <div class="price">$45.00</div>
+                <div class="card-body">
+                    <h3>Celebration Cake</h3>
+                    <p>Fully custom allergen profile included.</p>
+                    <div class="price">$45.00</div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <section class="container section">
-    <div class="safety-card reveal">
-        <h3 style="color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-shield-alt"></i> Our Safety Promise</h3>
-        <p>We use dedicated equipment for our Gluten-Free and Vegan products to ensure zero cross-contamination. Every batch is tested and verified by our health experts.</p>
-        <a href="about.html" style="color: var(--primary); font-weight: 700; text-decoration: none;">Learn more about our process &rarr;</a>
-    </div>
-</section>
-
-<section class="newsletter-section">
-    <div class="container">
-        <h2>Stay in the Loop</h2>
-        <p style="margin-bottom: 2rem;">Get safety alerts, new recipe updates, and exclusive discounts.</p>
-        <form style="max-width: 500px; margin: 0 auto; display: flex; gap: 0.5rem;">
-            <input type="email" placeholder="Your email address" style="flex: 1; padding: 0.8rem; border-radius: var(--radius); border: none;">
-            <button class="btn btn-secondary">Subscribe</button>
-        </form>
-    </div>
-</section>
-
-<footer class="footer" style="background: var(--primary); color: white; padding: 4rem 0 2rem; margin-top: 5rem;">
-    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
-         <div>
-            <h4 style="color: white; text-align: left;">Quick Links</h4>
-            <ul style="list-style: none; margin-top: 1rem;">
-                <li><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
-                <li><a href="menu.html" style="color: white; text-decoration: none;">Menu</a></li>
-                <li><a href="about.html" style="color: white; text-decoration: none;">About Us</a></li>
-            </ul>
+    <div class="card reveal">
+        <div class="card-body">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-shield-alt"></i> Our Safety Promise</h3>
+            <p>We use dedicated equipment for our Gluten-Free and Vegan products to ensure zero cross-contamination. Every batch is tested and verified by our health experts.</p>
+            <a href="about.html" style="color: var(--primary); font-weight: 700; text-decoration: none;">Learn more about our process &rarr;</a>
         </div>
-        <div>
-            <h4 style="color: white; text-align: left;">Contact</h4>
-            <p style="margin-top: 1rem; opacity: 0.8;">123 Bakery Lane, London<br>Email: hello@safebakes.com</p>
+    </div>
+</section>
+
+<section class="safety-assurance">
+    <div class="container">
+        <h2>Our Safety Commitment</h2>
+        <div class="safety-grid">
+            <div class="safety-item reveal">
+                <div class="safety-icon"><i class="fas fa-microscope"></i></div>
+                <h4>Lab-Tested Batches</h4>
+                <p>Every ingredient is screened for trace allergens before entering our dedicated kitchen.</p>
+            </div>
+            <div class="safety-item reveal">
+                <div class="safety-icon"><i class="fas fa-hand-sparkles"></i></div>
+                <h4>Zero Cross-Contamination</h4>
+                <p>We use color-coded, dedicated equipment for every allergen group to ensure 100% purity.</p>
+            </div>
+            <div class="safety-item reveal">
+                <div class="safety-icon"><i class="fas fa-certificate"></i></div>
+                <h4>Certified Safe</h4>
+                <p>Proudly recognized by leading allergy associations for our strict safety protocols.</p>
+            </div>
+        </div>
+        <div class="btn-wrapper">
+            <a href="about.html" class="btn btn-secondary">Learn More About Our Process</a>
+        </div>
+    </div>
+</section>
+
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col" style="flex: 1.5;">
+                <a href="home-premium.html" class="footer-logo">
+                    <i class="fas fa-bread-slice"></i> SafeBakes
+                </a>
+                <p>Bringing you the finest allergy-friendly, gluten-free, and vegan treats. Baked with love and safety in mind.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="footer-social">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 SafeBakes. All rights reserved.
         </div>
     </div>
 </footer>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | SafeBakes - Our Story</title>
+    <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -11,36 +12,75 @@
         .page-header { padding: 8rem 0 4rem; background: var(--bg-card); text-align: center; }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
         .vision-mission { background: var(--accent); padding: 4rem 0; margin: 4rem 0; }
-        .header { position: fixed; top: 0; width: 100%; background: var(--bg-card); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; box-shadow: var(--shadow); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
-        .toggle-btn { background: none; border: none; color: var(--text-main); cursor: pointer; font-size: 1.2rem; }
     </style>
 </head>
 <body>
 
 <header class="header">
     <div class="container nav-container">
-        <a href="index.html" class="logo">SafeBakes 🍰</a>
+        <div class="mobile-nav-container">
+            <a href="home-premium.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
+            <button class="navbar-toggler" type="button" id="mobileMenuToggle">
+                <div class="navbar-toggler-icon">
+                    <span></span>
+                </div>
+            </button>
+        </div>
         <nav>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="home-premium.html">Premium</a></li>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html" class="active">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
             </ul>
         </nav>
         <div class="nav-actions">
-            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i></button>
-            <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-globe"></i></button>
+            <button id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            <button class="toggle-btn cart-btn" title="View Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </button>
             <a href="login.html" class="btn btn-outline">Login</a>
-            <a href="menu.html" class="btn btn-primary">Order Now</a>
         </div>
     </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-menu-nav">
+            <li><a href="home-premium.html">Premium</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+
+        <div class="mobile-menu-actions">
+            <button id="mobile-theme-toggle" class="btn btn-outline">
+                <i class="fas fa-moon"></i> Theme
+            </button>
+            <button id="mobile-rtl-toggle" class="btn btn-outline">
+                <i class="fas fa-globe"></i> RTL
+            </button>
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="register.html" class="btn btn-primary">Register</a>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Backdrop -->
+    <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
 </header>
 
 <div class="page-header">
@@ -52,12 +92,12 @@
 
 <main>
     <section class="container section">
-        <div class="about-grid">
-            <div class="reveal">
+        <div class="about-grid img-text-row">
+            <div class="reveal img-col">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.22.25 PM.jpeg" style="width: 100%; border-radius: var(--radius);">
             </div>
-            <div class="reveal">
-                <h2 style="text-align: left;">Our Story</h2>
+            <div class="reveal text-col">
+                <h2>Our Story</h2>
                 <p>SafeBakes was born out of a simple need: a parent's desire to give their child a birthday cake that wouldn't make them sick. What started in a small home kitchen with gluten-free flour and vegan butter has grown into a community staple for those with dietary restrictions.</p>
                 <p style="margin-top: 1rem;">We don't just bake; we care. Every batch is tested, every recipe is refined until it's perfect, ensuring that "allergy-friendly" never means "boring."</p>
             </div>
@@ -67,12 +107,16 @@
     <section class="vision-mission">
         <div class="container grid grid-2">
             <div class="card reveal" style="background: white;">
-                <h3 style="text-align: left;">Our Mission</h3>
-                <p>To provide high-quality, delicious, and safe bakery products for everyone, regardless of their dietary needs or allergies, fostering an inclusive food culture.</p>
+                <div class="card-body">
+                    <h3>Our Mission</h3>
+                    <p>To provide high-quality, delicious, and safe bakery products for everyone, regardless of their dietary needs or allergies, fostering an inclusive food culture.</p>
+                </div>
             </div>
             <div class="card reveal" style="background: white;">
-                <h3 style="text-align: left;">Our Vision</h3>
-                <p>To become the world's most trusted name in allergy-friendly baking, setting the gold standard for safety, transparency, and flavor.</p>
+                <div class="card-body">
+                    <h3>Our Vision</h3>
+                    <p>To become the world's most trusted name in allergy-friendly baking, setting the gold standard for safety, transparency, and flavor.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -80,20 +124,26 @@
     <section class="container section">
         <h2>💎 Our Core Values</h2>
         <div class="grid grid-3">
-            <div class="card reveal" style="text-align: center;">
-                <i class="fas fa-heart" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                <h3>Integrity</h3>
-                <p>We are transparent about every ingredient we use.</p>
+            <div class="card reveal">
+                <div class="card-body">
+                    <i class="fas fa-heart" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Integrity</h3>
+                    <p>We are transparent about every ingredient we use.</p>
+                </div>
             </div>
-            <div class="card reveal" style="text-align: center;">
-                <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                <h3>Safety</h3>
-                <p>Zero cross-contamination is our absolute priority.</p>
+            <div class="card reveal">
+                <div class="card-body">
+                    <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Safety</h3>
+                    <p>Zero cross-contamination is our absolute priority.</p>
+                </div>
             </div>
-            <div class="card reveal" style="text-align: center;">
-                <i class="fas fa-users" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                <h3>Community</h3>
-                <p>Baking treats that bring everyone together.</p>
+            <div class="card reveal">
+                <div class="card-body">
+                    <i class="fas fa-users" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Community</h3>
+                    <p>Baking treats that bring everyone together.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -104,17 +154,17 @@
             <div style="max-width: 800px; margin: 3rem auto; position: relative; border-left: 2px solid var(--primary); padding-left: 2rem;">
                 <div class="reveal" style="margin-bottom: 3rem; position: relative;">
                     <div style="position: absolute; left: -2.7rem; top: 0; width: 20px; height: 20px; background: var(--primary); border-radius: 50%;"></div>
-                    <h4 style="text-align: left; color: var(--primary);">2020: The First Loaf</h4>
+                    <h4 style="color: var(--primary);">2020: The First Loaf</h4>
                     <p>Started in a small home kitchen experimenting with GF sourdough.</p>
                 </div>
                 <div class="reveal" style="margin-bottom: 3rem; position: relative;">
                     <div style="position: absolute; left: -2.7rem; top: 0; width: 20px; height: 20px; background: var(--primary); border-radius: 50%;"></div>
-                    <h4 style="text-align: left; color: var(--primary);">2022: Local Market Success</h4>
+                    <h4 style="color: var(--primary);">2022: Local Market Success</h4>
                     <p>Our vegan cookies became the #1 seller at the London Bakers Market.</p>
                 </div>
                 <div class="reveal" style="position: relative;">
                     <div style="position: absolute; left: -2.7rem; top: 0; width: 20px; height: 20px; background: var(--primary); border-radius: 50%;"></div>
-                    <h4 style="text-align: left; color: var(--primary);">2024: SafeBakes Studio</h4>
+                    <h4 style="color: var(--primary);">2024: SafeBakes Studio</h4>
                     <p>Opened our dedicated allergen-free flagship studio and bakery.</p>
                 </div>
             </div>
@@ -124,17 +174,17 @@
     <section class="container section">
         <h2>Meet the Team</h2>
         <div class="grid grid-3">
-            <div class="reveal" style="text-align: center;">
+            <div class="reveal">
                 <div style="width: 150px; height: 150px; border-radius: 50%; background: #ddd; margin: 0 auto 1.5rem;"></div>
                 <h4>Amelia Brown</h4>
                 <p style="color: var(--text-muted);">Founder & Head Baker</p>
             </div>
-            <div class="reveal" style="text-align: center;">
+            <div class="reveal">
                 <div style="width: 150px; height: 150px; border-radius: 50%; background: #ddd; margin: 0 auto 1.5rem;"></div>
                 <h4>David Green</h4>
                 <p style="color: var(--text-muted);">Nutrition Expert</p>
             </div>
-            <div class="reveal" style="text-align: center;">
+            <div class="reveal">
                 <div style="width: 150px; height: 150px; border-radius: 50%; background: #ddd; margin: 0 auto 1.5rem;"></div>
                 <h4>Leo Cream</h4>
                 <p style="color: var(--text-muted);">Creative Pastry Chef</p>
@@ -142,6 +192,44 @@
         </div>
     </section>
 </main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col" style="flex: 1.5;">
+                <a href="home-premium.html" class="footer-logo">
+                    <i class="fas fa-bread-slice"></i> SafeBakes
+                </a>
+                <p>Bringing you the finest allergy-friendly, gluten-free, and vegan treats. Baked with love and safety in mind.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="footer-social">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 SafeBakes. All rights reserved.
+        </div>
+    </div>
+</footer>
 
 <script src="js/main.js"></script>
 </body>

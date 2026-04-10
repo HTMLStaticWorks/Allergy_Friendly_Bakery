@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | SafeBakes</title>
+    <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -172,143 +173,275 @@
 <body>
 
 <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo">
-        <span>SafeBakes 🍰</span>
+    <a href="home-premium.html" class="sidebar-logo">
+        <span><i class="fas fa-bread-slice"></i> SafeBakes</span>
     </a>
     
     <ul class="sidebar-nav">
         <li class="sidebar-nav-item">
-            <a href="#" class="sidebar-nav-link active">
+            <a href="#" class="sidebar-nav-link active" data-tab="overview">
                 <i class="fas fa-th-large"></i> <span>Dashboard</span>
             </a>
         </li>
         <li class="sidebar-nav-item">
-            <a href="#" class="sidebar-nav-link">
+            <a href="#" class="sidebar-nav-link" data-tab="orders">
                 <i class="fas fa-shopping-bag"></i> <span>Orders</span>
             </a>
         </li>
         <li class="sidebar-nav-item">
-            <a href="#" class="sidebar-nav-link">
+            <a href="#" class="sidebar-nav-link" data-tab="favorites">
                 <i class="fas fa-heart"></i> <span>Favorites</span>
             </a>
         </li>
         <li class="sidebar-nav-item">
-            <a href="#" class="sidebar-nav-link">
+            <a href="#" class="sidebar-nav-link" data-tab="subscriptions">
                 <i class="fas fa-calendar-check"></i> <span>Subscriptions</span>
             </a>
         </li>
         <li class="sidebar-nav-item">
-            <a href="#" class="sidebar-nav-link">
+            <a href="#" class="sidebar-nav-link" data-tab="addresses">
                 <i class="fas fa-map-marker-alt"></i> <span>Addresses</span>
             </a>
         </li>
         <li class="sidebar-nav-item">
-            <a href="#" class="sidebar-nav-link">
+            <a href="#" class="sidebar-nav-link" data-tab="settings">
                 <i class="fas fa-cog"></i> <span>Settings</span>
             </a>
         </li>
         <li class="sidebar-nav-item" style="margin-top: auto;">
-            <a href="login.html" class="sidebar-nav-link logout-link">
+            <a href="login.html" class="sidebar-nav-link logout-link" title="Logout of your account">
                 <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
             </a>
         </li>
     </ul>
 </aside>
 
-<main class="main-content">
-    <header class="top-bar">
-        <h2>Welcome back, Surya 👋</h2>
-        
-        <div class="top-bar-actions">
-            <div class="action-icon">
-                <i class="fas fa-bell"></i>
-                <span class="badge">3</span>
+    <main class="main-content">
+        <header class="top-bar">
+            <h1>Welcome back, Surya 👋</h1>
+            
+            <div class="top-bar-actions">
+                <div class="action-icon" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <div id="theme-toggle" class="action-icon" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="action-icon" title="Profile">
+                    <i class="fas fa-user-circle"></i>
+                </div>
             </div>
-            <div id="theme-toggle" class="action-icon">
-                <i class="fas fa-moon"></i>
-            </div>
-            <div class="action-icon">
-                <i class="fas fa-user-circle"></i>
-            </div>
-        </div>
-    </header>
+        </header>
 
-    <div class="stats-grid">
-        <div class="stat-card">
-            <h4>Total Orders</h4>
-            <div class="value">24</div>
-        </div>
-        <div class="stat-card">
-            <h4>Active Subscriptions</h4>
-            <div class="value">2</div>
-        </div>
-        <div class="stat-card">
-            <h4>Pending Deliveries</h4>
-            <div class="value">1</div>
-        </div>
-    </div>
-
-    <section>
-        <div class="section-title">
-            <h3>Recent Orders</h3>
-            <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 600;">View All</a>
-        </div>
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Date</th>
-                    <th>Items</th>
-                    <th>Total</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>#SB-1024</td>
-                    <td>Oct 10, 2026</td>
-                    <td>6x GF Muffins</td>
-                    <td>$24.00</td>
-                    <td><span class="status-pill status-delivered">Delivered</span></td>
-                </tr>
-                <tr>
-                    <td>#SB-1023</td>
-                    <td>Oct 05, 2026</td>
-                    <td>1x Vegan Bread</td>
-                    <td>$12.00</td>
-                    <td><span class="status-pill status-delivered">Delivered</span></td>
-                </tr>
-                <tr>
-                    <td>#SB-1025</td>
-                    <td>Oct 12, 2026</td>
-                    <td>4x Cupcakes</td>
-                    <td>$18.50</td>
-                    <td><span class="status-pill status-pending">Pending</span></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <section style="margin-top: 3rem;">
-        <div class="section-title">
-            <h3>Saved Items</h3>
-        </div>
-        <div class="grid grid-3">
-            <div class="card">
-                <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Item">
-                <h3>Blueberry Muffin</h3>
-                <p>$4.50</p>
-                <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Order Again</button>
+        <!-- Overview Section -->
+        <section id="overview" class="dashboard-section active">
+            <div class="stats-grid">
+                <div class="card reveal">
+                    <div class="card-body">
+                        <h4>Total Orders</h4>
+                        <div class="value" style="font-size: 2rem; font-weight: 700; color: var(--primary);">24</div>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="card-body">
+                        <h4>Active Subscriptions</h4>
+                        <div class="value" style="font-size: 2rem; font-weight: 700; color: var(--primary);">2</div>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="card-body">
+                        <h4>Pending Deliveries</h4>
+                        <div class="value" style="font-size: 2rem; font-weight: 700; color: var(--primary);">1</div>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <img src="img/WhatsApp Image 2026-04-10 at 3.21.18 PM.jpeg" alt="Item">
-                <h3>Triple Choc Cookie</h3>
-                <p>$3.25</p>
-                <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Order Again</button>
+
+            <div style="margin-top: 3rem;">
+                <div class="section-title">
+                    <h3>Recent activity</h3>
+                    <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 600;">View All</a>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#SB-1024</td>
+                            <td>Oct 10, 2026</td>
+                            <td>6x GF Muffins</td>
+                            <td>$24.00</td>
+                            <td><span class="status-pill status-delivered">Delivered</span></td>
+                        </tr>
+                        <tr>
+                            <td>#SB-1023</td>
+                            <td>Oct 05, 2026</td>
+                            <td>1x Vegan Bread</td>
+                            <td>$12.00</td>
+                            <td><span class="status-pill status-delivered">Delivered</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+
+        <!-- Orders Section -->
+        <section id="orders" class="dashboard-section">
+            <div class="section-title">
+                <h3>Your Orders</h3>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#SB-1025</td>
+                        <td>Oct 12, 2026</td>
+                        <td>4x Cupcakes</td>
+                        <td>$18.50</td>
+                        <td><span class="status-pill status-pending">Pending</span></td>
+                        <td><button type="button" class="btn btn-outline btn-sm" title="Track this order">Track</button></td>
+                    </tr>
+                    <tr>
+                        <td>#SB-1024</td>
+                        <td>Oct 10, 2026</td>
+                        <td>6x GF Muffins</td>
+                        <td>$24.00</td>
+                        <td><span class="status-pill status-delivered">Delivered</span></td>
+                        <td><button class="btn btn-outline btn-sm">Reorder</button></td>
+                    </tr>
+                    <tr>
+                        <td>#SB-1023</td>
+                        <td>Oct 05, 2026</td>
+                        <td>1x Vegan Bread</td>
+                        <td>$12.00</td>
+                        <td><span class="status-pill status-delivered">Delivered</span></td>
+                        <td><button class="btn btn-outline btn-sm">Reorder</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favorites" class="dashboard-section">
+            <div class="section-title">
+                <h3>Saved Favorites</h3>
+            </div>
+            <div class="grid grid-3">
+                <div class="card reveal">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Item">
+                    <div class="card-body">
+                        <h3>Blueberry Muffin</h3>
+                        <div class="price" style="margin-bottom: 1rem;">$4.50</div>
+                        <button type="button" class="btn btn-primary" style="width: 100%;" title="Add Blueberry Muffin to cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.18 PM.jpeg" alt="Item">
+                    <div class="card-body">
+                        <h3>Triple Choc Cookie</h3>
+                        <div class="price" style="margin-bottom: 1rem;">$3.25</div>
+                        <button type="button" class="btn btn-primary" style="width: 100%;" title="Add Triple Choc Cookie to cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscriptions Section -->
+        <section id="subscriptions" class="dashboard-section">
+            <div class="section-title">
+                <h3>Active Subscriptions</h3>
+            </div>
+            <div class="sub-status-card">
+                <div class="sub-status-info">
+                    <h4>Current Plan</h4>
+                    <div class="plan-name">Premium Baker's Box</div>
+                    <p>Next delivery: Oct 25, 2026</p>
+                </div>
+                <div class="sub-status-actions">
+                    <button type="button" class="btn btn-secondary" title="Manage your subscription plan">Manage Plan</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Addresses Section -->
+        <section id="addresses" class="dashboard-section">
+            <div class="section-title">
+                <h3>Delivery Addresses</h3>
+                <div class="btn-wrapper">
+                    <button type="button" class="btn btn-primary btn-sm" title="Add a new delivery address"><i class="fas fa-plus"></i> Add New</button>
+                </div>
+            </div>
+            <div class="address-grid">
+                <div class="card reveal">
+                    <div class="card-body">
+                        <span class="tag tag-gf" style="margin-bottom: 1rem;">Default</span>
+                        <h4>Home</h4>
+                        <p>123 Healthy Street, Flat 4B<br>London, UK<br>NW1 8PT</p>
+                        <div class="btn-wrapper" style="gap: 1rem; margin-top: 1rem;">
+                            <a href="#" style="color: var(--primary); text-decoration: none;"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="#" style="color: #ef4444; text-decoration: none;"><i class="fas fa-trash"></i> Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="card-body">
+                        <h4>Office</h4>
+                        <p>45 Bakery Towers, Level 12<br>London, UK<br>EC1A 1BB</p>
+                        <div class="btn-wrapper" style="gap: 1rem; margin-top: 1rem;">
+                            <a href="#" style="color: var(--primary); text-decoration: none;"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="#" style="color: #ef4444; text-decoration: none;"><i class="fas fa-trash"></i> Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="dashboard-section">
+            <div class="section-title">
+                <h3>Profile Settings</h3>
+            </div>
+            <div class="settings-form">
+                <form>
+                    <div class="settings-grid">
+                        <div class="form-group">
+                            <label for="first_name">First Name</label>
+                            <input type="text" id="first_name" value="Surya" placeholder="Your first name" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--radius);">
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name</label>
+                            <input type="text" id="last_name" value="Bakery" placeholder="Your last name" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--radius);">
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label for="profile_email">Email Address</label>
+                        <input type="email" id="profile_email" value="surya@example.com" placeholder="Your email address" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: var(--radius);">
+                    </div>
+                    <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
+                    <div class="btn-wrapper">
+                        <button type="submit" class="btn btn-primary" title="Save profile changes">Save Changes</button>
+                        <button type="button" class="btn btn-outline" style="margin-left: 1rem;" title="Change your password">Change Password</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
 
 <script src="js/main.js"></script>
 </body>

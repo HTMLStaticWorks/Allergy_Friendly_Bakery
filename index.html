@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Allergy-Friendly Bakery | Deliciously Safe, Naturally Made</title>
+    <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -35,69 +36,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .toggle-btn {
-            background: none;
-            border: none;
-            color: var(--text-main);
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        .footer {
-            background: var(--primary);
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer h4 { color: white; text-align: left; }
 
         .footer-grid {
             display: grid;
@@ -136,11 +74,19 @@
 
 <header class="header">
     <div class="container nav-container">
-        <a href="index.html" class="logo">SafeBakes 🍰</a>
+        <div class="mobile-nav-container">
+            <a href="home-premium.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
+            <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Toggle Search">
+                <div class="navbar-toggler-icon">
+                    <span></span>
+                </div>
+            </button>
+        </div>
         
         <nav>
             <ul class="nav-links" id="nav-menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="home-premium.html">Premium</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
@@ -150,12 +96,50 @@
         </nav>
 
         <div class="nav-actions">
-            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i></button>
-            <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-globe"></i></button>
-            <a href="login.html" class="btn btn-outline" style="padding: 0.5rem 1.2rem;">Login</a>
-            <a href="menu.html" class="btn btn-primary" style="padding: 0.5rem 1.2rem;">Order Now</a>
+            <button id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            <button class="toggle-btn cart-btn" title="View Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </button>
+            <a href="login.html" class="btn btn-outline">Login</a>
         </div>
     </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="mobile-menu-close" id="mobileMenuClose" title="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-menu-nav">
+            <li><a href="home-premium.html">Premium</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+
+        <div class="mobile-menu-actions">
+            <button id="mobile-theme-toggle" class="btn btn-outline">
+                <i class="fas fa-moon"></i> Theme
+            </button>
+            <button id="mobile-rtl-toggle" class="btn btn-outline">
+                <i class="fas fa-globe"></i> RTL
+            </button>
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="register.html" class="btn btn-primary">Register</a>
+            <a href="cart.html" class="btn btn-primary">Cart</a>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Backdrop -->
+    <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
 </header>
 
 <main>
@@ -163,7 +147,7 @@
         <div class="container hero-content">
             <h1>Deliciously Safe, Naturally Made</h1>
             <p>Enjoy gluten-free and vegan treats crafted with love and care.</p>
-            <div style="display: flex; gap: 1rem; justify-content: center;">
+            <div class="btn-wrapper">
                 <a href="menu.html" class="btn btn-primary">Order Now</a>
                 <a href="menu.html" class="btn btn-outline" style="border-color: white; color: white;">Explore Menu</a>
             </div>
@@ -175,27 +159,35 @@
         <div class="grid grid-4">
             <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Gluten-Free Cake">
-                <h3>Gluten-Free Cakes</h3>
-                <p>Moist, rich, and completely safe for gluten-sensitive lovers.</p>
-                <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+                <div class="card-body">
+                    <h3>Gluten-Free Cakes</h3>
+                    <p>Moist, rich, and completely safe for gluten-sensitive lovers.</p>
+                    <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+                </div>
             </div>
             <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.18 PM.jpeg" alt="Vegan Cookie">
-                <h3>Vegan Cookies</h3>
-                <p>Plant-based goodness that melts in your mouth.</p>
-                <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+                <div class="card-body">
+                    <h3>Vegan Cookies</h3>
+                    <p>Plant-based goodness that melts in your mouth.</p>
+                    <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+                </div>
             </div>
             <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM.jpeg" alt="Dairy-Free Dessert">
-                <h3>Dairy-Free Desserts</h3>
-                <p>Creamy and delicious without a drop of dairy.</p>
-                <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+                <div class="card-body">
+                    <h3>Dairy-Free Desserts</h3>
+                    <p>Creamy and delicious without a drop of dairy.</p>
+                    <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+                </div>
             </div>
             <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM.jpeg" alt="Healthy Bread">
-                <h3>Healthy Breads</h3>
-                <p>Freshly baked artisanal breads with zero allergens.</p>
-                <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+                <div class="card-body">
+                    <h3>Healthy Breads</h3>
+                    <p>Freshly baked artisanal breads with zero allergens.</p>
+                    <a href="menu.html" class="btn btn-primary" style="width: 100%;">View More</a>
+                </div>
             </div>
         </div>
     </section>
@@ -249,18 +241,18 @@
     <section class="container section">
         <h2>📚 Blog / Recipes Preview</h2>
         <div class="grid grid-2">
-            <div class="card reveal" style="display: flex; gap: 2rem; align-items: center; text-align: left;">
-                <div style="flex: 1;"><img src="img/WhatsApp Image 2026-04-10 at 3.22.24 PM.jpeg" style="margin: 0; height: 200px;"></div>
-                <div style="flex: 1.5;">
+            <div class="card reveal img-text-row">
+                <div class="img-col"><img src="img/WhatsApp Image 2026-04-10 at 3.22.24 PM.jpeg" style="margin: 0; height: 200px;"></div>
+                <div class="card-body text-col">
                     <span style="color: var(--secondary); font-weight: 700;">RECIPE</span>
                     <h3>5-Ingredient GF Brownies</h3>
                     <p>Learn how to make our famous fudgy brownies at home with just a few simple items.</p>
                     <a href="#" style="color: var(--primary); font-weight: 700; text-decoration: none;">Read More &rarr;</a>
                 </div>
             </div>
-            <div class="card reveal" style="display: flex; gap: 2rem; align-items: center; text-align: left;">
-                <div style="flex: 1;"><img src="img/WhatsApp Image 2026-04-10 at 3.22.26 PM.jpeg" style="margin: 0; height: 200px;"></div>
-                <div style="flex: 1.5;">
+            <div class="card reveal img-text-row">
+                <div class="img-col"><img src="img/WhatsApp Image 2026-04-10 at 3.22.26 PM.jpeg" style="margin: 0; height: 200px;"></div>
+                <div class="card-body text-col">
                     <span style="color: var(--secondary); font-weight: 700;">HEALTH TIPS</span>
                     <h3>Living Allergy-Free</h3>
                     <p>Top 10 tips for navigating the grocery store when you have multiple food allergies.</p>
@@ -282,37 +274,36 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
-            <div>
+            <div class="footer-col" style="flex: 1.5;">
+                <a href="home-premium.html" class="footer-logo">
+                    <i class="fas fa-bread-slice"></i> SafeBakes
+                </a>
+                <p>Bringing you the finest allergy-friendly, gluten-free, and vegan treats. Baked with love and safety in mind.</p>
+            </div>
+            <div class="footer-col">
                 <h4>Quick Links</h4>
-                <ul style="list-style: none; margin-top: 1rem;">
-                    <li><a href="#" style="color: white; text-decoration: none;">Home</a></li>
-                    <li><a href="#" style="color: white; text-decoration: none;">Menu</a></li>
-                    <li><a href="#" style="color: white; text-decoration: none;">About Us</a></li>
-                    <li><a href="#" style="color: white; text-decoration: none;">Contact</a></li>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            <div>
-                <h4>Categories</h4>
-                <ul style="list-style: none; margin-top: 1rem;">
-                    <li><a href="#" style="color: white; text-decoration: none;">Gluten-Free</a></li>
-                    <li><a href="#" style="color: white; text-decoration: none;">Vegan</a></li>
-                    <li><a href="#" style="color: white; text-decoration: none;">Sugar-Free</a></li>
-                </ul>
-            </div>
-            <div>
+
+            <div class="footer-col">
                 <h4>Contact</h4>
-                <p style="margin-top: 1rem;">123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
+                <p>123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
             </div>
-            <div>
+            <div class="footer-col">
                 <h4>Follow Us</h4>
-                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
-                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
-                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                <div class="footer-social">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
-        <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+        <div class="footer-bottom">
             &copy; 2026 SafeBakes. All rights reserved.
         </div>
     </div>

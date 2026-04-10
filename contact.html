@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | SafeBakes</title>
+    <title>Contact Us | SafeBakes - Get in Touch</title>
+    <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -30,24 +31,69 @@
 
 <header class="header">
     <div class="container nav-container">
-        <a href="index.html" class="logo">SafeBakes 🍰</a>
+        <div class="mobile-nav-container">
+            <a href="home-premium.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
+            <button class="navbar-toggler" type="button" id="mobileMenuToggle">
+                <div class="navbar-toggler-icon">
+                    <span></span>
+                </div>
+            </button>
+        </div>
         <nav>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="home-premium.html">Premium</a></li>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
             </ul>
         </nav>
         <div class="nav-actions">
-            <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon"></i></button>
-            <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-globe"></i></button>
+            <button id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            <button class="toggle-btn cart-btn" title="View Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge" id="cart-count">0</span>
+            </button>
             <a href="login.html" class="btn btn-outline">Login</a>
-            <a href="menu.html" class="btn btn-primary">Order Now</a>
         </div>
     </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-menu-nav">
+            <li><a href="home-premium.html">Premium</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+
+        <div class="mobile-menu-actions">
+            <button id="mobile-theme-toggle" class="btn btn-outline">
+                <i class="fas fa-moon"></i> Theme
+            </button>
+            <button id="mobile-rtl-toggle" class="btn btn-outline">
+                <i class="fas fa-globe"></i> RTL
+            </button>
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="register.html" class="btn btn-primary">Register</a>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Backdrop -->
+    <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
 </header>
 
 <div class="page-header">
@@ -60,34 +106,40 @@
 <main>
     <section class="container section">
         <div class="grid grid-3">
-            <div class="contact-card reveal">
-                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                <h3>Our Location</h3>
-                <p>123 Bakery Lane, London, UK</p>
+            <div class="card reveal">
+                <div class="card-body">
+                    <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Our Location</h3>
+                    <p>123 Bakery Lane, London, UK</p>
+                </div>
             </div>
-            <div class="contact-card reveal">
-                <i class="fas fa-phone" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                <h3>Call Us</h3>
-                <p>+44 20 1234 5678</p>
+            <div class="card reveal">
+                <div class="card-body">
+                    <i class="fas fa-phone" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Call Us</h3>
+                    <p>+44 20 1234 5678</p>
+                </div>
             </div>
-            <div class="contact-card reveal">
-                <i class="fas fa-clock" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                <h3>Opening Hours</h3>
-                <p>Mon - Sat: 8am - 6pm<br>Sun: 9am - 4pm</p>
+            <div class="card reveal">
+                <div class="card-body">
+                    <i class="fas fa-clock" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Opening Hours</h3>
+                    <p>Mon - Sat: 8am - 6pm<br>Sun: 9am - 4pm</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="section" style="background: var(--bg-card);">
-        <div class="container contact-grid">
-            <div class="reveal">
-                <h3 style="text-align: left; margin-bottom: 2rem;">Find Us</h3>
+        <div class="container img-text-row">
+            <div class="reveal img-col">
+                <h3 style="margin-bottom: 2rem;">Find Us</h3>
                 <div style="width: 100%; height: 400px; background: #eee; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: #999;">
                     <p><i class="fas fa-map-marked-alt" style="font-size: 3rem; display: block; margin-bottom: 1rem; text-align: center;"></i> Map View</p>
                 </div>
             </div>
-            <div class="contact-form reveal">
-                <h3 style="text-align: left; margin-bottom: 2rem;">Send us a Message</h3>
+            <div class="contact-form reveal text-col">
+                <h3 style="margin-bottom: 2rem;">Send us a Message</h3>
                 <form>
                     <div class="form-group">
                         <label>Full Name</label>
@@ -111,7 +163,9 @@
         <div class="wholesale-banner reveal">
             <h2 style="color: white;">Wholesale & Event Inquiries</h2>
             <p style="margin: 1.5rem 0 2rem; opacity: 0.9;">Need SafeBakes for your coffee shop or a special event?</p>
-            <a href="#" class="btn btn-secondary">Get Wholesale Quote</a>
+            <div class="btn-wrapper">
+                <a href="#" class="btn btn-secondary">Get Wholesale Quote</a>
+            </div>
         </div>
     </section>
 
@@ -149,6 +203,44 @@
         </div>
     </section>
 </main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col" style="flex: 1.5;">
+                <a href="home-premium.html" class="footer-logo">
+                    <i class="fas fa-bread-slice"></i> SafeBakes
+                </a>
+                <p>Bringing you the finest allergy-friendly, gluten-free, and vegan treats. Baked with love and safety in mind.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="footer-social">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 SafeBakes. All rights reserved.
+        </div>
+    </div>
+</footer>
 
 <script src="js/main.js"></script>
 </body>
