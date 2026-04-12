@@ -7,15 +7,16 @@
     <title>Allergy-Friendly Bakery | Deliciously Safe, Naturally Made</title>
     <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* Home Specific Styles */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/WhatsApp Image 2026-04-10 at 3.21.19 PM (1).jpeg');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/home 1 page header background image.png');
             background-size: cover;
             background-position: center;
-            height: 90vh;
+            background-attachment: fixed;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -38,12 +39,7 @@
             margin-right: auto;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
+
 
         @keyframes fadeInDown {
             from {
@@ -58,6 +54,84 @@
         }
 
         .steps-grid-modern {
+            text-align: center;
+        }
+
+        /* Pure Ingredients Image Alignment */
+        .pure-ingredients-home .card {
+            padding-top: 0;
+            padding-left: 0;
+            padding-right: 0;
+            overflow: hidden;
+        }
+
+        .pure-ingredients-home .card-img-wrap {
+            width: 100%;
+            height: 250px;
+            margin-bottom: 1.5rem;
+        }
+
+        .pure-ingredients-home .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+            margin: 0;
+        }
+
+        .pure-ingredients-home .card-body {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* How It Works Image Alignment */
+        .section-how-it-works .step-card {
+            padding: 0 !important;
+            overflow: hidden;
+        }
+
+        .section-how-it-works .step-card-icon-wrap {
+            margin-bottom: 1.5rem !important;
+            height: 220px !important;
+            border-radius: 0 !important;
+            overflow: hidden;
+        }
+
+        .section-how-it-works .step-card-icon-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section-how-it-works .step-card h3,
+        .section-how-it-works .step-card p {
+            padding: 0 1.5rem;
+        }
+
+        .section-how-it-works .step-card p {
+            padding-bottom: 1.5rem;
+        }
+
+        /* Blog Preview Image Alignment */
+        .img-text-row {
+            padding: 0 !important;
+            overflow: hidden;
+        }
+
+        .img-text-row .img-col {
+            width: 100%;
+            height: 220px;
+        }
+
+        .img-text-row .img-col img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+            border-radius: 0;
+            margin: 0;
+        }
+
+        .img-text-row .card-body {
+            padding: 1.5rem;
             text-align: center;
         }
     </style>
@@ -165,7 +239,7 @@
                 </div>
                 <div class="card reveal">
                     <div class="card-img-wrap">
-                        <img src="img/WhatsApp Image 2026-04-10 at 3.21.18 PM.jpeg" alt="Vegan Cookie">
+                        <img src="img/Vegan Cookies.png" alt="Vegan Cookie">
                     </div>
                     <div class="card-body">
                         <h3>Vegan Cookies</h3>
@@ -202,23 +276,21 @@
                 <div class="steps-grid-modern">
                     <div class="step-card step-card-visual reveal">
                         <div class="step-card-icon-wrap">
-                            <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600&q=80"
-                                alt="Choosing fresh ingredients" loading="lazy">
+                            <img src="img/Choose Ingredients.png" alt="Choosing fresh ingredients" loading="lazy">
                         </div>
                         <h3>Choose Ingredients</h3>
                         <p>We source clean, transparent ingredients you can trust for every bake.</p>
                     </div>
                     <div class="step-card step-card-visual reveal">
                         <div class="step-card-icon-wrap">
-                            <img src="img/Bake with Care.jpg" alt="Baking with Care" loading="lazy">
+                            <img src="img/Bake_with_Care.png" alt="Baking with Care" loading="lazy">
                         </div>
                         <h3>Bake with Care</h3>
                         <p>Dedicated equipment and timed batches keep flavors bold and allergens out.</p>
                     </div>
                     <div class="step-card step-card-visual reveal">
                         <div class="step-card-icon-wrap">
-                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
-                                alt="Fresh delivery at your door" loading="lazy">
+                            <img src="img/Delivered Fresh.png" alt="Fresh delivery at your door" loading="lazy">
                         </div>
                         <h3>Delivered Fresh</h3>
                         <p>Packed safely and brought to your door—ready to enjoy.</p>
@@ -262,8 +334,8 @@
             <h2>📚 Blog / Recipes Preview</h2>
             <div class="grid grid-2">
                 <div class="card reveal img-text-row">
-                    <div class="img-col"><img src="img/WhatsApp Image 2026-04-10 at 3.22.24 PM.jpeg"
-                            style="margin: 0; height: 200px;"></div>
+                    <div class="img-col"><img src="img/WhatsApp Image 2026-04-10 at 3.22.24 PM.jpeg" alt="GF Brownies">
+                    </div>
                     <div class="card-body text-col">
                         <span style="color: var(--secondary); font-weight: 700;">RECIPE</span>
                         <h3>5-Ingredient GF Brownies</h3>
@@ -274,7 +346,7 @@
                 </div>
                 <div class="card reveal img-text-row">
                     <div class="img-col"><img src="img/WhatsApp Image 2026-04-10 at 3.22.26 PM.jpeg"
-                            style="margin: 0; height: 200px;"></div>
+                            alt="Allergy-Free Tips"></div>
                     <div class="card-body text-col">
                         <span style="color: var(--secondary); font-weight: 700;">HEALTH TIPS</span>
                         <h3>Living Allergy-Free</h3>
@@ -298,7 +370,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col footer-col-brand" style="flex: 1.5;">
+                <div class="footer-col footer-col-brand">
                     <a href="index.html" class="footer-logo">
                         <i class="fas fa-bread-slice"></i> SafeBakes
                     </a>
@@ -324,7 +396,8 @@
                     <div class="footer-social">
                         <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
                         <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>

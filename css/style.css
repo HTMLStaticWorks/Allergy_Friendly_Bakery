@@ -455,7 +455,7 @@ h1, h2, h3, h4, h5 {
     .hero {
         text-align: center !important;
         padding: 4rem 1rem 2rem !important;
-        min-height: auto !important;
+        min-height: 100vh !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -763,9 +763,17 @@ h1, h2, h3, h4, h5 {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1.6fr 1fr 1fr 0.8fr;
     gap: 3rem;
     margin-bottom: 4rem;
+    align-items: start;
+}
+
+@media (max-width: 991.98px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 .footer-links {
@@ -933,8 +941,22 @@ h1, h2, h3, h4, h5 {
 
 .footer-col-brand {
     background: var(--accent);
-    padding: 1.25rem;
+    padding: 2rem;
     border-radius: var(--radius);
+    margin-left: -1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.footer-col-brand:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 991.98px) {
+    .footer-col-brand {
+        margin-left: 0;
+        padding: 1.5rem;
+    }
 }
 
 [data-theme='dark'] .footer-col-brand {
@@ -1218,7 +1240,7 @@ h1, h2, h3, h4, h5 {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .testimonial-stars {
@@ -1758,6 +1780,18 @@ h1, h2, h3, h4, h5 {
 
 .dashboard-section.active {
     display: block;
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @keyframes fadeIn {

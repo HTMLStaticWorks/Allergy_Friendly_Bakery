@@ -7,7 +7,7 @@
     <title>SafeBakes Premium | Elevated Healthy Baking</title>
     <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         .hero-split {
@@ -27,7 +27,7 @@
         .hero-split-image {
             flex: 1;
             height: 100vh;
-            background: url('img/WhatsApp Image 2026-04-10 at 3.21.32 PM.jpeg') center/cover;
+            background: url('img/home 2 page header image.png') center/cover;
             animation: fadeInRight 1s ease;
         }
 
@@ -70,6 +70,9 @@
             transition: all 0.3s;
             background: var(--bg-card);
             color: var(--text-main);
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 600;
         }
 
         .category-btn.active {
@@ -167,6 +170,23 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 3rem;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 0;
+            margin: 0 !important;
+        }
+
+        .image-card {
+            padding: 0 !important;
+            overflow: hidden;
+        }
+
+        .image-card .card-body {
+            padding: 1.5rem;
         }
 
         @media (max-width: 992px) {
@@ -278,8 +298,8 @@
         <section class="container section">
             <h2>🧁 Featured Creations</h2>
             <div class="grid grid-3">
-                <div class="card reveal">
-                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.31 PM.jpeg" alt="Signature Brownies">
+                <div class="card image-card reveal">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.31 PM.jpeg" alt="Signature Brownies" class="card-img-top">
                     <div class="card-body">
                         <h3>Signature Brownies</h3>
                         <div class="price" style="margin-bottom: 1rem;">$18.00</div>
@@ -287,8 +307,8 @@
                         <button class="btn btn-primary" style="width: 100%;">Add to Cart</button>
                     </div>
                 </div>
-                <div class="card reveal">
-                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.28 PM.jpeg" alt="Artisan Tart">
+                <div class="card image-card reveal">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.28 PM.jpeg" alt="Artisan Tart" class="card-img-top">
                     <div class="card-body">
                         <h3>Fruit Artisan Tarts</h3>
                         <div class="price" style="margin-bottom: 1rem;">$24.00</div>
@@ -296,8 +316,8 @@
                         <button class="btn btn-primary" style="width: 100%;">Add to Cart</button>
                     </div>
                 </div>
-                <div class="card reveal">
-                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.29 PM.jpeg" alt="Custom Cake">
+                <div class="card image-card reveal">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.29 PM.jpeg" alt="Custom Cake" class="card-img-top">
                     <div class="card-body">
                         <h3>Velvet Anniversary Cake</h3>
                         <div class="price" style="margin-bottom: 1rem;">$45.00</div>
@@ -328,25 +348,37 @@
         <section class="container section">
             <h2>Advanced Selection</h2>
             <div class="category-filter">
-                <button class="category-btn active">All</button>
-                <button class="category-btn">Cakes</button>
-                <button class="category-btn">Cookies</button>
-                <button class="category-btn">Breads</button>
-                <button class="category-btn">Pastries</button>
+                <a href="products.html?category=all" class="category-btn active">All</a>
+                <a href="products.html?category=cakes" class="category-btn">Cakes</a>
+                <a href="products.html?category=cookies" class="category-btn">Cookies</a>
+                <a href="products.html?category=breads" class="category-btn">Breads</a>
+                <a href="products.html?category=pastries" class="category-btn">Pastries</a>
             </div>
             <div class="grid grid-4">
                 <!-- Mock Grid Items -->
-                <div class="card reveal"><img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM.jpeg">
-                    <h3>GF Sourdough</h3>
+                <div class="card image-card reveal">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM.jpeg" class="card-img-top">
+                    <div class="card-body">
+                        <h3>GF Sourdough</h3>
+                    </div>
                 </div>
-                <div class="card reveal"><img src="img/WhatsApp Image 2026-04-10 at 3.21.21 PM.jpeg">
-                    <h3>Vegan Croissant</h3>
+                <div class="card image-card reveal">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.21 PM.jpeg" class="card-img-top">
+                    <div class="card-body">
+                        <h3>Vegan Croissant</h3>
+                    </div>
                 </div>
-                <div class="card reveal"><img src="img/WhatsApp Image 2026-04-10 at 3.21.22 PM.jpeg">
-                    <h3>Sugar-Free Cookies</h3>
+                <div class="card image-card reveal">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.22 PM.jpeg" class="card-img-top">
+                    <div class="card-body">
+                        <h3>Sugar-Free Cookies</h3>
+                    </div>
                 </div>
-                <div class="card reveal"><img src="img/WhatsApp Image 2026-04-10 at 3.21.23 PM.jpeg">
-                    <h3>Almond Muffins</h3>
+                <div class="card image-card reveal">
+                    <img src="img/WhatsApp Image 2026-04-10 at 3.21.23 PM.jpeg" class="card-img-top">
+                    <div class="card-body">
+                        <h3>Almond Muffins</h3>
+                    </div>
                 </div>
             </div>
         </section>
@@ -418,7 +450,8 @@
                 <div class="footer-social">
                     <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
                     <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>

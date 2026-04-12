@@ -387,34 +387,65 @@ function initTimelineMilestones() {
 
 // Product Filtering
 function initProductFilter() {
-    const filters = document.querySelectorAll('.filter-chip[data-filter]');
-    const products = document.querySelectorAll('.grid-3 .card[data-category]');
+    const filters = document.querySelectorAll('.filter-chip[data-filter], .category-btn[data-filter]');
+    const products = document.querySelectorAll('.card[data-category]');
 
-    if (filters.length === 0 || products.length === 0) return;
+    if (filters.length === 0) return;
+
+    const filterProducts = (category) => {
+        // Update active state
+        filters.forEach(f => {
+            if (f.getAttribute('data-filter') === category) {
+                f.classList.add('active');
+            } else {
+                f.classList.remove('active');
+            }
+        });
+
+        // Filter products with a smooth transition
+        products.forEach(product => {
+            const attr = product.getAttribute('data-category');
+            if (!attr) return; // Skip cards without categories if any exist in the selection
+
+            const productCategories = attr.toLowerCase().split(/\s+/);
+            const targetCategory = category.toLowerCase();
+            
+            if (targetCategory === 'all' || productCategories.includes(targetCategory)) {
+                product.style.display = 'flex';
+                // Small delay to ensure display: flex is applied before adding animation class
+                requestAnimationFrame(() => {
+                    product.classList.add('animate-in');
+                });
+            } else {
+                product.classList.remove('animate-in');
+                // Wait for potential transition before hiding
+                product.style.display = 'none';
+            }
+        });
+    };
 
     filters.forEach(filter => {
-        filter.addEventListener('click', () => {
+        filter.addEventListener('click', (e) => {
+            // If it's a link, we might want to prevent default if we're on the same page
+            const href = filter.getAttribute('href');
             const category = filter.getAttribute('data-filter');
-
-            // Update active state
-            filters.forEach(f => f.classList.remove('active'));
-            filter.classList.add('active');
-
-            // Filter products
-            products.forEach(product => {
-                const productCategory = product.getAttribute('data-category');
+            
+            if (!href || href.startsWith('#') || href.includes(window.location.pathname.split('/').pop())) {
+                if (e.cancelable) e.preventDefault();
+                filterProducts(category);
                 
-                if (category === 'all' || productCategory === category) {
-                    product.style.display = 'flex';
-                    // Trigger reveal animation again if needed
-                    setTimeout(() => {
-                        product.classList.add('animate-in');
-                    }, 10);
-                } else {
-                    product.style.display = 'none';
-                    product.classList.remove('animate-in');
-                }
-            });
+                // Update URL without reloading
+                const newUrl = new URL(window.location);
+                newUrl.searchParams.set('category', category);
+                window.history.pushState({}, '', newUrl);
+            }
         });
     });
+
+    // Check for URL parameter on load
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    if (categoryParam) {
+        filterProducts(categoryParam);
+    }
 }
