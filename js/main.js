@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initActiveNav();
     initFAQAccordion();
     initTimelineMilestones();
+    initPasswordToggle();
 });
 
 // Cart Management
@@ -18,7 +19,7 @@ let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
 
 function initCart() {
     updateCartBadge();
-    
+
     // Add click event to cart buttons
     const cartButtons = document.querySelectorAll('.cart-btn');
     cartButtons.forEach(button => {
@@ -32,7 +33,7 @@ function updateCartBadge() {
     const badges = document.querySelectorAll('.cart-badge');
     badges.forEach(badge => {
         badge.textContent = cartCount;
-        
+
         // Add a little animation when count changes
         badge.classList.remove('animate-pop');
         void badge.offsetWidth; // Trigger reflow
@@ -44,7 +45,7 @@ function updateCartBadge() {
 function initTheme() {
     const themeToggle = document.getElementById('theme-toggle');
     const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-    
+
     if (!themeToggle && !mobileThemeToggle) return;
 
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -54,7 +55,7 @@ function initTheme() {
     function toggleTheme() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
+
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
@@ -63,7 +64,7 @@ function initTheme() {
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
-    
+
     if (mobileThemeToggle) {
         mobileThemeToggle.addEventListener('click', toggleTheme);
     }
@@ -85,7 +86,7 @@ function updateThemeIcon(theme) {
 function initRTL() {
     const rtlToggle = document.getElementById('rtl-toggle');
     const mobileRtlToggle = document.getElementById('mobile-rtl-toggle');
-    
+
     if (!rtlToggle && !mobileRtlToggle) return;
 
     const savedRTL = localStorage.getItem('rtl') === 'true';
@@ -94,7 +95,7 @@ function initRTL() {
     function toggleRTL() {
         const currentRTL = document.documentElement.getAttribute('dir') === 'rtl';
         const newRTL = !currentRTL;
-        
+
         document.documentElement.setAttribute('dir', newRTL ? 'rtl' : 'ltr');
         localStorage.setItem('rtl', newRTL);
     }
@@ -102,7 +103,7 @@ function initRTL() {
     if (rtlToggle) {
         rtlToggle.addEventListener('click', toggleRTL);
     }
-    
+
     if (mobileRtlToggle) {
         mobileRtlToggle.addEventListener('click', toggleRTL);
     }
@@ -114,7 +115,7 @@ function initMobileMenu() {
     const menuOverlay = document.getElementById('mobileMenuOverlay');
     const menuClose = document.getElementById('mobileMenuClose');
     const menuBackdrop = document.getElementById('mobileMenuBackdrop');
-    
+
     if (!menuToggle || !menuOverlay || !menuBackdrop) return;
 
     // Open mobile menu
@@ -174,7 +175,7 @@ function initAnimations() {
 // Add to Cart Interaction
 function addToCart(productId, ev) {
     console.log(`Added product ${productId} to cart`);
-    
+
     // Increment cart count
     cartCount++;
     localStorage.setItem('cartCount', cartCount);
@@ -184,10 +185,10 @@ function addToCart(productId, ev) {
     const btn = e && e.currentTarget ? e.currentTarget : null;
     if (!btn) return;
     const originalText = btn.innerHTML;
-    
+
     btn.innerHTML = '<span>Added!</span>';
     btn.classList.add('btn-success');
-    
+
     setTimeout(() => {
         btn.innerHTML = originalText;
         btn.classList.remove('btn-success');
@@ -337,31 +338,34 @@ function initActiveNav() {
     });
 }
 
-// FAQ accordion (Contact page)
+// FAQ accordion
 function initFAQAccordion() {
-    const root = document.querySelector('.faq-accordion');
-    if (!root) return;
+    const roots = document.querySelectorAll('.faq-accordion');
+    roots.forEach((root) => {
+        const items = root.querySelectorAll('.faq-accordion-item');
+        items.forEach((item) => {
+            const trigger = item.querySelector('.faq-accordion-trigger');
+            const panel = item.querySelector('.faq-accordion-panel');
+            if (!trigger || !panel) return;
 
-    const items = root.querySelectorAll('.faq-accordion-item');
-    items.forEach((item) => {
-        const trigger = item.querySelector('.faq-accordion-trigger');
-        const panel = item.querySelector('.faq-accordion-panel');
-        if (!trigger || !panel) return;
+            trigger.addEventListener('click', () => {
+                const isOpen = item.classList.contains('is-open');
 
-        trigger.addEventListener('click', () => {
-            const isOpen = item.classList.contains('is-open');
-            items.forEach((other) => {
-                other.classList.remove('is-open');
-                const p = other.querySelector('.faq-accordion-panel');
-                const t = other.querySelector('.faq-accordion-trigger');
-                if (p) p.style.maxHeight = null;
-                if (t) t.setAttribute('aria-expanded', 'false');
+                // Optional: Close others in the same accordion
+                items.forEach((other) => {
+                    other.classList.remove('is-open');
+                    const p = other.querySelector('.faq-accordion-panel');
+                    const t = other.querySelector('.faq-accordion-trigger');
+                    if (p) p.style.maxHeight = null;
+                    if (t) t.setAttribute('aria-expanded', 'false');
+                });
+
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    panel.style.maxHeight = panel.scrollHeight + 'px';
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
             });
-            if (!isOpen) {
-                item.classList.add('is-open');
-                panel.style.maxHeight = panel.scrollHeight + 'px';
-                trigger.setAttribute('aria-expanded', 'true');
-            }
         });
     });
 }
@@ -405,36 +409,45 @@ function initProductFilter() {
         // Filter products with a smooth transition
         products.forEach(product => {
             const attr = product.getAttribute('data-category');
-            if (!attr) return; // Skip cards without categories if any exist in the selection
+            if (!attr) return;
 
             const productCategories = attr.toLowerCase().split(/\s+/);
             const targetCategory = category.toLowerCase();
-            
+
             if (targetCategory === 'all' || productCategories.includes(targetCategory)) {
+                // Show item
                 product.style.display = 'flex';
-                // Small delay to ensure display: flex is applied before adding animation class
-                requestAnimationFrame(() => {
+                // Ensure it's rendered before animating
+                setTimeout(() => {
                     product.classList.add('animate-in');
-                });
+                    product.style.pointerEvents = 'auto';
+                }, 10);
             } else {
+                // Hide item
                 product.classList.remove('animate-in');
-                // Wait for potential transition before hiding
-                product.style.display = 'none';
+                product.style.pointerEvents = 'none';
+
+                // Wait for transition before setting display: none
+                setTimeout(() => {
+                    if (!product.classList.contains('animate-in')) {
+                        product.style.display = 'none';
+                    }
+                }, 400); // Slightly less than the 0.6s transition in CSS
             }
         });
     };
 
     filters.forEach(filter => {
         filter.addEventListener('click', (e) => {
-            // If it's a link, we might want to prevent default if we're on the same page
-            const href = filter.getAttribute('href');
             const category = filter.getAttribute('data-filter');
-            
-            if (!href || href.startsWith('#') || href.includes(window.location.pathname.split('/').pop())) {
+
+            // Handle cross-page navigation vs in-page filtering
+            const href = filter.getAttribute('href');
+            if (!href || href === '#' || href.includes('menu.html')) {
                 if (e.cancelable) e.preventDefault();
                 filterProducts(category);
-                
-                // Update URL without reloading
+
+                // Update URL for sharing without reload
                 const newUrl = new URL(window.location);
                 newUrl.searchParams.set('category', category);
                 window.history.pushState({}, '', newUrl);
@@ -446,6 +459,28 @@ function initProductFilter() {
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get('category');
     if (categoryParam) {
-        filterProducts(categoryParam);
+        // Wait a bit for initial reveal animations to potentially start
+        setTimeout(() => filterProducts(categoryParam), 100);
     }
+}
+
+// Password Visibility Toggle
+function initPasswordToggle() {
+    const toggles = document.querySelectorAll('.password-toggle');
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const input = toggle.previousElementSibling;
+            if (input && (input.type === 'password' || input.id.includes('password'))) {
+                const isPassword = input.type === 'password';
+                input.type = isPassword ? 'text' : 'password';
+
+                // Toggle icon
+                toggle.classList.toggle('fa-eye');
+                toggle.classList.toggle('fa-eye-slash');
+
+                // Optional: Update title
+                toggle.title = isPassword ? 'Hide password' : 'Show password';
+            }
+        });
+    });
 }

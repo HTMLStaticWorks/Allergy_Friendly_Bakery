@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,41 +10,220 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        .page-header { 
-            padding: 10rem 0; 
-            background: linear-gradient(rgba(255, 251, 247, 0.85), rgba(255, 251, 247, 0.85)), url('img/menu header.png');
+        .page-header {
+            padding: 10rem 0;
+            background: linear-gradient(rgba(27, 14, 10, 0.65), rgba(27, 14, 10, 0.65)), url('img/menu header.png');
             background-size: cover;
             background-position: center;
             text-align: center;
             position: relative;
+            color: white;
+            margin-bottom: 5rem;
         }
-        .plan-price { font-size: 2.5rem; font-weight: 700; color: var(--primary); margin: 1rem 0; }
-        .plan-price span { font-size: 1rem; color: var(--text-muted); }
-        .feature-list { list-style: none; margin: 2rem 0; text-align: left; }
-        .feature-list li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
-        .feature-list i { color: var(--secondary); }
-        .header { position: fixed; top: 0; width: 100%; background: var(--bg-card); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; box-shadow: var(--shadow); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
-        .toggle-btn { background: none; border: none; color: var(--text-main); cursor: pointer; font-size: 1.2rem; }
+
+        .page-header h1 {
+            color: #ffffff !important;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-header p {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                margin-bottom: 3.5rem;
+            }
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list i {
+            color: var(--secondary);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            align-items: stretch;
+        }
+
+        @media (max-width: 1100px) {
+            .plans-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .plans-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .plans-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* How It Works Modern Styles */
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .step-card-modern {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 30px;
+            text-align: center;
+            border: 1px solid rgba(124, 102, 45, 0.08);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .step-card-modern:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(76, 175, 80, 0.12);
+            border-color: var(--secondary);
+        }
+
+        .step-icon-circle {
+            width: 90px;
+            height: 90px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.25rem;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .step-card-modern:hover .step-icon-circle {
+            background: var(--secondary);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .step-badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(124, 62, 45, 0.3);
+        }
+
+        .step-card-modern h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .step-card-modern p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 767px) {
+            .how-it-works-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<header class="header">
-    <div class="container nav-container">
-        <div class="mobile-nav-container">
-            <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
-            <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Open menu">
-                <div class="navbar-toggler-icon">
-                    <span></span>
-                </div>
-            </button>
+    <header class="header">
+        <div class="container nav-container">
+            <div class="mobile-nav-container">
+                <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
+                <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Open menu">
+                    <div class="navbar-toggler-icon">
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+            <nav>
+                <ul class="nav-links" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="home-premium.html">Premium</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i
+                        class="fas fa-globe"></i></button>
+                <button type="button" class="toggle-btn cart-btn" title="View Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </button>
+                <a href="login.html" class="btn btn-outline">Login</a>
+            </div>
         </div>
-        <nav>
-            <ul class="nav-links" id="nav-menu">
+
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <div class="mobile-menu-header">
+                <h3>Menu</h3>
+                <button type="button" class="mobile-menu-close" id="mobileMenuClose" title="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <ul class="mobile-menu-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="home-premium.html">Premium</a></li>
                 <li><a href="menu.html">Menu</a></li>
@@ -52,228 +232,215 @@
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
             </ul>
-        </nav>
-        <div class="nav-actions">
-            <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
-            <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
-            <button type="button" class="toggle-btn cart-btn" title="View Cart">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-badge" id="cart-count">0</span>
-            </button>
-            <a href="login.html" class="btn btn-outline">Login</a>
+
+            <div class="mobile-menu-actions">
+                <button type="button" id="mobile-theme-toggle" class="btn btn-outline">
+                    <i class="fas fa-moon"></i> Theme
+                </button>
+                <button type="button" id="mobile-rtl-toggle" class="btn btn-outline">
+                    <i class="fas fa-globe"></i> RTL
+                </button>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+                <a href="cart.html" class="btn btn-primary">Cart</a>
+            </div>
+        </div>
+
+        <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Baking on Autopilot</h1>
+            <p>Choose a plan and never run out of your favorite safe treats.</p>
         </div>
     </div>
 
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-        <div class="mobile-menu-header">
-            <h3>Menu</h3>
-            <button type="button" class="mobile-menu-close" id="mobileMenuClose" title="Close menu">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <ul class="mobile-menu-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="home-premium.html">Premium</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
-        </ul>
-
-        <div class="mobile-menu-actions">
-            <button type="button" id="mobile-theme-toggle" class="btn btn-outline">
-                <i class="fas fa-moon"></i> Theme
-            </button>
-            <button type="button" id="mobile-rtl-toggle" class="btn btn-outline">
-                <i class="fas fa-globe"></i> RTL
-            </button>
-            <a href="login.html" class="btn btn-outline">Login</a>
-            <a href="register.html" class="btn btn-primary">Register</a>
-            <a href="cart.html" class="btn btn-primary">Cart</a>
-        </div>
-    </div>
-
-    <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
-</header>
-
-<div class="page-header">
-    <div class="container">
-        <h1>Baking on Autopilot</h1>
-        <p>Choose a plan and never run out of your favorite safe treats.</p>
-    </div>
-</div>
-
-<main class="container section">
-    <div class="grid grid-3">
-        <div class="card reveal">
-            <div class="card-body">
-                <h3>Weekly Healthy Box</h3>
-                <div class="plan-price">$29<span>/week</span></div>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check-circle"></i> 6 Assorted Muffins</li>
-                    <li><i class="fas fa-check-circle"></i> 1 Artisan Bread Loaf</li>
-                    <li><i class="fas fa-check-circle"></i> Free Same-Day Delivery</li>
-                    <li><i class="fas fa-check-circle"></i> 100% GF & Vegan</li>
-                </ul>
-                <a href="#" class="btn btn-primary" style="width: 100%;">Subscribe Now</a>
-            </div>
-        </div>
-
-        <div class="card reveal" style="border-color: var(--secondary); transform: scale(1.05); box-shadow: var(--shadow-lg);">
-            <div class="card-body">
-                <div style="background: var(--secondary); color: white; padding: 0.3rem; border-radius: 20px; font-size: 0.8rem; margin-bottom: 1rem;">MOST POPULAR</div>
-                <h3>Monthly Dessert Plan</h3>
-                <div class="plan-price">$89<span>/month</span></div>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check-circle"></i> 12 Gourmet Cupcakes</li>
-                    <li><i class="fas fa-check-circle"></i> 2 Specialty Tarts</li>
-                    <li><i class="fas fa-check-circle"></i> Monthly Surprises</li>
-                    <li><i class="fas fa-check-circle"></i> Priority Support</li>
-                </ul>
-                <a href="#" class="btn btn-secondary" style="width: 100%;">Subscribe Now</a>
-            </div>
-        </div>
-
-        <div class="card reveal">
-            <div class="card-body">
-                <h3>Fitness Snack Pack</h3>
-                <div class="plan-price">$45<span>/month</span></div>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check-circle"></i> 20 High-Protein Cookies</li>
-                    <li><i class="fas fa-check-circle"></i> Sugar-Free Options</li>
-                    <li><i class="fas fa-check-circle"></i> Nut-Free Guaranteed</li>
-                    <li><i class="fas fa-check-circle"></i> Resealable Packaging</li>
-                </ul>
-                <a href="#" class="btn btn-primary" style="width: 100%;">Subscribe Now</a>
-            </div>
-        </div>
-    </div>
-</main>
-
-<section class="section" style="background: var(--bg-card);">
-    <div class="container">
-        <h2>📊 How It Works</h2>
-        <div class="grid grid-3" style="text-align: center;">
-            <div class="reveal">
-                <i class="fas fa-mouse-pointer" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                <h3>1. Select Plan</h3>
-                <p>Pick the box that fits your lifestyle and allergen needs.</p>
-            </div>
-            <div class="reveal">
-                <i class="fas fa-box-open" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                <h3>2. We Bake & Pack</h3>
-                <p>Fresh bakes, packed in eco-friendly, sanitized containers.</p>
-            </div>
-            <div class="reveal">
-                <i class="fas fa-truck" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                <h3>3. Regular Delivery</h3>
-                <p>Get your safe treats delivered to your door every week or month.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="container section">
-    <h2>📦 What's Inside?</h2>
-    <div class="grid grid-2 img-text-row" style="align-items: center;">
-        <div class="reveal img-col">
-            <img src="img/WhatsApp Image 2026-04-10 at 3.21.32 PM.jpeg" style="width: 100%; border-radius: var(--radius);">
-        </div>
-        <div class="reveal text-col">
-            <h3>The October Subscription Box</h3>
-            <p style="margin: 1.5rem 0;">This month's box is all about autumn flavors! Our members are currently enjoying:</p>
-            <ul style="list-style: none;">
-                <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 0.5rem;"></i> Pumpkin Spice GF Donuts</li>
-                <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 0.5rem;"></i> Chai-Infused Vegan Cookies</li>
-                <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 0.5rem;"></i> Maple Pecan Artisan Bread</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section" style="background: var(--primary); color: white;">
-    <div class="container text-center">
-        <h2 style="color: white;">🌟 Members-Only Perks</h2>
-        <div class="grid grid-3" style="margin-top: 3rem;">
-            <div class="reveal">
-                <h4>Early Access</h4>
-                <p style="opacity: 0.8;">Be the first to try our seasonal limited edition bakes.</p>
-            </div>
-            <div class="reveal">
-                <h4>Free Shipping</h4>
-                <p style="opacity: 0.8;">Never pay for delivery on your subscription or any add-on orders.</p>
-            </div>
-            <div class="reveal">
-                <h4>Exclusive Recipes</h4>
-                <p style="opacity: 0.8;">Monthly digital recipe cards sent to your inbox.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="container section">
-    <h2>❓ Subscription FAQ</h2>
-    <div class="grid grid-2" style="margin-top: 2rem;">
-        <div class="reveal">
-            <h4>Can I skip a week?</h4>
-            <p>Absolutely! You can pause or skip a delivery anytime through your dashboard.</p>
-        </div>
-        <div class="reveal">
-            <h4>When will my box arrive?</h4>
-            <p>Subscription boxes are shipped every Tuesday for Wednesday delivery.</p>
-        </div>
-        <div class="reveal">
-            <h4>Are the boxes nut-free?</h4>
-            <p>You can specify "Nut-Free" in your profile and we will customize your box accordingly.</p>
-        </div>
-        <div class="reveal">
-            <h4>How do I cancel?</h4>
-            <p>No long-term contracts. Cancel anytime with just 48 hours notice before your next box.</p>
-        </div>
-    </div>
-</section>
-
-<footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col footer-col-brand" style="flex: 1.5;">
-                <a href="index.html" class="footer-logo">
-                    <i class="fas fa-bread-slice"></i> SafeBakes
-                </a>
-                <p>Bringing you the finest allergy-friendly, gluten-free, and vegan treats. Baked with love and safety in mind.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+    <main class="container section">
+        <div class="plans-grid">
+            <div class="card reveal" style="height: 100%;">
+                <div class="card-body">
+                    <h3>Weekly Healthy Box</h3>
+                    <div class="plan-price">$29<span>/week</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> 6 Assorted Muffins</li>
+                        <li><i class="fas fa-check-circle"></i> 1 Artisan Bread Loaf</li>
+                        <li><i class="fas fa-check-circle"></i> Free Same-Day Delivery</li>
+                        <li><i class="fas fa-check-circle"></i> 100% GF & Vegan</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%;">Subscribe Now</a>
+                </div>
             </div>
 
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <p>123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
+            <div class="card reveal"
+                style="border-color: var(--secondary); box-shadow: var(--shadow-lg); height: 100%; position: relative; overflow: visible;">
+                <div
+                    style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--secondary); color: white; padding: 0.4rem 1.2rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; z-index: 20; white-space: nowrap; box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);">
+                    MOST POPULAR</div>
+                <div class="card-body">
+                    <h3>Monthly Dessert Plan</h3>
+                    <div class="plan-price">$89<span>/month</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> 12 Gourmet Cupcakes</li>
+                        <li><i class="fas fa-check-circle"></i> 2 Specialty Tarts</li>
+                        <li><i class="fas fa-check-circle"></i> Monthly Surprises</li>
+                        <li><i class="fas fa-check-circle"></i> Priority Support</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%;">Subscribe Now</a>
+                </div>
             </div>
-            <div class="footer-col footer-follow-block">
-                <h4>Follow Us</h4>
-                <div class="footer-social">
-                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+
+            <div class="card reveal" style="height: 100%;">
+                <div class="card-body">
+                    <h3>Fitness Snack Pack</h3>
+                    <div class="plan-price">$45<span>/month</span></div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> 20 High-Protein Cookies</li>
+                        <li><i class="fas fa-check-circle"></i> Sugar-Free Options</li>
+                        <li><i class="fas fa-check-circle"></i> Nut-Free Guaranteed</li>
+                        <li><i class="fas fa-check-circle"></i> Resealable Packaging</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%;">Subscribe Now</a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 SafeBakes. All rights reserved.
-        </div>
-    </div>
-</footer>
+    </main>
 
-<script src="js/main.js"></script>
+
+
+    <section class="container section">
+        <h2> What's Inside?</h2>
+        <div class="grid grid-2 img-text-row" style="align-items: center;">
+            <div class="reveal img-col">
+                <img src="img/WhatsApp Image 2026-04-10 at 3.21.32 PM.jpeg"
+                    style="width: 100%; border-radius: var(--radius);">
+            </div>
+            <div class="reveal text-col" style="text-align: center;">
+                <h3 style="text-align: center;">The October Subscription Box</h3>
+                <p style="margin: 1.5rem 0; text-align: center;">This month's box is all about autumn flavors! Our
+                    members are currently
+                    enjoying:</p>
+                <ul style="list-style: none; padding: 0; display: inline-block; text-align: left;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-check"
+                            style="color: var(--secondary); margin-right: 0.5rem;"></i> Pumpkin Spice GF Donuts</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-check"
+                            style="color: var(--secondary); margin-right: 0.5rem;"></i> Chai-Infused Vegan Cookies</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-check"
+                            style="color: var(--secondary); margin-right: 0.5rem;"></i> Maple Pecan Artisan Bread</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="container section">
+        <div class="text-center reveal" style="margin-bottom: 3rem; text-align: center;">
+            <h2 style="text-align: center;"> Subscription FAQ</h2>
+            <p style="text-align: center; margin-top: 1rem;">Everything you need to know about your SafeBakes
+                experience.</p>
+        </div>
+
+        <div class="faq-accordion reveal" style="max-width: 800px; margin: 0 auto;">
+            <!-- FAQ Item 1 -->
+            <div class="faq-accordion-item">
+                <button type="button" class="faq-accordion-trigger" aria-expanded="false">
+                    <span>Can I skip a week?</span>
+                    <i class="fas fa-chevron-down faq-chevron"></i>
+                </button>
+                <div class="faq-accordion-panel">
+                    <div class="faq-accordion-panel-inner">
+                        Absolutely! You can pause or skip a delivery anytime through your dashboard before your weekly
+                        cutoff time. Change your mind? No problem, you're always in control.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-accordion-item">
+                <button type="button" class="faq-accordion-trigger" aria-expanded="false">
+                    <span>When will my box arrive?</span>
+                    <i class="fas fa-chevron-down faq-chevron"></i>
+                </button>
+                <div class="faq-accordion-panel">
+                    <div class="faq-accordion-panel-inner">
+                        Subscription boxes are shipped every Tuesday for Wednesday delivery. You'll receive a tracking
+                        number as soon as your treats leave our bakery.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-accordion-item">
+                <button type="button" class="faq-accordion-trigger" aria-expanded="false">
+                    <span>Are the boxes nut-free?</span>
+                    <i class="fas fa-chevron-down faq-chevron"></i>
+                </button>
+                <div class="faq-accordion-panel">
+                    <div class="faq-accordion-panel-inner">
+                        You can specify "Nut-Free" in your profile and we will customize your box accordingly. We
+                        maintain strict separation protocols to ensure complete safety for our community.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-accordion-item">
+                <button type="button" class="faq-accordion-trigger" aria-expanded="false">
+                    <span>How do I cancel?</span>
+                    <i class="fas fa-chevron-down faq-chevron"></i>
+                </button>
+                <div class="faq-accordion-panel">
+                    <div class="faq-accordion-panel-inner">
+                        No long-term contracts here. Cancel anytime with just 48 hours notice before your next box. We
+                        make it simple because we believe our treats will speak for themselves.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col-brand" style="flex: 1.5;">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-bread-slice"></i> SafeBakes
+                    </a>
+                    <p>Bringing you the finest allergy-friendly, gluten-free, and vegan treats. Baked with love and
+                        safety in mind.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>123 Bakery Lane, London<br>Phone: +44 20 1234 5678<br>Email: hello@safebakes.com</p>
+                </div>
+                <div class="footer-col footer-follow-block">
+                    <h4>Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 SafeBakes. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
+
 </html>
