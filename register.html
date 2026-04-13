@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register | SafeBakes</title>
-    <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -47,7 +48,8 @@
             background: var(--bg-main);
             color: var(--text-main);
             font-size: 1rem;
-            height: 52px; /* Set fixed height for consistency */
+            height: 52px;
+            /* Set fixed height for consistency */
         }
 
         .form-group-input {
@@ -121,7 +123,8 @@
         .terms-row label {
             display: flex;
             gap: 0.75rem;
-            align-items: flex-start; /* Better for multi-line text */
+            align-items: flex-start;
+            /* Better for multi-line text */
             cursor: pointer;
             text-align: left;
         }
@@ -135,7 +138,8 @@
         }
 
         .form-group-input input {
-            padding-right: 3rem !important; /* Space for eye icon */
+            padding-right: 3rem !important;
+            /* Space for eye icon */
         }
 
         body.auth-page-standalone {
@@ -160,7 +164,26 @@
             left: 1rem;
         }
 
-        /* Mobile Specific Optimization */
+        /* Mobile & Tablet Specific Optimization */
+        @media (max-width: 1024px) {
+            .auth-card {
+                text-align: left;
+            }
+
+            .auth-card .card-body h1 {
+                text-align: left !important;
+                margin-left: 0;
+            }
+
+            .auth-card .logo {
+                justify-content: flex-start !important;
+            }
+
+            .auth-footer {
+                text-align: left;
+            }
+        }
+
         @media (max-width: 480px) {
             .auth-main {
                 padding: 4rem 0.75rem 2rem;
@@ -168,18 +191,21 @@
 
             .auth-card {
                 padding: 2rem 1.25rem;
-                box-shadow: none; /* Cleaner on small screens */
+                box-shadow: none;
+                /* Cleaner on small screens */
                 border: none;
             }
 
             .logo {
                 font-size: 1.75rem !important;
                 margin-bottom: 1.5rem !important;
+                justify-content: flex-start !important;
             }
 
             h1 {
                 font-size: 1.6rem !important;
                 margin-bottom: 1.5rem !important;
+                text-align: left !important;
             }
 
             .form-group label {
@@ -201,74 +227,87 @@
         }
     </style>
 </head>
+
 <body class="auth-page-standalone">
 
-<div class="auth-floating-controls">
-    <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
-    <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
-</div>
-
-<main class="auth-main">
-<div class="auth-card">
-    <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 2rem; font-size: 2rem; display: inline-flex; width: 100%;">
-        <i class="fas fa-bread-slice"></i> SafeBakes
-    </a>
-    <div class="card-body">
-        <h1 style="margin-bottom: 2rem; font-size: 2rem;">Create Account</h1>
-        
-        <form action="#" method="post">
-            <div class="form-group">
-                <label for="reg_name">Full Name</label>
-                <input type="text" id="reg_name" name="name" placeholder="Your Name" autocomplete="name">
-            </div>
-            <div class="form-group">
-                <label for="reg_email">Email Address</label>
-                <input type="email" id="reg_email" name="email" placeholder="you@example.com" autocomplete="email">
-            </div>
-            <div class="form-group">
-                <label for="reg_password">Password</label>
-                <div class="form-group-input">
-                    <input type="password" id="reg_password" name="password" placeholder="Create a password" autocomplete="new-password">
-                    <i class="fas fa-eye password-toggle" title="Show password"></i>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="reg_confirm">Confirm Password</label>
-                <div class="form-group-input">
-                    <input type="password" id="reg_confirm" name="password_confirm" placeholder="Confirm your password" autocomplete="new-password">
-                    <i class="fas fa-eye password-toggle" title="Show password"></i>
-                </div>
-            </div>
-
-            <div class="terms-row">
-                <label>
-                    <input type="checkbox" name="terms" required>
-                    <span>I agree to the <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy</a>.</span>
-                </label>
-            </div>
-            
-            <div class="btn-wrapper">
-                <button type="submit" class="btn btn-primary" style="width: 100%;" title="Create your SafeBakes account">Register</button>
-            </div>
-        </form>
+    <div class="auth-floating-controls">
+        <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i
+                class="fas fa-moon"></i></button>
+        <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i
+                class="fas fa-globe"></i></button>
     </div>
 
-    <div style="margin-top: 2rem; position: relative;">
-        <hr style="border: 0; border-top: 1px solid var(--border);">
-        <span style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--bg-card); padding: 0 1rem; color: var(--text-muted); font-size: 0.8rem;">OR</span>
-    </div>
+    <main class="auth-main">
+        <div class="auth-card">
+            <a href="index.html" class="logo"
+                style="justify-content: center; margin-bottom: 2rem; font-size: 2rem; display: inline-flex; width: 100%;">
+                <i class="fas fa-bread-slice"></i> SafeBakes
+            </a>
+            <div class="card-body">
+                <h1 style="margin-bottom: 2rem; font-size: 2rem;">Create Account</h1>
 
-    <div class="social-login">
-        <button type="button" class="social-btn" title="Sign up with Google"><i class="fab fa-google"></i> Google</button>
-        <button type="button" class="social-btn" title="Sign up with Apple"><i class="fab fa-apple"></i> Apple</button>
-    </div>
-    
-    <div class="auth-footer">
-        Already have an account? <a href="login.html">Login</a>
-    </div>
-</div>
-</main>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="reg_name">Full Name</label>
+                        <input type="text" id="reg_name" name="name" placeholder="Your Name" autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_email">Email Address</label>
+                        <input type="email" id="reg_email" name="email" placeholder="you@example.com"
+                            autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_password">Password</label>
+                        <div class="form-group-input">
+                            <input type="password" id="reg_password" name="password" placeholder="Create a password"
+                                autocomplete="new-password">
+                            <i class="fas fa-eye password-toggle" title="Show password"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_confirm">Confirm Password</label>
+                        <div class="form-group-input">
+                            <input type="password" id="reg_confirm" name="password_confirm"
+                                placeholder="Confirm your password" autocomplete="new-password">
+                            <i class="fas fa-eye password-toggle" title="Show password"></i>
+                        </div>
+                    </div>
 
-<script src="js/main.js"></script>
+                    <div class="terms-row">
+                        <label>
+                            <input type="checkbox" name="terms" required>
+                            <span>I agree to the <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy
+                                    Policy</a>.</span>
+                        </label>
+                    </div>
+
+                    <div class="btn-wrapper">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;"
+                            title="Create your SafeBakes account">Register</button>
+                    </div>
+                </form>
+            </div>
+
+            <div style="margin-top: 2rem; position: relative;">
+                <hr style="border: 0; border-top: 1px solid var(--border);">
+                <span
+                    style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--bg-card); padding: 0 1rem; color: var(--text-muted); font-size: 0.8rem;">OR</span>
+            </div>
+
+            <div class="social-login">
+                <button type="button" class="social-btn" title="Sign up with Google"><i class="fab fa-google"></i>
+                    Google</button>
+                <button type="button" class="social-btn" title="Sign up with Apple"><i class="fab fa-apple"></i>
+                    Apple</button>
+            </div>
+
+            <div class="auth-footer">
+                Already have an account? <a href="login.html">Login</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
 </body>
+
 </html>

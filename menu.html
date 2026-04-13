@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu | SafeBakes - Allergy Friendly Treats</title>
-    <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -40,34 +40,6 @@
             .page-header {
                 margin-bottom: 3.5rem;
             }
-        }
-
-        .tag {
-            font-size: 0.75rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-weight: 600;
-            margin-right: 0.5rem;
-        }
-
-        .tag-gf {
-            background: #E3F2FD;
-            color: #1976D2;
-        }
-
-        .tag-v {
-            background: #E8F5E9;
-            color: #2E7D32;
-        }
-
-        .tag-sf {
-            background: #FFF3E0;
-            color: #EF6C00;
-        }
-
-        .tag-nf {
-            background: #FCE4EC;
-            color: #C2185B;
         }
 
         .price {
@@ -194,26 +166,6 @@
             margin-bottom: 1rem !important;
             font-weight: 700;
             text-align: center;
-        }
-
-        .popular-week-grid {
-            display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 1.5rem !important;
-            width: 100%;
-        }
-
-        @media (max-width: 1024px) {
-            .popular-week-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-
-            .popular-week-grid>*:nth-child(3):last-child {
-                grid-column: 1 / span 2 !important;
-                justify-self: center !important;
-                width: 100% !important;
-                max-width: calc(50% - 0.75rem) !important;
-            }
         }
 
         .popular-week-grid .card {
@@ -365,18 +317,16 @@
             <div class="mobile-nav-container">
                 <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
                 <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Open menu">
-                    <div class="navbar-toggler-icon">
-                        <span></span>
-                    </div>
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
             <nav>
                 <ul class="nav-links" id="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="home-premium.html">Premium</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="menu.html">Menu</a></li>
                     <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
                 </ul>
@@ -385,7 +335,7 @@
                 <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i
                         class="fas fa-moon"></i></button>
                 <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i
-                        class="fas fa-globe"></i></button>
+                        class="fas fa-right-left"></i></button>
                 <button type="button" class="toggle-btn cart-btn" title="View Cart">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-badge">0</span>
@@ -406,9 +356,9 @@
             <ul class="mobile-menu-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="home-premium.html">Premium</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
             </ul>
@@ -418,11 +368,10 @@
                     <i class="fas fa-moon"></i> Theme
                 </button>
                 <button type="button" id="mobile-rtl-toggle" class="btn btn-outline">
-                    <i class="fas fa-globe"></i> RTL
+                    <i class="fas fa-right-left"></i> RTL
                 </button>
-                <a href="login.html" class="btn btn-outline">Login</a>
-                <a href="register.html" class="btn btn-primary">Register</a>
                 <a href="cart.html" class="btn btn-primary">Cart</a>
+                <a href="login.html" class="btn btn-outline">Login</a>
             </div>
         </div>
 
@@ -458,7 +407,7 @@
             <div class="card reveal" data-category="gluten-free vegan">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Blueberry Muffin">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                     </div>
@@ -475,7 +424,7 @@
             <div class="card reveal" data-category="gluten-free sugar-free nut-free">
                 <img src="img/Triple Choc Cookies.png" alt="Triple Choc Cookies">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-sf">Sugar-Free</span>
                         <span class="tag tag-nf">Nut-Free</span>
@@ -493,7 +442,7 @@
             <div class="card reveal" data-category="vegan nut-free">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM (1).jpeg" alt="Lemon Poppy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-v">Vegan</span>
                         <span class="tag tag-nf">Nut-Free</span>
                     </div>
@@ -510,7 +459,7 @@
             <div class="card reveal" data-category="gluten-free nut-free">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM (2).jpeg" alt="Scone">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-nf">Nut-Free</span>
                     </div>
@@ -527,7 +476,7 @@
             <div class="card reveal" data-category="gluten-free vegan nut-free">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM (1).jpeg" alt="Bagel">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                         <span class="tag tag-nf">Nut-Free</span>
@@ -545,7 +494,7 @@
             <div class="card reveal" data-category="vegan sugar-free nut-free">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM (2).jpeg" alt="Cupcake">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-v">Vegan</span>
                         <span class="tag tag-sf">Sugar-Free</span>
                         <span class="tag tag-nf">Nut-Free</span>
@@ -562,7 +511,7 @@
             <div class="card reveal" data-category="gluten-free">
                 <img src="img/raspberry_almond_cake.png" alt="Raspberry Almond Cake">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                     </div>
                     <h3>Raspberry Almond Cake</h3>
@@ -578,7 +527,7 @@
             <div class="card reveal" data-category="gluten-free nut-free">
                 <img src="img/gf_chocolate_brownies.png" alt="GF Chocolate Brownies">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-nf">Nut-Free</span>
                     </div>
@@ -595,7 +544,7 @@
             <div class="card reveal" data-category="nut-free vegan gluten-free">
                 <img src="img/nut_free_sunbutter_bars.png" alt="Sunbutter Crunch Bars">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-nf">Nut-Free</span>
                         <span class="tag tag-v">Vegan</span>
                         <span class="tag tag-gf">Gluten-Free</span>
@@ -613,7 +562,7 @@
             <div class="card reveal" data-category="sugar-free vegan">
                 <img src="img/sugar_free_matcha_latte.png" alt="Iced Matcha Latte">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-sf">Sugar-Free</span>
                         <span class="tag tag-v">Vegan</span>
                     </div>
@@ -630,7 +579,7 @@
             <div class="card reveal" data-category="sugar-free gluten-free">
                 <img src="img/sugar_free_cheesecake.png" alt="Berry Cheesecake">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-sf">Sugar-Free</span>
                         <span class="tag tag-gf">Gluten-Free</span>
                     </div>
@@ -647,7 +596,7 @@
             <div class="card reveal" data-category="nut-free vegan gluten-free">
                 <img src="img/nut_free_crackers.png" alt="Sunflower Seed Crackers">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-nf">Nut-Free</span>
                         <span class="tag tag-v">Vegan</span>
                         <span class="tag tag-gf">Gluten-Free</span>
@@ -665,7 +614,7 @@
             <div class="card reveal" data-category="gluten-free vegan">
                 <img src="img/gf_artisan_loaf.png" alt="Artisan Loaf">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                     </div>
@@ -682,7 +631,7 @@
             <div class="card reveal" data-category="vegan gluten-free">
                 <img src="img/Rosemary Focaccia.png" alt="Rosemary Focaccia">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-v">Vegan</span>
                         <span class="tag tag-gf">Gluten-Free</span>
                     </div>
@@ -699,7 +648,7 @@
             <div class="card reveal" data-category="vegan nut-free gluten-free">
                 <img src="img/Vegan Cookies.png" alt="Vegan Cookies">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-v">Vegan</span>
                         <span class="tag tag-nf">Nut-Free</span>
                         <span class="tag tag-gf">Gluten-Free</span>
@@ -717,7 +666,7 @@
             <div class="card reveal" data-category="vegan gluten-free nut-free">
                 <img src="img/vegan_chocolate_avocado_cake.png" alt="Vegan Chocolate Avocado Cake">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-v">Vegan</span>
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-nf">Nut-Free</span>
@@ -735,7 +684,7 @@
             <div class="card reveal" data-category="vegan">
                 <img src="img/vegan_strawberry_glazed_donuts.png" alt="Vegan Strawberry Glazed Donuts">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-v">Vegan</span>
                     </div>
                     <h3>Strawberry Glazed Donuts</h3>
@@ -751,7 +700,7 @@
             <div class="card reveal" data-category="sugar-free gluten-free">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.22 PM.jpeg" alt="Oat & Cinnamon Snaps">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-sf">Sugar-Free</span>
                         <span class="tag tag-gf">Gluten-Free</span>
                     </div>
@@ -768,7 +717,7 @@
             <div class="card reveal" data-category="sugar-free vegan nut-free">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.32 PM.jpeg" alt="Keto Berry Bites">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-sf">Sugar-Free</span>
                         <span class="tag tag-v">Vegan</span>
                         <span class="tag tag-nf">Nut-Free</span>
@@ -786,7 +735,7 @@
             <div class="card reveal" data-category="gluten-free nut-free">
                 <img src="img/chocolate_chip_decadence_cookies.png" alt="Choc-Chip Decadence">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-nf">Nut-Free</span>
                     </div>
@@ -803,7 +752,7 @@
             <div class="card reveal" data-category="gluten-free vegan nut-free">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.31 PM (1).jpeg" alt="Savory Herb Baguette">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                         <span class="tag tag-nf">Nut-Free</span>

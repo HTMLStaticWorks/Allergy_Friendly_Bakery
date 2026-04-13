@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart | SafeBakes - Allergy Friendly Bakery</title>
-    <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -112,10 +112,23 @@
 
         .quantity-input {
             border: none;
-            width: 50px;
+            width: 45px;
             text-align: center;
             font-weight: 600;
             background: transparent;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 1.1rem;
+        }
+
+        .quantity-input::-webkit-outer-spin-button,
+        .quantity-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .quantity-input[type=number] {
+            -moz-appearance: textfield;
         }
 
         .remove-item {
@@ -172,14 +185,18 @@
             display: flex;
             gap: 0.5rem;
             margin-top: 1rem;
+            width: 100%;
         }
 
         .promo-input {
             flex: 1;
+            min-width: 0;
             padding: 0.75rem;
             border: 1px solid var(--border);
             border-radius: 8px;
             font-size: 1rem;
+            background: var(--bg-main);
+            color: var(--text-main);
         }
 
         .promo-btn {
@@ -190,7 +207,8 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .promo-btn:hover {
@@ -273,7 +291,15 @@
 
         @media (max-width: 767.98px) {
             .cart-container {
-                padding: 5rem 1rem 2rem;
+                padding: 6rem 1rem 2rem;
+            }
+
+            .promo-input-group {
+                flex-direction: column;
+            }
+
+            .promo-btn {
+                width: 100%;
             }
 
             .cart-header h1 {
@@ -326,9 +352,7 @@
             <div class="mobile-nav-container">
                 <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
                 <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Open menu">
-                    <div class="navbar-toggler-icon">
-                        <span></span>
-                    </div>
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
 
@@ -336,9 +360,9 @@
                 <ul class="nav-links" id="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="home-premium.html">Premium</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="menu.html">Menu</a></li>
                     <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
                 </ul>
@@ -348,7 +372,7 @@
                 <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i
                         class="fas fa-moon"></i></button>
                 <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i
-                        class="fas fa-globe"></i></button>
+                        class="fas fa-right-left"></i></button>
                 <button type="button" class="toggle-btn cart-btn" title="View Cart">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-badge">0</span>
@@ -368,9 +392,9 @@
             <ul class="mobile-menu-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="home-premium.html">Premium</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
             </ul>
@@ -380,11 +404,10 @@
                     <i class="fas fa-moon"></i> Theme
                 </button>
                 <button type="button" id="mobile-rtl-toggle" class="btn btn-outline">
-                    <i class="fas fa-globe"></i> RTL
+                    <i class="fas fa-right-left"></i> RTL
                 </button>
-                <a href="login.html" class="btn btn-outline">Login</a>
-                <a href="register.html" class="btn btn-primary">Register</a>
                 <a href="cart.html" class="btn btn-primary">Cart</a>
+                <a href="login.html" class="btn btn-outline">Login</a>
             </div>
         </div>
 

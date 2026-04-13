@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | SafeBakes - Our Story</title>
-    <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -134,24 +134,69 @@
         }
 
         /* Tablet Responsive Fix: Keep first 2 cards side-by-side & center 3rd */
-        @media (min-width: 768px) and (max-width: 1024px) {
-
-            .team-grid,
-            .grid-3,
-            .values-grid-premium {
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 2rem !important;
-            }
-
-            .team-grid>*:last-child:nth-child(odd),
-            .grid-3>*:last-child:nth-child(odd),
-            .values-grid-premium>*:last-child:nth-child(odd) {
-                grid-column: 1 / span 2 !important;
-                justify-self: center !important;
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            .team-grid {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 2.5rem !important;
                 width: 100% !important;
-                max-width: calc(50% - 1rem) !important;
+                padding: 0 !important;
             }
+
+            .team-grid .team-card {
+                width: calc(50% - 1.25rem) !important;
+                max-width: 420px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                margin: 0 !important;
+                background: var(--bg-card) !important;
+                border-radius: 24px !important;
+                overflow: hidden !important;
+                flex: 0 0 auto !important;
+            }
+
+            .team-grid .team-card .team-photo {
+                width: 100% !important;
+                height: 320px !important;
+                object-fit: cover !important;
+                display: block !important;
+                margin: 0 !important;
+            }
+
+            .team-grid .team-card .team-card-body {
+                width: 100% !important;
+                padding: 2.5rem 1.5rem !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                box-sizing: border-box !important;
+            }
+
+            .team-grid .team-card h4, 
+            .team-grid .team-card .role, 
+            .team-grid .team-card .bio {
+                width: 100% !important;
+                text-align: center !important;
+                margin: 0 0 0.75rem 0 !important;
+                display: block !important;
+            }
+
+            .team-grid .team-card .bio {
+                margin-bottom: 0 !important;
+                line-height: 1.6 !important;
+            }
+        }
+        /* Force dark text for visibility on light background in dark mode */
+        [data-theme='dark'] .values-modern h2 {
+            color: #7C3E2D !important;
+        }
+        [data-theme='dark'] .values-modern h3,
+        [data-theme='dark'] .values-modern p {
+            color: #000000 !important;
         }
     </style>
 </head>
@@ -163,18 +208,16 @@
             <div class="mobile-nav-container">
                 <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
                 <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Open menu">
-                    <div class="navbar-toggler-icon">
-                        <span></span>
-                    </div>
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
             <nav>
                 <ul class="nav-links" id="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="home-premium.html">Premium</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="menu.html">Menu</a></li>
                     <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
                 </ul>
@@ -183,7 +226,7 @@
                 <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i
                         class="fas fa-moon"></i></button>
                 <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i
-                        class="fas fa-globe"></i></button>
+                        class="fas fa-right-left"></i></button>
                 <button type="button" class="toggle-btn cart-btn" title="View Cart">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-badge">0</span>
@@ -203,9 +246,9 @@
             <ul class="mobile-menu-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="home-premium.html">Premium</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
             </ul>
@@ -215,11 +258,10 @@
                     <i class="fas fa-moon"></i> Theme
                 </button>
                 <button type="button" id="mobile-rtl-toggle" class="btn btn-outline">
-                    <i class="fas fa-globe"></i> RTL
+                    <i class="fas fa-right-left"></i> RTL
                 </button>
-                <a href="login.html" class="btn btn-outline">Login</a>
-                <a href="register.html" class="btn btn-primary">Register</a>
                 <a href="cart.html" class="btn btn-primary">Cart</a>
+                <a href="login.html" class="btn btn-outline">Login</a>
             </div>
         </div>
 

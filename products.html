@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | SafeBakes - Retail &amp; Pantry</title>
-    <link rel="icon" type="image/png" href="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg">
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -41,29 +41,6 @@
             .page-header {
                 margin-bottom: 3.5rem;
             }
-        }
-
-        .tag {
-            font-size: 0.75rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-weight: 600;
-            margin-right: 0.5rem;
-        }
-
-        .tag-gf {
-            background: #E3F2FD;
-            color: #1976D2;
-        }
-
-        .tag-v {
-            background: #E8F5E9;
-            color: #2E7D32;
-        }
-
-        .tag-sf {
-            background: #FFF3E0;
-            color: #EF6C00;
         }
 
         .price {
@@ -206,18 +183,16 @@
             <div class="mobile-nav-container">
                 <a href="index.html" class="logo"><i class="fas fa-bread-slice"></i> SafeBakes</a>
                 <button class="navbar-toggler" type="button" id="mobileMenuToggle" title="Open menu">
-                    <div class="navbar-toggler-icon">
-                        <span></span>
-                    </div>
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
             <nav>
                 <ul class="nav-links" id="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="home-premium.html">Premium</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="menu.html">Menu</a></li>
                     <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
                 </ul>
@@ -226,7 +201,7 @@
                 <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i
                         class="fas fa-moon"></i></button>
                 <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i
-                        class="fas fa-globe"></i></button>
+                        class="fas fa-right-left"></i></button>
                 <button type="button" class="toggle-btn cart-btn" title="View Cart">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-badge" id="cart-count">0</span>
@@ -246,9 +221,9 @@
             <ul class="mobile-menu-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="home-premium.html">Premium</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
             </ul>
@@ -258,11 +233,10 @@
                     <i class="fas fa-moon"></i> Theme
                 </button>
                 <button type="button" id="mobile-rtl-toggle" class="btn btn-outline">
-                    <i class="fas fa-globe"></i> RTL
+                    <i class="fas fa-right-left"></i> RTL
                 </button>
-                <a href="login.html" class="btn btn-outline">Login</a>
-                <a href="register.html" class="btn btn-primary">Register</a>
                 <a href="cart.html" class="btn btn-primary">Cart</a>
+                <a href="login.html" class="btn btn-outline">Login</a>
             </div>
         </div>
 
@@ -297,7 +271,7 @@
             <div class="card reveal" data-category="cakes">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Vanilla Bean Cake" loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                     </div>
@@ -314,7 +288,7 @@
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.29 PM.jpeg" alt="Velvet Anniversary Cake"
                     loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                     </div>
                     <h3>Red Velvet Premium</h3>
@@ -329,7 +303,7 @@
             <div class="card reveal" data-category="cakes">
                 <img src="img/Lemon Drizzle Dream.png" alt="Lemon Drizzle Cake" loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                     </div>
@@ -346,7 +320,7 @@
             <div class="card reveal" data-category="cookies">
                 <img src="img/Vegan Cookies.png" alt="Vegan Choc Chip Cookies" loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                     </div>
@@ -362,7 +336,7 @@
             <div class="card reveal" data-category="cookies">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.22 PM.jpeg" alt="Sugar Free Cookies" loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-sf">Sugar-Free</span>
                         <span class="tag tag-gf">Gluten-Free</span>
                     </div>
@@ -378,7 +352,7 @@
             <div class="card reveal" data-category="cookies">
                 <img src="img/Double Chocolate Fudge.png" alt="Double Chocolate Fudge Cookie" loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                     </div>
@@ -396,7 +370,7 @@
             <div class="card reveal" data-category="breads">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM.jpeg" alt="GF Sourdough Loaf" loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                     </div>
@@ -412,7 +386,7 @@
             <div class="card reveal" data-category="breads">
                 <img src="img/Gluten-Free Vega.jpg" alt="Baking Mix" loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                     </div>
@@ -428,7 +402,7 @@
             <div class="card reveal" data-category="breads">
                 <img src="img/Rosemary Focaccia.png" alt="Rosemary Focaccia" loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                     </div>
@@ -446,7 +420,7 @@
             <div class="card reveal" data-category="pastries">
                 <img src="img/seeded morning.jpg" alt="Seeded Morning Muffins" loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                         <span class="tag tag-v">Vegan</span>
                     </div>
@@ -462,7 +436,7 @@
             <div class="card reveal" data-category="pastries">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.21 PM.jpeg" alt="Vegan Croissant" loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-v">Vegan</span>
                     </div>
                     <h3>Golden Croissants (2)</h3>
@@ -477,7 +451,7 @@
             <div class="card reveal" data-category="pastries">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.23 PM.jpeg" alt="Almond Muffins" loading="lazy">
                 <div class="card-body menu-card-body">
-                    <div style="margin-bottom: 0.5rem;">
+                    <div class="card-tags">
                         <span class="tag tag-gf">Gluten-Free</span>
                     </div>
                     <h3>Honey Almond Muffins</h3>
