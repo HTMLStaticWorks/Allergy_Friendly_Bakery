@@ -417,7 +417,7 @@ h5 {
    =================================== */
 
 /* Header - Mobile & Tablet */
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
 
     /* Hide desktop navigation and actions */
     .nav-links {
@@ -485,19 +485,20 @@ h5 {
     /* Mobile Navigation Container */
     .mobile-nav-container {
         display: flex !important;
-        justify-content: space-between !important;
+        justify-content: center !important; /* Centered for Brand Name */
         align-items: center !important;
         padding: 0 16px !important;
         width: 100% !important;
         min-height: 60px !important;
+        position: relative !important;
     }
 
-    /* Logo - Mobile */
+    /* Logo - Mobile & Tablet */
     .logo {
-        font-size: 1.25rem !important;
-        text-align: left !important;
+        font-size: 1.25rem !important; /* Consistent Size */
+        text-align: center !important;
         flex: none !important;
-        margin-right: auto !important;
+        margin: 0 auto !important; /* Center the logo */
         display: flex !important;
         align-items: center !important;
         height: 100% !important;
@@ -506,7 +507,8 @@ h5 {
 
     /* Hamburger Menu - Mobile */
     .navbar-toggler {
-        margin-left: auto !important;
+        position: absolute !important;
+        right: 16px !important;
         flex: none !important;
     }
 
@@ -533,7 +535,7 @@ h5 {
 /* ===================================
    HERO SECTION - MOBILE & TABLET
    =================================== */
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
     .hero {
         text-align: center !important;
         padding: 4rem 1rem 2rem !important;
@@ -588,7 +590,7 @@ h5 {
 /* ===================================
    SECTIONS - MOBILE & TABLET
    =================================== */
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
 
     /* Category Filter - Mobile & Tablet */
     .category-filter {
@@ -619,25 +621,28 @@ h5 {
     }
 
     .stat-item {
-        padding: 2rem !important;
-        background: var(--bg-card) !important;
-        border-radius: var(--radius) !important;
-        box-shadow: var(--shadow) !important;
+        padding: 1.5rem !important;
+        background: transparent !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
         margin: 0 auto !important;
-        max-width: 300px !important;
+        max-width: 100% !important;
         width: 100% !important;
     }
 
     .stat-item h2 {
-        font-size: 2.5rem !important;
+        font-size: 2.8rem !important;
         margin-bottom: 0.5rem !important;
-        color: var(--primary) !important;
+        color: white !important;
+        text-align: center !important;
     }
 
     .stat-item p {
         font-size: 1.1rem !important;
         opacity: 0.9 !important;
         margin: 0 !important;
+        color: white !important;
+        text-align: center !important;
     }
 
     /* General section styling */
@@ -796,6 +801,43 @@ h5 {
     }
 }
 
+/* 1024px VIEW ALONE - Center 3rd card in 3-card sections & handle specific filter centering */
+@media only screen and (min-width: 1024px) and (max-width: 1024px) {
+    .grid-3 > *:nth-child(3):last-child,
+    .grid-4 > *:nth-child(3):last-child,
+    .plans-grid > *:nth-child(3):last-child,
+    .steps-grid-modern > *:nth-child(3):last-child,
+    .promise-grid > *:nth-child(3):last-child,
+    .safety-grid > *:nth-child(3):last-child,
+    .popular-week-grid > *:nth-child(3):last-child,
+    .team-grid > *:nth-child(3):last-child,
+    .values-grid-premium > *:nth-child(3):last-child,
+    .stats-grid > *:nth-child(3):last-child,
+    .how-it-works-grid > *:nth-child(3):last-child {
+        grid-column: 1 / span 2 !important;
+        justify-self: center !important;
+        width: calc(50% - 0.75rem) !important;
+    }
+
+    /* Centering logic for specific filters on Menu and Products pages */
+    .menu-page .grid-3[data-active-filter="all"],
+    .menu-page .grid-3[data-active-filter="nut-free"],
+    .products-page .grid-3[data-active-filter="all"] {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 1.5rem !important;
+    }
+
+    .menu-page .grid-3[data-active-filter="all"] > .card,
+    .menu-page .grid-3[data-active-filter="nut-free"] > .card,
+    .products-page .grid-3[data-active-filter="all"] > .card {
+        width: calc(50% - 0.75rem) !important;
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+    }
+}
+
 /* ===================================
    MOBILE MENU STYLES
    =================================== */
@@ -926,7 +968,7 @@ h5 {
     align-items: start;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1050,11 +1092,11 @@ h5 {
    =================================== */
 @media (max-width: 767.98px) {
     .hero h1 {
-        font-size: 1.75rem !important;
+        font-size: 2rem !important; /* Match tablet size */
     }
 
     .logo {
-        font-size: 1.1rem !important;
+        font-size: 1.25rem !important; /* Match tablet size */
     }
 
     .mobile-menu-overlay {
@@ -1098,6 +1140,50 @@ h5 {
     border-radius: 0;
     margin-left: 0;
     box-shadow: none;
+}
+
+@media (max-width: 1024px) {
+    .btn-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.25rem !important;
+    }
+
+    .btn-wrapper .btn {
+        width: 100% !important;
+        max-width: 300px !important;
+    }
+
+    .footer-logo {
+        justify-content: center !important;
+    }
+    
+    .footer-col {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .footer-col p {
+        text-align: center !important;
+    }
+
+    .footer-col-brand p {
+        text-align: center !important;
+    }
+    
+    .footer h4 {
+        text-align: center !important;
+    }
+    
+    .footer-links {
+        text-align: center !important;
+    }
+    
+    .footer-social {
+        justify-content: center !important;
+    }
 }
 
 .footer-col-brand p {
@@ -2237,6 +2323,7 @@ h5 {
     .team-grid>*:last-child:nth-child(odd),
     .safety-grid>*:last-child:nth-child(odd),
     .promise-grid>*:last-child:nth-child(odd),
+    .stats-grid>*:last-child:nth-child(odd),
     .steps-grid-modern>*:last-child:nth-child(odd) {
         grid-column: 1 / span 2 !important;
         justify-self: center !important;

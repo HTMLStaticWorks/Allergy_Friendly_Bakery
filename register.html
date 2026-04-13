@@ -164,23 +164,31 @@
             left: 1rem;
         }
 
-        /* Mobile & Tablet Specific Optimization */
+        /* Mobile & Tablet Specific Optimization (Up to 1024px) */
         @media (max-width: 1024px) {
             .auth-card {
-                text-align: left;
+                text-align: center !important;
             }
 
             .auth-card .card-body h1 {
-                text-align: left !important;
+                text-align: center !important;
+                font-size: 1.75rem !important;
+                margin-bottom: 1.5rem !important;
                 margin-left: 0;
             }
 
             .auth-card .logo {
-                justify-content: flex-start !important;
+                justify-content: center !important;
+                font-size: 1.75rem !important;
+                margin-bottom: 1.5rem !important;
             }
 
             .auth-footer {
-                text-align: left;
+                text-align: center !important;
+            }
+
+            .social-login {
+                justify-content: center !important;
             }
         }
 
@@ -194,18 +202,6 @@
                 box-shadow: none;
                 /* Cleaner on small screens */
                 border: none;
-            }
-
-            .logo {
-                font-size: 1.75rem !important;
-                margin-bottom: 1.5rem !important;
-                justify-content: flex-start !important;
-            }
-
-            h1 {
-                font-size: 1.6rem !important;
-                margin-bottom: 1.5rem !important;
-                text-align: left !important;
             }
 
             .form-group label {
@@ -234,7 +230,7 @@
         <button type="button" id="theme-toggle" class="toggle-btn" title="Toggle Theme"><i
                 class="fas fa-moon"></i></button>
         <button type="button" id="rtl-toggle" class="toggle-btn" title="Toggle RTL"><i
-                class="fas fa-globe"></i></button>
+                class="fas fa-right-left"></i></button>
     </div>
 
     <main class="auth-main">

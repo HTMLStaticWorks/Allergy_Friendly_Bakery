@@ -406,6 +406,12 @@ function initProductFilter() {
             }
         });
 
+        // Apply active filter state to container for specific layouts (e.g. 1024px centering)
+        const gridContainer = document.querySelector('.menu-page .grid-3, .products-page .grid-3');
+        if (gridContainer) {
+            gridContainer.setAttribute('data-active-filter', category);
+        }
+
         // Filter products with a smooth transition
         products.forEach(product => {
             const attr = product.getAttribute('data-category');
@@ -457,11 +463,10 @@ function initProductFilter() {
 
     // Check for URL parameter on load
     const urlParams = new URLSearchParams(window.location.search);
-    const categoryParam = urlParams.get('category');
-    if (categoryParam) {
-        // Wait a bit for initial reveal animations to potentially start
-        setTimeout(() => filterProducts(categoryParam), 100);
-    }
+    const categoryParam = urlParams.get('category') || 'all';
+    
+    // Set initial filter state
+    filterProducts(categoryParam);
 }
 
 // Password Visibility Toggle
