@@ -149,14 +149,6 @@
             transform: scale(1.015) rotate(0.5deg);
         }
 
-        .quality-badge-anim {
-            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .quality-section:hover .quality-badge-anim {
-            transform: translateY(-15px) rotate(-3deg);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
 
         .quality-list-card {
             transition: all 0.5s ease;
@@ -171,6 +163,37 @@
         @media (max-width: 767px) {
             .products-page .grid-3 {
                 grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .quality-img-container img {
+                height: 500px !important;
+                object-fit: cover;
+                width: 100%;
+            }
+
+            #gift-sets-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                grid-auto-rows: 1fr !important;
+            }
+
+            #gift-sets-grid > .card:last-child:nth-child(odd) {
+                grid-column: 1 / -1 !important;
+                max-width: calc(50% - 0.75rem) !important;
+                margin: 0 auto !important;
+                justify-self: center !important;
+            }
+
+            #main-products-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            #main-products-grid > .card.lone-card {
+                grid-column: 1 / -1 !important;
+                max-width: calc(50% - 0.75rem) !important;
+                margin: 0 auto !important;
+                justify-self: center !important;
             }
         }
     </style>
@@ -266,7 +289,7 @@
             <h3 style="color: var(--secondary);">📦 Free shipping on retail orders over £45</h3>
             <p>Stack with subscription savings—see cart for details.</p>
         </div>
-        <div class="grid grid-3">
+        <div class="grid grid-3" id="main-products-grid">
             <!-- Cakes Section -->
             <div class="card reveal" data-category="cakes">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Vanilla Bean Cake" loading="lazy">
@@ -468,7 +491,7 @@
     <section class="section" style="background: var(--bg-main);">
         <div class="container">
             <h2>🎁 Gift sets &amp; pantry picks</h2>
-            <div class="grid grid-3 popular-week-grid">
+            <div class="grid grid-3 popular-week-grid" id="gift-sets-grid">
                 <div class="card reveal">
                     <img src="img/Gluten-Free.jpg" alt="Gift box of baked goods" loading="lazy">
                     <div class="card-body menu-card-body">
@@ -557,23 +580,10 @@
                         style="position: absolute; top: -30px; right: -30px; width: 140px; height: 140px; background: var(--accent); border-radius: 50%; z-index: 0; opacity: 0.6;">
                     </div>
                     <div class="quality-img-container">
-                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80"
-                            alt="Baking Process"
+                        <img src="img/Food_Safety_Lab_Gibson.png"
+                            alt="Food Safety Lab"
                             style="width: 100%; border-radius: 40px; position: relative; z-index: 1; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
                     </div>
-                    <div style="position: absolute; bottom: 30px; left: -20px; background: white; padding: 1.25rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 2;"
-                        class="reveal quality-badge-anim">
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div
-                                style="background: var(--secondary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <div>
-                                <h4 style="margin: 0; font-size: 0.9rem;">Award Winning</h4>
-                                <p style="margin: 0; font-size: 0.75rem; color: var(--text-muted);">British Baking 2026
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -647,6 +657,34 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Mark lone card (last visible odd card) for tablet 2-col centering
+        function updateLoneCard() {
+            var grid = document.getElementById('main-products-grid');
+            if (!grid) return;
+            var allCards = Array.from(grid.querySelectorAll('.card[data-category]'));
+            // Remove lone-card from all first
+            allCards.forEach(function(c) { c.classList.remove('lone-card'); });
+            // Get visible cards
+            var visible = allCards.filter(function(c) { return c.style.display !== 'none'; });
+            // If odd count, mark the last one
+            if (visible.length > 0 && visible.length % 2 !== 0) {
+                visible[visible.length - 1].classList.add('lone-card');
+            }
+        }
+
+        // Patch filter clicks to update lone-card after filter animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Run once on initial load
+            setTimeout(updateLoneCard, 500);
+            // Run after each filter chip click
+            document.querySelectorAll('.filter-chip[data-filter]').forEach(function(chip) {
+                chip.addEventListener('click', function() {
+                    setTimeout(updateLoneCard, 500);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -130,6 +130,25 @@
             padding: 1.5rem;
         }
 
+        @media (min-width: 768px) and (max-width: 1024px) {
+            #featured-creations-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                justify-content: center !important;
+                margin-bottom: 3rem !important;
+            }
+
+            #featured-creations-grid > .card:last-child:nth-child(odd) {
+                grid-column: 1 / -1 !important;
+                max-width: calc(50% - 0.75rem) !important;
+                margin: 0 auto !important;
+                justify-self: center !important;
+            }
+
+            #advanced-selection-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
         @media (max-width: 992px) {
             .hero-split {
                 background: linear-gradient(rgba(27, 14, 10, 0.65), rgba(27, 14, 10, 0.65)), url('img/home 2 page header image.png') center/cover;
@@ -253,7 +272,7 @@
 
         <section class="container section">
             <h2>🧁 Featured Creations</h2>
-            <div class="grid grid-3">
+            <div class="grid grid-3" id="featured-creations-grid">
                 <div class="card image-card reveal">
                     <img src="img/WhatsApp Image 2026-04-10 at 3.21.31 PM.jpeg" alt="Signature Brownies"
                         class="card-img-top">
@@ -311,7 +330,7 @@
                 <a href="products.html?category=breads" class="category-btn">Breads</a>
                 <a href="products.html?category=pastries" class="category-btn">Pastries</a>
             </div>
-            <div class="grid grid-4">
+            <div class="grid grid-4" id="advanced-selection-grid">
                 <!-- Mock Grid Items -->
                 <div class="card image-card reveal">
                     <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM.jpeg" class="card-img-top">

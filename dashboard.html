@@ -539,7 +539,7 @@
 
             .top-bar-left {
                 width: 100% !important;
-                justify-content: center !important;
+                justify-content: flex-start !important;
                 position: relative !important;
                 gap: 0 !important;
             }
@@ -553,10 +553,11 @@
             }
 
             .top-bar-title {
-                font-size: 1.1rem;
+                font-size: 1.1rem !important;
                 margin: 0;
-                text-align: center !important;
-                padding-inline: 45px 115px; /* Prevent overlap with toggle and icons (start/end) */
+                text-align: left !important;
+                padding-inline: 65px 105px; /* Prevent overlap with toggle and icons (start/end) */
+                white-space: nowrap;
             }
 
             .top-bar-actions {
@@ -583,8 +584,9 @@
                     gap: 0.5rem;
                 }
                 .top-bar-title {
-                    font-size: 1.0rem; 
-                    white-space: normal;
+                    font-size: 0.95rem !important; 
+                    padding-inline: 45px 95px;
+                    white-space: nowrap;
                     line-height: 1.2;
                 }
                 .top-bar-actions {
@@ -611,8 +613,9 @@
                     gap: 0.35rem;
                 }
                 .top-bar-title {
-                    font-size: 0.9rem;
-                    padding-inline: 40px 110px;
+                    font-size: 0.85rem !important;
+                    padding-inline: 40px 95px;
+                    white-space: nowrap;
                 }
                 .top-bar-actions {
                     gap: 4px;
@@ -646,9 +649,19 @@
                 text-align: center !important;
             }
 
-            /* Switch to horizontal scroll layout on mobile/tablet for activity */
+            /* Switch to horizontal scroll layout on mobile/tablet for activity & orders */
             .table-wrapper .data-table {
                 display: none;
+            }
+
+            #overview .table-wrapper .data-table,
+            #orders .table-wrapper .data-table {
+                display: table;
+            }
+
+            #overview .mobile-order-cards,
+            #orders .mobile-order-cards {
+                display: none !important;
             }
 
             .mobile-order-cards {
@@ -668,6 +681,34 @@
             .mobile-order-card {
                 flex: 0 0 280px;
                 margin-bottom: 0;
+            }
+
+            .section-title {
+                margin-bottom: 1.5rem !important;
+            }
+
+            .address-card .btn-wrapper {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 1rem !important;
+                width: 100% !important;
+            }
+
+            .address-card .btn-wrapper a {
+                white-space: nowrap !important;
+                flex-shrink: 0 !important;
+            }
+
+            .address-grid .address-card p,
+            .address-grid .address-card h4 {
+                text-align: center !important;
+            }
+
+            .address-grid .address-card {
+                text-align: center !important;
             }
 
             .section-title.has-action {
@@ -797,6 +838,43 @@
 
         .address-card .btn-wrapper a:hover i {
             transform: scale(1.2);
+        }
+
+        /* Settings Section Gap all views */
+        #settings .section-title {
+            margin-bottom: 2rem !important;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        /* Settings Section Title Alignment for Mobile & Tablet */
+        @media screen and (max-width: 1024px) {
+            #settings .section-title {
+                justify-content: flex-start !important;
+            }
+            #settings .section-title h3 {
+                text-align: left !important;
+            }
+            [dir="rtl"] #settings .section-title {
+                justify-content: flex-end !important;
+            }
+            [dir="rtl"] #settings .section-title h3 {
+                text-align: right !important;
+            }
+        }
+
+        /* Settings Section Alignments for 1024px and Desktop */
+        @media screen and (min-width: 1024px) {
+            #settings .form-group label {
+                text-align: left !important;
+            }
+            #settings .form-group input {
+                text-align: left !important;
+            }
+            [dir="rtl"] #settings .form-group label,
+            [dir="rtl"] #settings .form-group input {
+                text-align: right !important;
+            }
         }
     </style>
 </head>

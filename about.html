@@ -135,8 +135,24 @@
 
         /* Tablet Responsive Fix: Keep first 2 cards side-by-side & center 3rd */
         @media screen and (min-width: 768px) and (max-width: 1024px) {
+            .section-safety .grid-3 {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 2rem !important;
+                width: 100% !important;
+            }
+
+            .section-safety .grid-3>.card {
+                width: calc(50% - 1rem) !important;
+                flex: 0 0 auto !important;
+                margin-bottom: 0 !important;
+            }
+
             .team-grid {
                 display: flex !important;
+                flex-direction: row !important;
                 flex-wrap: wrap !important;
                 justify-content: center !important;
                 gap: 2.5rem !important;
@@ -176,8 +192,8 @@
                 box-sizing: border-box !important;
             }
 
-            .team-grid .team-card h4, 
-            .team-grid .team-card .role, 
+            .team-grid .team-card h4,
+            .team-grid .team-card .role,
             .team-grid .team-card .bio {
                 width: 100% !important;
                 text-align: center !important;
@@ -189,11 +205,26 @@
                 margin-bottom: 0 !important;
                 line-height: 1.6 !important;
             }
+
+            /* Tablet Alignment Fix for SafeBakes Promise Cards */
+            .values-grid-premium {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 2.5rem !important;
+            }
+
+            .values-grid-premium .value-card-premium {
+                width: calc(50% - 1.25rem) !important;
+                flex: 0 0 auto !important;
+            }
         }
+
         /* Force dark text for visibility on light background in dark mode */
         [data-theme='dark'] .values-modern h2 {
             color: #7C3E2D !important;
         }
+
         [data-theme='dark'] .values-modern h3,
         [data-theme='dark'] .values-modern p {
             color: #000000 !important;
@@ -400,8 +431,9 @@
                         <div class="timeline-title">Local Market Success</div>
                         <p class="timeline-desc">Our vegan cookies became the top seller at the London Bakers
                             Market—queues out the door.</p>
-                        <img class="timeline-thumb" src="img/Local Market Success.jpg" alt="Market stall"
-                            loading="lazy">
+                        <img class="timeline-thumb"
+                            src="https://media.licdn.com/dms/image/v2/D5612AQGt_qZ2icKnKw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1679501289815?e=2147483647&v=beta&t=CJXmfaHiHQCrm9EKD1-c5O71dEWYXlkEMBbL6p6oZ-k"
+                            alt="Market stall" loading="lazy">
                     </article>
                     <article class="timeline-milestone reveal">
                         <div class="timeline-year">2024</div>

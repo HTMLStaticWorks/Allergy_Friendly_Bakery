@@ -24,6 +24,19 @@
             text-align: center;
         }
 
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-buttons {
+                gap: 0.75rem;
+            }
+        }
+
         .hero-content h1 {
             font-size: 4rem;
             color: white;
@@ -280,6 +293,29 @@
                 padding: 0 !important;
             }
         }
+
+        /* Pure Ingredients 1024px Fix */
+        @media only screen and (min-width: 1024px) and (max-width: 1024px) {
+            .pure-ingredients-home .grid-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            .pure-ingredients-home .card {
+                display: flex !important;
+                flex-direction: column !important;
+                height: 100% !important;
+            }
+
+            .pure-ingredients-home .card-body {
+                display: flex !important;
+                flex-direction: column !important;
+                flex: 1 !important;
+            }
+
+            .pure-ingredients-home .card-body .btn {
+                margin-top: auto !important;
+            }
+        }
     </style>
 </head>
 
@@ -359,7 +395,7 @@
             <div class="container hero-content">
                 <h1>Deliciously Safe, Naturally Made</h1>
                 <p>Enjoy gluten-free and vegan treats crafted with love and care.</p>
-                <div class="btn-wrapper">
+                <div class="hero-buttons">
                     <a href="menu.html" class="btn btn-primary">Order Now</a>
                     <a href="menu.html" class="btn btn-outline" style="border-color: white; color: white;">Explore
                         Menu</a>

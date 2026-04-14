@@ -162,6 +162,105 @@
                 justify-content: center;
             }
         }
+
+        /* Tablet & Mobile Specific Alignment - Flush Left as per user's 2nd screenshot */
+        @media (max-width: 767px) {
+            #contact-top-grid {
+                grid-template-columns: 1fr !important;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            #contact-top-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                grid-auto-rows: 1fr !important;
+                max-width: 800px;
+                margin: 0 auto 3rem auto !important;
+                gap: 1.5rem !important;
+            }
+            #contact-top-grid > .card {
+                height: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+            #contact-top-grid > .card:nth-child(3) {
+                grid-column: 1 / span 2 !important;
+                justify-self: center !important;
+                width: calc(50% - 0.75rem) !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+
+            .contact-details-box {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                text-align: left !important;
+                padding: 2.5rem 1.5rem !important;
+            }
+
+            .contact-details-box > div,
+            #quick-support-wrapper {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                margin: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .contact-details-box h3,
+            .contact-details-box > p {
+                text-align: left !important;
+                width: 100%;
+            }
+
+            .contact-info-row {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                text-align: left !important;
+                gap: 1.2rem !important;
+                margin: 0 0 2rem 0 !important;
+                width: 100% !important;
+            }
+
+            .contact-info-row > div:first-child {
+                margin: 0 !important;
+                flex-shrink: 0 !important;
+            }
+
+            .contact-info-row > div:last-child {
+                text-align: left !important;
+                margin: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                justify-content: center !important;
+            }
+
+            .contact-info-row h4,
+            .contact-info-row p {
+                text-align: left !important;
+                margin: 0 !important;
+                line-height: 1.4 !important;
+                display: block !important;
+                width: auto !important;
+            }
+            
+            .contact-form > h3 {
+                text-align: center !important;
+            }
+            .contact-form form label,
+            .contact-form form input,
+            .contact-form form textarea {
+                text-align: left !important;
+            }
+        }
     </style>
 </head>
 
@@ -241,7 +340,7 @@
 
     <main>
         <section class="container section">
-            <div class="grid grid-3">
+            <div class="grid grid-3" id="contact-top-grid">
                 <div class="card reveal">
                     <div class="card-body">
                         <i class="fas fa-map-marker-alt"
@@ -280,45 +379,45 @@
                             allergens or a pending order? Our dedicated team is ready to assist you through any of these
                             channels.</p>
 
-                        <div style="display: flex; flex-direction: column; gap: 2rem;">
-                            <div style="display: flex; gap: 1.5rem; align-items: center;">
+                        <div id="quick-support-wrapper" style="display: flex; flex-direction: column; gap: 2rem;">
+                            <div class="contact-info-row" style="display: flex; gap: 1.5rem; align-items: center;">
                                 <div
                                     style="background: white; width: 55px; height: 55px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow); color: var(--primary); font-size: 1.4rem;">
                                     <i class="fas fa-envelope-open-text"></i>
                                 </div>
-                                <div>
+                                <div style="text-align: left !important; display: flex; flex-direction: column; align-items: flex-start;">
                                     <h4
-                                        style="margin: 0; text-align: left; font-size: 1.1rem; color: var(--text-main);">
+                                        style="margin: 0; text-align: left !important; font-size: 1.1rem; color: var(--text-main);">
                                         Email Correspondence</h4>
-                                    <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">
+                                    <p style="margin: 0; text-align: left !important; font-size: 0.95rem; color: var(--text-muted);">
                                         support@safebakes.com</p>
                                 </div>
                             </div>
 
-                            <div style="display: flex; gap: 1.5rem; align-items: center;">
+                            <div class="contact-info-row" style="display: flex; gap: 1.5rem; align-items: center;">
                                 <div
                                     style="background: white; width: 55px; height: 55px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow); color: var(--primary); font-size: 1.4rem;">
                                     <i class="fas fa-phone-volume"></i>
                                 </div>
-                                <div>
+                                <div style="text-align: left !important; display: flex; flex-direction: column; align-items: flex-start;">
                                     <h4
-                                        style="margin: 0; text-align: left; font-size: 1.1rem; color: var(--text-main);">
+                                        style="margin: 0; text-align: left !important; font-size: 1.1rem; color: var(--text-main);">
                                         Immediate Helpline</h4>
-                                    <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">+44 20 1234 5678
+                                    <p style="margin: 0; text-align: left !important; font-size: 0.95rem; color: var(--text-muted);">+44 20 1234 5678
                                     </p>
                                 </div>
                             </div>
 
-                            <div style="display: flex; gap: 1.5rem; align-items: center;">
+                            <div class="contact-info-row" style="display: flex; gap: 1.5rem; align-items: center;">
                                 <div
                                     style="background: white; width: 55px; height: 55px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow); color: var(--primary); font-size: 1.4rem;">
                                     <i class="fas fa-comments"></i>
                                 </div>
-                                <div>
+                                <div style="text-align: left !important; display: flex; flex-direction: column; align-items: flex-start;">
                                     <h4
-                                        style="margin: 0; text-align: left; font-size: 1.1rem; color: var(--text-main);">
+                                        style="margin: 0; text-align: left !important; font-size: 1.1rem; color: var(--text-main);">
                                         Live Chat Hours</h4>
-                                    <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">Mon-Sat: 9am -
+                                    <p style="margin: 0; text-align: left !important; font-size: 0.95rem; color: var(--text-muted);">Mon-Sat: 9am -
                                         6pm</p>
                                 </div>
                             </div>

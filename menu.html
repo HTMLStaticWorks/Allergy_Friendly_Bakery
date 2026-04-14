@@ -66,7 +66,7 @@
             padding: 0.7rem 1.5rem;
             border-radius: 50px;
             border: 1px solid var(--border);
-            cursor: pointer;
+            cursor: default;
             background: var(--bg-card);
             color: var(--text-main);
             font-weight: 600;
@@ -126,6 +126,12 @@
         @media (min-width: 1025px) {
             .grid-3 {
                 grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr) !important;
             }
         }
 
@@ -389,11 +395,11 @@
 
     <div class="filter-bar">
         <div class="container filter-container">
-            <div class="filter-chip active" data-filter="all">All Products</div>
-            <div class="filter-chip" data-filter="gluten-free">Gluten-Free</div>
-            <div class="filter-chip" data-filter="vegan">Vegan</div>
-            <div class="filter-chip" data-filter="sugar-free">Sugar-Free</div>
-            <div class="filter-chip" data-filter="nut-free">Nut-Free</div>
+            <div class="filter-chip">All Products</div>
+            <div class="filter-chip">Gluten-Free</div>
+            <div class="filter-chip">Vegan</div>
+            <div class="filter-chip">Sugar-Free</div>
+            <div class="filter-chip">Nut-Free</div>
         </div>
     </div>
 
@@ -404,7 +410,7 @@
         </div>
         <div class="grid grid-3">
             <!-- Product 1 -->
-            <div class="card reveal" data-category="gluten-free vegan">
+            <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.17 PM.jpeg" alt="Blueberry Muffin">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -421,7 +427,7 @@
             </div>
 
             <!-- Product 2 -->
-            <div class="card reveal" data-category="gluten-free sugar-free nut-free">
+            <div class="card reveal">
                 <img src="img/Triple Choc Cookies.png" alt="Triple Choc Cookies">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -439,7 +445,7 @@
             </div>
 
             <!-- Product 3 -->
-            <div class="card reveal" data-category="vegan nut-free">
+            <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM (1).jpeg" alt="Lemon Poppy">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -456,7 +462,7 @@
             </div>
 
             <!-- Product 4 -->
-            <div class="card reveal" data-category="gluten-free nut-free">
+            <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.19 PM (2).jpeg" alt="Scone">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -473,7 +479,7 @@
             </div>
 
             <!-- Product 5 -->
-            <div class="card reveal" data-category="gluten-free vegan nut-free">
+            <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM (1).jpeg" alt="Bagel">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -491,7 +497,7 @@
             </div>
 
             <!-- Product 6 -->
-            <div class="card reveal" data-category="vegan sugar-free nut-free">
+            <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.20 PM (2).jpeg" alt="Cupcake">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -508,7 +514,7 @@
             </div>
 
             <!-- Product 7 -->
-            <div class="card reveal" data-category="gluten-free">
+            <div class="card reveal">
                 <img src="img/raspberry_almond_cake.png" alt="Raspberry Almond Cake">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -524,7 +530,7 @@
             </div>
 
             <!-- Product 8 -->
-            <div class="card reveal" data-category="gluten-free nut-free">
+            <div class="card reveal">
                 <img src="img/gf_chocolate_brownies.png" alt="GF Chocolate Brownies">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -541,7 +547,7 @@
             </div>
 
             <!-- Product 9 - New Nut Free Special -->
-            <div class="card reveal" data-category="nut-free vegan gluten-free">
+            <div class="card reveal">
                 <img src="img/nut_free_sunbutter_bars.png" alt="Sunbutter Crunch Bars">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -559,7 +565,7 @@
             </div>
 
             <!-- Product 10 - Sugar-Free Drink -->
-            <div class="card reveal" data-category="sugar-free vegan">
+            <div class="card reveal">
                 <img src="img/sugar_free_matcha_latte.png" alt="Iced Matcha Latte">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -576,7 +582,7 @@
             </div>
 
             <!-- Product 11 - Sugar-Free Dessert -->
-            <div class="card reveal" data-category="sugar-free gluten-free">
+            <div class="card reveal">
                 <img src="img/sugar_free_cheesecake.png" alt="Berry Cheesecake">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -593,7 +599,7 @@
             </div>
 
             <!-- Product 12 - Nut-Free Snack -->
-            <div class="card reveal" data-category="nut-free vegan gluten-free">
+            <div class="card reveal">
                 <img src="img/nut_free_crackers.png" alt="Sunflower Seed Crackers">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -611,7 +617,7 @@
             </div>
 
             <!-- Product 13 - Gluten-Free Bread -->
-            <div class="card reveal" data-category="gluten-free vegan">
+            <div class="card reveal">
                 <img src="img/gf_artisan_loaf.png" alt="Artisan Loaf">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -628,7 +634,7 @@
             </div>
 
             <!-- Product 14 - Vegan Special -->
-            <div class="card reveal" data-category="vegan gluten-free">
+            <div class="card reveal">
                 <img src="img/Rosemary Focaccia.png" alt="Rosemary Focaccia">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -645,7 +651,7 @@
             </div>
 
             <!-- Product 15 - Vegan & Nut-Free -->
-            <div class="card reveal" data-category="vegan nut-free gluten-free">
+            <div class="card reveal">
                 <img src="img/Vegan Cookies.png" alt="Vegan Cookies">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -663,7 +669,7 @@
             </div>
 
             <!-- Product 16 - Vegan Chocolate Avocado Cake -->
-            <div class="card reveal" data-category="vegan gluten-free nut-free">
+            <div class="card reveal">
                 <img src="img/vegan_chocolate_avocado_cake.png" alt="Vegan Chocolate Avocado Cake">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -681,7 +687,7 @@
             </div>
 
             <!-- Product 17 - Vegan Strawberry Glazed Donuts -->
-            <div class="card reveal" data-category="vegan">
+            <div class="card reveal">
                 <img src="img/vegan_strawberry_glazed_donuts.png" alt="Vegan Strawberry Glazed Donuts">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -697,7 +703,7 @@
             </div>
 
             <!-- Product 18 - Sugar-Free Oat Snaps -->
-            <div class="card reveal" data-category="sugar-free gluten-free">
+            <div class="card reveal">
                 <img src="img/WhatsApp Image 2026-04-10 at 3.21.22 PM.jpeg" alt="Oat & Cinnamon Snaps">
                 <div class="card-body menu-card-body">
                     <div class="card-tags">
@@ -713,58 +719,9 @@
                 </div>
             </div>
 
-            <!-- Product 19 - Sugar-Free Keto Bites -->
-            <div class="card reveal" data-category="sugar-free vegan nut-free">
-                <img src="img/WhatsApp Image 2026-04-10 at 3.21.32 PM.jpeg" alt="Keto Berry Bites">
-                <div class="card-body menu-card-body">
-                    <div class="card-tags">
-                        <span class="tag tag-sf">Sugar-Free</span>
-                        <span class="tag tag-v">Vegan</span>
-                        <span class="tag tag-nf">Nut-Free</span>
-                    </div>
-                    <h3>Keto Berry Bites</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">High-protein, zero-sugar bites for a quick
-                        energy boost.</p>
-                    <div class="price menu-price">$5.50</div>
-                    <button onclick="addToCart(19, event)" class="btn btn-primary" style="width: 100%;">Add to
-                        Cart</button>
-                </div>
-            </div>
-
-            <!-- Product 20 - Gluten-Free Choc-Chip Decadence -->
-            <div class="card reveal" data-category="gluten-free nut-free">
-                <img src="img/chocolate_chip_decadence_cookies.png" alt="Choc-Chip Decadence">
-                <div class="card-body menu-card-body">
-                    <div class="card-tags">
-                        <span class="tag tag-gf">Gluten-Free</span>
-                        <span class="tag tag-nf">Nut-Free</span>
-                    </div>
-                    <h3>Choc-Chip Decadence</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Extra-large gluten-free cookies with melting
-                        chocolate pools.</p>
-                    <div class="price menu-price">$3.50</div>
-                    <button onclick="addToCart(20, event)" class="btn btn-primary" style="width: 100%;">Add to
-                        Cart</button>
-                </div>
-            </div>
-
-            <!-- Product 21 - Savory Herb Baguette -->
-            <div class="card reveal" data-category="gluten-free vegan nut-free">
-                <img src="img/WhatsApp Image 2026-04-10 at 3.21.31 PM (1).jpeg" alt="Savory Herb Baguette">
-                <div class="card-body menu-card-body">
-                    <div class="card-tags">
-                        <span class="tag tag-gf">Gluten-Free</span>
-                        <span class="tag tag-v">Vegan</span>
-                        <span class="tag tag-nf">Nut-Free</span>
-                    </div>
-                    <h3>Savory Herb Baguette</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Crusty on the outside, soft on the inside,
-                        infused with fresh rosemary.</p>
-                    <div class="price menu-price">$7.50</div>
-                    <button onclick="addToCart(21, event)" class="btn btn-primary" style="width: 100%;">Add to
-                        Cart</button>
-                </div>
-            </div>
+           
+           
+            
         </div>
         </div>
     </main>

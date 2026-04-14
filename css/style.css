@@ -485,7 +485,7 @@ h5 {
     /* Mobile Navigation Container */
     .mobile-nav-container {
         display: flex !important;
-        justify-content: center !important; /* Centered for Brand Name */
+        justify-content: flex-start !important; /* Brand Name in Top Left */
         align-items: center !important;
         padding: 0 16px !important;
         width: 100% !important;
@@ -496,9 +496,9 @@ h5 {
     /* Logo - Mobile & Tablet */
     .logo {
         font-size: 1.25rem !important; /* Consistent Size */
-        text-align: center !important;
+        text-align: left !important;
         flex: none !important;
-        margin: 0 auto !important; /* Center the logo */
+        margin: 0 !important; /* Left logo */
         display: flex !important;
         align-items: center !important;
         height: 100% !important;
@@ -1779,8 +1779,8 @@ h5 {
 }
 
 .timeline-thumb {
-    width: 120px;
-    height: 80px;
+    width: 150px;
+    height: 100px;
     object-fit: cover;
     border-radius: var(--radius);
     margin-top: 0.5rem !important;
@@ -2590,4 +2590,33 @@ h5 {
         overflow-x: hidden !important;
         width: 100% !important;
     }
+}
+/* Contact Page Responsive Fixes */
+@media (max-width: 1024px) {
+    .contact-details-box, .contact-details-box *, .contact-info-row h4, .contact-info-row p { text-align: left !important; }
+    .contact-info-row { display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; gap: 1.5rem !important; margin-bottom: 2rem !important; width: 100% !important; }
+    .contact-info-row > div:first-child { width: 55px !important; min-width: 55px !important; height: 55px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; margin: 0 !important; }
+    .contact-info-row > div:first-child i { display: flex !important; margin: 0 !important; text-align: center !important; }
+    .contact-info-row > div:last-child { display: flex !important; flex-direction: column !important; align-items: flex-start !important; text-align: left !important; margin: 0 !important; flex: 1 !important; }
+    .contact-info-row h4, .contact-info-row p { margin: 0 !important; width: auto !important; display: block !important; line-height: 1.4 !important; }
+}
+
+/* Specific 768px Center Alignment Fix */
+@media (min-width: 600px) and (max-width: 991px) {
+    .contact-details-box { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; }
+    .contact-info-row { justify-content: center !important; width: 100% !important; }
+    .contact-info-row > div:last-child { align-items: flex-start !important; flex: 0 0 auto !important; }
+}
+
+/* Universal One-by-One Column Fix */
+@media (max-width: 1024px) {
+    .grid-3, .grid, .grid-2 { grid-template-columns: 1fr !important; }
+    .contact-section-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+}
+
+/* Final Alignment Fix for Staggered Icons - 768px */
+@media (min-width: 768px) and (max-width: 991px) {
+    .contact-details-box > div:nth-child(3) { width: max-content !important; min-width: 280px !important; margin: 0 auto !important; align-items: flex-start !important; }
+    .contact-info-row { width: auto !important; justify-content: flex-start !important; align-items: center !important; }
+    .contact-info-row > div:last-child { align-items: flex-start !important; text-align: left !important; }
 }
