@@ -309,7 +309,7 @@ h5 {
     }
 
     .logo {
-        font-size: 1.3rem !important;
+        font-size: 1.75rem !important;
     }
 
     .btn-outline {
@@ -485,7 +485,8 @@ h5 {
     /* Mobile Navigation Container */
     .mobile-nav-container {
         display: flex !important;
-        justify-content: flex-start !important; /* Brand Name in Top Left */
+        justify-content: flex-start !important;
+        /* Brand Name in Top Left */
         align-items: center !important;
         padding: 0 16px !important;
         width: 100% !important;
@@ -495,10 +496,12 @@ h5 {
 
     /* Logo - Mobile & Tablet */
     .logo {
-        font-size: 1.25rem !important; /* Consistent Size */
+        font-size: 1.75rem !important;
+        /* Consistent Size */
         text-align: left !important;
         flex: none !important;
-        margin: 0 !important; /* Left logo */
+        margin: 0 !important;
+        /* Left logo */
         display: flex !important;
         align-items: center !important;
         height: 100% !important;
@@ -757,17 +760,17 @@ h5 {
         gap: 1.5rem !important;
     }
 
-    .grid-3 > *,
-    .grid-4 > *,
-    .plans-grid > *,
-    .steps-grid-modern > *,
-    .promise-grid > *,
-    .safety-grid > *,
-    .popular-week-grid > *,
-    .team-grid > *,
-    .values-grid-premium > *,
-    .stats-grid > *,
-    .how-it-works-grid > * {
+    .grid-3>*,
+    .grid-4>*,
+    .plans-grid>*,
+    .steps-grid-modern>*,
+    .promise-grid>*,
+    .safety-grid>*,
+    .popular-week-grid>*,
+    .team-grid>*,
+    .values-grid-premium>*,
+    .stats-grid>*,
+    .how-it-works-grid>* {
         width: 100% !important;
         flex: 0 0 auto !important;
     }
@@ -780,7 +783,8 @@ h5 {
         max-width: 900px !important;
         margin: 0 auto 3rem !important;
         padding: 0 1rem !important;
-        flex-direction: row !important; /* override mobile column */
+        flex-direction: row !important;
+        /* override mobile column */
     }
 
     .category-filter .category-btn {
@@ -803,17 +807,18 @@ h5 {
 
 /* 1024px VIEW ALONE - Center 3rd card in 3-card sections & handle specific filter centering */
 @media only screen and (min-width: 1024px) and (max-width: 1024px) {
-    .grid-3 > *:nth-child(3):last-child,
-    .grid-4 > *:nth-child(3):last-child,
-    .plans-grid > *:nth-child(3):last-child,
-    .steps-grid-modern > *:nth-child(3):last-child,
-    .promise-grid > *:nth-child(3):last-child,
-    .safety-grid > *:nth-child(3):last-child,
-    .popular-week-grid > *:nth-child(3):last-child,
-    .team-grid > *:nth-child(3):last-child,
-    .values-grid-premium > *:nth-child(3):last-child,
-    .stats-grid > *:nth-child(3):last-child,
-    .how-it-works-grid > *:nth-child(3):last-child {
+
+    .grid-3>*:nth-child(3):last-child,
+    .grid-4>*:nth-child(3):last-child,
+    .plans-grid>*:nth-child(3):last-child,
+    .steps-grid-modern>*:nth-child(3):last-child,
+    .promise-grid>*:nth-child(3):last-child,
+    .safety-grid>*:nth-child(3):last-child,
+    .popular-week-grid>*:nth-child(3):last-child,
+    .team-grid>*:nth-child(3):last-child,
+    .values-grid-premium>*:nth-child(3):last-child,
+    .stats-grid>*:nth-child(3):last-child,
+    .how-it-works-grid>*:nth-child(3):last-child {
         grid-column: 1 / span 2 !important;
         justify-self: center !important;
         width: calc(50% - 0.75rem) !important;
@@ -829,9 +834,9 @@ h5 {
         gap: 1.5rem !important;
     }
 
-    .menu-page .grid-3[data-active-filter="all"] > .card,
-    .menu-page .grid-3[data-active-filter="nut-free"] > .card,
-    .products-page .grid-3[data-active-filter="all"] > .card {
+    .menu-page .grid-3[data-active-filter="all"]>.card,
+    .menu-page .grid-3[data-active-filter="nut-free"]>.card,
+    .products-page .grid-3[data-active-filter="all"]>.card {
         width: calc(50% - 0.75rem) !important;
         flex: 0 0 auto !important;
         margin: 0 !important;
@@ -1092,11 +1097,13 @@ h5 {
    =================================== */
 @media (max-width: 767.98px) {
     .hero h1 {
-        font-size: 2rem !important; /* Match tablet size */
+        font-size: 2rem !important;
+        /* Match tablet size */
     }
 
     .logo {
-        font-size: 1.25rem !important; /* Match tablet size */
+        font-size: 1.75rem !important;
+        /* Match tablet size */
     }
 
     .mobile-menu-overlay {
@@ -1157,7 +1164,7 @@ h5 {
     .footer-logo {
         justify-content: center !important;
     }
-    
+
     .footer-col {
         display: flex !important;
         flex-direction: column !important;
@@ -1172,15 +1179,15 @@ h5 {
     .footer-col-brand p {
         text-align: center !important;
     }
-    
+
     .footer h4 {
         text-align: center !important;
     }
-    
+
     .footer-links {
         text-align: center !important;
     }
-    
+
     .footer-social {
         justify-content: center !important;
     }
@@ -2474,7 +2481,7 @@ h5 {
     }
 
     .logo {
-        font-size: 1.15rem !important;
+        font-size: 1.75rem !important;
     }
 
     /* Contact & Form Elements */
@@ -2591,32 +2598,114 @@ h5 {
         width: 100% !important;
     }
 }
+
 /* Contact Page Responsive Fixes */
 @media (max-width: 1024px) {
-    .contact-details-box, .contact-details-box *, .contact-info-row h4, .contact-info-row p { text-align: left !important; }
-    .contact-info-row { display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; gap: 1.5rem !important; margin-bottom: 2rem !important; width: 100% !important; }
-    .contact-info-row > div:first-child { width: 55px !important; min-width: 55px !important; height: 55px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; margin: 0 !important; }
-    .contact-info-row > div:first-child i { display: flex !important; margin: 0 !important; text-align: center !important; }
-    .contact-info-row > div:last-child { display: flex !important; flex-direction: column !important; align-items: flex-start !important; text-align: left !important; margin: 0 !important; flex: 1 !important; }
-    .contact-info-row h4, .contact-info-row p { margin: 0 !important; width: auto !important; display: block !important; line-height: 1.4 !important; }
+
+    .contact-details-box,
+    .contact-details-box *,
+    .contact-info-row h4,
+    .contact-info-row p {
+        text-align: left !important;
+    }
+
+    .contact-info-row {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 1.5rem !important;
+        margin-bottom: 2rem !important;
+        width: 100% !important;
+    }
+
+    .contact-info-row>div:first-child {
+        width: 55px !important;
+        min-width: 55px !important;
+        height: 55px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+    }
+
+    .contact-info-row>div:first-child i {
+        display: flex !important;
+        margin: 0 !important;
+        text-align: center !important;
+    }
+
+    .contact-info-row>div:last-child {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        margin: 0 !important;
+        flex: 1 !important;
+    }
+
+    .contact-info-row h4,
+    .contact-info-row p {
+        margin: 0 !important;
+        width: auto !important;
+        display: block !important;
+        line-height: 1.4 !important;
+    }
 }
 
 /* Specific 768px Center Alignment Fix */
 @media (min-width: 600px) and (max-width: 991px) {
-    .contact-details-box { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; }
-    .contact-info-row { justify-content: center !important; width: 100% !important; }
-    .contact-info-row > div:last-child { align-items: flex-start !important; flex: 0 0 auto !important; }
+    .contact-details-box {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .contact-info-row {
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    .contact-info-row>div:last-child {
+        align-items: flex-start !important;
+        flex: 0 0 auto !important;
+    }
 }
 
 /* Universal One-by-One Column Fix */
 @media (max-width: 1024px) {
-    .grid-3, .grid, .grid-2 { grid-template-columns: 1fr !important; }
-    .contact-section-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+
+    .grid-3,
+    .grid,
+    .grid-2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    .contact-section-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
 }
 
 /* Final Alignment Fix for Staggered Icons - 768px */
 @media (min-width: 768px) and (max-width: 991px) {
-    .contact-details-box > div:nth-child(3) { width: max-content !important; min-width: 280px !important; margin: 0 auto !important; align-items: flex-start !important; }
-    .contact-info-row { width: auto !important; justify-content: flex-start !important; align-items: center !important; }
-    .contact-info-row > div:last-child { align-items: flex-start !important; text-align: left !important; }
+    .contact-details-box>div:nth-child(3) {
+        width: max-content !important;
+        min-width: 280px !important;
+        margin: 0 auto !important;
+        align-items: flex-start !important;
+    }
+
+    .contact-info-row {
+        width: auto !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+    }
+
+    .contact-info-row>div:last-child {
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
 }
