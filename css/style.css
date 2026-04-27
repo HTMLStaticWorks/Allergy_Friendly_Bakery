@@ -953,8 +953,7 @@ h5 {
 .footer {
     background: var(--footer-bg);
     color: var(--footer-text);
-    padding: 5rem 0 2rem;
-    margin-top: 4rem;
+    padding: 2rem 0 2rem;
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
@@ -2539,7 +2538,7 @@ h5 {
 
     /* Footer Fixes */
     .footer {
-        padding: 4rem 15px 2rem !important;
+        padding: 2rem 15px 2rem !important;
         text-align: center !important;
     }
 

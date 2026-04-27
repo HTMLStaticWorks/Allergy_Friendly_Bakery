@@ -261,6 +261,54 @@
                 text-align: left !important;
             }
         }
+
+        .contact-card-icon {
+            display: none; /* Removed as per user request */
+        }
+
+        .card-location { 
+            border-top: 5px solid var(--primary) !important; 
+            background-color: #fdf8f6 !important; 
+        }
+        .card-phone { 
+            border-top: 5px solid var(--secondary) !important; 
+            background-color: #f7fcf7 !important; 
+        }
+        .card-hours { 
+            border-top: 5px solid #d4a84b !important; 
+            background-color: #fdfaf2 !important; 
+        }
+
+        .contact-top-grid h3 {
+            margin-top: 0.5rem;
+            color: var(--primary);
+        }
+
+        .card-hours h3 { color: #b8860b; }
+
+        /* Dark Mode Overrides for Contact Cards */
+        [data-theme='dark'] .card-location, 
+        [data-theme='dark'] .card-phone, 
+        [data-theme='dark'] .card-hours {
+            background-color: var(--bg-card) !important;
+            border-color: var(--border) !important;
+        }
+
+        [data-theme='dark'] .card-location h3,
+        [data-theme='dark'] .card-phone h3,
+        [data-theme='dark'] .card-hours h3 {
+            color: var(--text-main) !important;
+        }
+
+        [data-theme='dark'] .card-location p,
+        [data-theme='dark'] .card-phone p,
+        [data-theme='dark'] .card-hours p {
+            color: var(--text-muted) !important;
+        }
+
+        [data-theme='dark'] .card-location { border-top-color: var(--primary) !important; }
+        [data-theme='dark'] .card-phone { border-top-color: var(--secondary) !important; }
+        [data-theme='dark'] .card-hours { border-top-color: #f0c567 !important; }
     </style>
 </head>
 
@@ -341,26 +389,20 @@
     <main>
         <section class="container section">
             <div class="grid grid-3" id="contact-top-grid">
-                <div class="card reveal">
+                <div class="card reveal card-location">
                     <div class="card-body">
-                        <i class="fas fa-map-marker-alt"
-                            style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                         <h3>Our Location</h3>
                         <p>123 Bakery Lane, London, UK</p>
                     </div>
                 </div>
-                <div class="card reveal">
+                <div class="card reveal card-phone">
                     <div class="card-body">
-                        <i class="fas fa-phone"
-                            style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                         <h3>Call Us</h3>
                         <p>+44 20 1234 5678</p>
                     </div>
                 </div>
-                <div class="card reveal">
+                <div class="card reveal card-hours">
                     <div class="card-body">
-                        <i class="fas fa-clock"
-                            style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                         <h3>Opening Hours</h3>
                         <p>Mon - Sat: 8am - 6pm<br>Sun: 9am - 4pm</p>
                     </div>
